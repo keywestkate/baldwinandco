@@ -318,9 +318,10 @@
     <h1 class="cn-title">SAY<br>HELLO</h1>
     <p class="cn-desc">We'd love to hear from you. Fill out the form, email us at <a href="mailto:kate@keywestkate.com">kate@keywestkate.com</a>, or text us first at <a href="sms:3052407828">(305) 240-7828</a>.</p>
 
-    <form class="cn-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-      <input type="hidden" name="form-name" value="contact" />
-      <p style="display:none"><label>Don't fill this out: <input name="bot-field" /></label></p>
+    <form class="cn-form" action="https://formspree.io/f/xjgdwnwb" method="POST">
+      <input type="hidden" name="_subject" value="New Baldwin &amp; Co. Website Inquiry" />
+      <!-- Honeypot — hidden from real visitors -->
+      <input type="text" name="_gotcha" style="display:none;" tabindex="-1" autocomplete="off" />
 
       <div class="cn-form__field">
         <label for="name">Your Name</label>
@@ -331,16 +332,20 @@
         <input type="email" id="email" name="email" required />
       </div>
       <div class="cn-form__field">
-        <label for="subject">Subject of Inquiry</label>
-        <input type="text" id="subject" name="subject" required />
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" />
       </div>
       <div class="cn-form__field">
-        <label for="instagram">Instagram URL</label>
-        <input type="url" id="instagram" name="instagram" placeholder="https://instagram.com/yourbusiness" />
+        <label for="business_name">Business Name</label>
+        <input type="text" id="business_name" name="business_name" />
       </div>
       <div class="cn-form__field">
-        <label for="website">Website URL</label>
-        <input type="url" id="website" name="website" placeholder="https://yourwebsite.com" />
+        <label for="instagram_url">Instagram URL</label>
+        <input type="url" id="instagram_url" name="instagram_url" placeholder="https://instagram.com/yourbusiness" />
+      </div>
+      <div class="cn-form__field">
+        <label for="current_website">Website URL</label>
+        <input type="url" id="current_website" name="current_website" placeholder="https://yourwebsite.com" />
       </div>
       <div class="cn-form__field">
         <label for="message">Your Message</label>
