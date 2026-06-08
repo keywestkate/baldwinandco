@@ -243,6 +243,64 @@
     }
 
     /* ════════════════════════════════════════
+       HERO TIMELINE BAR
+    ════════════════════════════════════════ */
+    .htl { background:var(--white); padding:0; border-top:1px solid var(--dark); }
+    .htl__grid {
+      display:grid;
+      grid-template-columns:1fr 1fr 1fr;
+      border-bottom:1px solid var(--dark);
+    }
+    .htl__cell {
+      padding:3.5rem 3rem 3rem;
+      border-right:1px solid var(--dark);
+      text-align:center;
+      position:relative;
+    }
+    .htl__cell:last-child { border-right:none; }
+    .htl__cell::after {
+      content:'';
+      position:absolute;
+      bottom:-1px; left:50%;
+      transform:translateX(-50%);
+      width:1px; height:3rem;
+      background:var(--dark);
+    }
+    .htl__label {
+      font-family:var(--sans);
+      font-size:.52rem;
+      letter-spacing:.26em;
+      text-transform:uppercase;
+      color:var(--dark);
+      display:block;
+      margin-bottom:1.4rem;
+    }
+    .htl__text {
+      font-family:var(--serif);
+      font-size:clamp(1.1rem,1.8vw,1.5rem);
+      font-weight:300;
+      color:var(--dark);
+      line-height:1.4;
+    }
+    .htl__band {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      border-top:1px solid var(--dark);
+    }
+    .htl__band-cell {
+      padding:1.6rem 3rem;
+      border-right:1px solid var(--dark);
+    }
+    .htl__band-cell:last-child { border-right:none; }
+    .htl__band-text {
+      font-family:var(--sans);
+      font-size:.52rem;
+      letter-spacing:.26em;
+      text-transform:uppercase;
+      color:var(--dark);
+    }
+
+    /* ════════════════════════════════════════
        MEET THE FOUNDER
     ════════════════════════════════════════ */
     .founder {
@@ -1088,6 +1146,119 @@
       .marquee__track { animation:none; }
       .r { opacity:1; transform:none; transition:none; }
     }
+
+    /* ════════════════════════════════════════
+       RESPONSIVE — TABLET (max 1024px)
+    ════════════════════════════════════════ */
+    @media (max-width:1024px) {
+      /* Services */
+      .svc { padding-left:4vw; padding-right:4vw; }
+      /* Founder */
+      .founder__inner { grid-template-columns:1fr 380px 1fr; }
+      /* HTL bar */
+      .htl__cell { padding:2.5rem 1.8rem 2rem; }
+    }
+
+    /* ════════════════════════════════════════
+       RESPONSIVE — TABLET PORTRAIT (max 768px)
+    ════════════════════════════════════════ */
+    @media (max-width:768px) {
+      /* Nav bar height */
+      .nav__bar { height:56px; }
+
+      /* Hero */
+      .hero { min-height:90vh; }
+      .hero__tagline { font-size:.82rem; max-width:90vw; padding:0 1.5rem; }
+
+      /* HTL grid → single column */
+      .htl__grid { grid-template-columns:1fr; border-bottom:none; }
+      .htl__cell { border-right:none; border-bottom:1px solid var(--dark); padding:2.5rem 2rem; }
+      .htl__cell::after { display:none; }
+      .htl__band { grid-template-columns:1fr; }
+      .htl__band-cell { border-right:none; border-bottom:1px solid var(--dark); }
+      .htl__band-cell:last-child { display:none; }
+
+      /* Founder section */
+      .founder { padding:5rem 0; }
+      .founder__inner { grid-template-columns:1fr; gap:3rem; width:90vw; }
+      .founder__left { padding-right:0; text-align:center; }
+      .founder__right { padding-left:0; }
+      .founder__collage { height:400px; display:flex; justify-content:center; }
+      .founder__img-main { width:200px; height:360px; right:auto; position:relative; top:0; }
+      .founder__img-small { width:155px; height:240px; left:auto; top:auto; margin-top:30px; position:relative; }
+      .founder__body { max-width:100%; }
+
+      /* Quickbar */
+      .quickbar { grid-template-columns:1fr; }
+      .quickbar__cell { border-right:none; border-bottom:1px solid var(--bone); min-height:64px; }
+      .quickbar__cell:last-child { border-bottom:none; }
+
+      /* Services heading block */
+      .services__heading { grid-template-columns:1fr; }
+      .services__img { height:220px; }
+      .services__center { padding:3rem 1.5rem; }
+
+      /* Svc cards */
+      .svc { grid-template-columns:1fr; padding-left:5vw; padding-right:5vw; min-height:auto; }
+      .svc__label-col { display:none; }
+      .svc__text { padding:2.5rem 0; border-right:none; }
+      .svc__photo { grid-column:auto; aspect-ratio:4/3; }
+
+      /* Testimonials */
+      .testi { padding:5rem 0; }
+      .testi__wrap { grid-template-columns:1fr; }
+      .testi__photo { aspect-ratio:3/2; }
+      .testi__right { padding:3rem 1.5rem; border-left:none; border-top:1px solid var(--bone); }
+      .testi__btn { min-height:44px; min-width:60px; }
+
+      /* Footer */
+      .footer__cols { grid-template-columns:1fr; gap:3rem; }
+      .footer__brand { text-align:left; }
+      .footer__socials { align-items:flex-start; flex-direction:row; flex-wrap:wrap; gap:1.2rem; }
+      .footer__bar { flex-direction:column; align-items:flex-start; gap:.8rem; }
+    }
+
+    /* ════════════════════════════════════════
+       RESPONSIVE — MOBILE (max 480px)
+    ════════════════════════════════════════ */
+    @media (max-width:480px) {
+      /* Typography */
+      .hero__tagline { font-size:.78rem; }
+      .founder__heading { font-size:clamp(2.8rem,12vw,4rem); }
+      .founder__sub-head { font-size:clamp(1.5rem,6vw,2rem); }
+
+      /* HTL */
+      .htl__text { font-size:1rem; }
+      .htl__cell { padding:2rem 1.5rem; }
+
+      /* Founder collage — stack vertically */
+      .founder__collage { flex-direction:column; height:auto; gap:1rem; align-items:center; }
+      .founder__img-main { width:80vw; max-width:300px; height:320px; }
+      .founder__img-small { width:80vw; max-width:300px; height:220px; margin-top:0; }
+
+      /* Services */
+      .svc { padding-left:4vw; padding-right:4vw; }
+      .svc__text { padding:2rem 0; }
+      .svc__learn { min-height:44px; align-items:center; }
+
+      /* Quickbar */
+      .quickbar__cell { padding:1.5rem 1.2rem; }
+      .quickbar__label { font-size:1rem; }
+
+      /* Testimonials */
+      .testi__quote { font-size:clamp(1.1rem,4.5vw,1.5rem); }
+      .testi__right { padding:2.5rem 1.2rem; }
+
+      /* Footer */
+      .footer { padding:4rem 0 0; }
+      .footer__cols { gap:2.5rem; }
+      .footer__connect-h { font-size:clamp(1.6rem,6vw,2.5rem); }
+      .btn--gold { width:100%; text-align:center; padding:16px 20px; }
+
+      /* Nav */
+      .nav__bar { padding:0 4vw; }
+      .nav__logo img { height:44px; }
+    }
   </style>
 </head>
 <body>
@@ -1137,7 +1308,7 @@
 ══════════════════════════════════════════ -->
 <section class="hero" aria-labelledby="hero-name">
   <div class="hero__photo" role="img" aria-label="Luxury editorial portrait — Baldwin &amp; Co."></div>
-  <span class="hero__vertical">Digital Restructuring &amp; Brand Realignment</span>
+  <span class="hero__vertical">Website &amp; Brand Design</span>
   <div class="hero__content">
     <h1 class="hero__name r" id="hero-name">
       <img src="./baldwin&co.logo.png" alt="Baldwin &amp; Co." style="max-width:min(680px,78vw);width:100%;height:auto;display:block;margin-inline:auto;filter:brightness(0) invert(1);" />
@@ -1147,6 +1318,32 @@
     </p>
   </div>
 </section>
+
+<!-- ══════════════════════════════════════════
+     HERO TIMELINE BAR
+══════════════════════════════════════════ -->
+<div class="htl">
+  <div class="htl__grid">
+    <div class="htl__cell">
+      <span class="htl__label">Bespoke Branding</span>
+      <p class="htl__text">Crafting refined brand identities built for modern, high-end business owners who are ready to be seen.</p>
+    </div>
+    <div class="htl__cell">
+      <span class="htl__label">Website Design</span>
+      <p class="htl__text">Luxury web builds that move fast, look elevated, and convert — no generic templates, no shortcuts.</p>
+    </div>
+    <div class="htl__cell">
+      <span class="htl__label">Refresh Brands</span>
+      <p class="htl__text">Taking what you have already built and transforming it into the polished, premium presence it deserves.</p>
+    </div>
+  </div>
+  <div class="htl__band">
+    <div class="htl__band-cell">
+      <span class="htl__band-text">Timeless. Refined. Intentional.</span>
+    </div>
+    <div class="htl__band-cell"></div>
+  </div>
+</div>
 
 <!-- ══════════════════════════════════════════
      MEET THE FOUNDER
