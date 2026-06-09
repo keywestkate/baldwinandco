@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Get in Touch | Baldwin & Co.</title>
+  <title>Apply | Baldwin & Co.</title>
   <meta name="description" content="Apply for a Baldwin & Co. Digital Reset. Tell us about your business and where you want to go." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -136,7 +136,7 @@
       font-weight:600;
       margin-bottom:.5rem;
     }
-    .cn-form__field input,
+    .cn-form__field input:not([type="checkbox"]),
     .cn-form__field textarea,
     .cn-form__field select {
       background:none;
@@ -272,14 +272,14 @@
   <div class="nav__bar">
     <div class="nav__left">
       <a href="index.html">Home</a>
-      <a href="blueprint.html">Blueprint</a>
+      <a href="blueprint.html">What's Included</a>
       <a href="timeline.html">Timeline</a>
     </div>
     <a href="index.html" class="nav__logo"><img src="./baldwin&co.logo.png" alt="Baldwin &amp; Co." id="navLogoImg" /></a>
     <div class="nav__right">
       <div class="nav__right-links">
         <a href="process.html">Process</a>
-        <a href="connect.html">Connect</a>
+        <a href="faq.html">FAQ</a>
       </div>
       <div class="nav__dots" aria-hidden="true"><span></span><span></span><span></span></div>
       <a href="connect.html" class="nav__get">Get in Touch</a>
@@ -291,10 +291,10 @@
   <div class="nav__drawer" id="drawer">
     <ul>
       <li><a href="index.html">Home</a></li>
-      <li><a href="blueprint.html">Blueprint</a></li>
+      <li><a href="blueprint.html">What's Included</a></li>
       <li><a href="timeline.html">Timeline</a></li>
       <li><a href="process.html">Process</a></li>
-      <li><a href="connect.html">Connect</a></li>
+      <li><a href="faq.html">FAQ</a></li>
       <li><a href="connect.html" style="color:var(--gold)">Get in Touch →</a></li>
     </ul>
   </div>
@@ -304,7 +304,7 @@
 <section class="cn-hero">
   <div class="cn-hero__content r">
     <span class="cn-hero__eyebrow">Baldwin &amp; Co.</span>
-    <h1 class="cn-hero__title">Get in Touch</h1>
+    <h1 class="cn-hero__title">Apply</h1>
     <p class="cn-hero__sub">Let's build something worth showing.</p>
   </div>
 </section>
@@ -315,8 +315,8 @@
   <!-- LEFT -->
   <div class="cn-left r">
     <span class="cn-eyebrow">Baldwin &amp; Co.</span>
-    <h1 class="cn-title">SAY<br>HELLO</h1>
-    <p class="cn-desc">We'd love to hear from you. Fill out the form, email us at <a href="mailto:kate@keywestkate.com">kate@keywestkate.com</a>, or text us first at <a href="sms:3052407828">(305) 240-7828</a>.</p>
+    <h1 class="cn-title">Tell us what you're<br>ready to clean up.</h1>
+    <p class="cn-desc">Fill out the form, email us at <a href="mailto:kate@keywestkate.com">kate@keywestkate.com</a>, or text us first at <a href="sms:3052407828">(305) 240-7828</a>.</p>
 
     <form class="cn-form" action="https://formspree.io/f/xjgdwnwb" method="POST">
       <input type="hidden" name="_subject" value="New Baldwin &amp; Co. Website Inquiry" />
@@ -368,6 +368,39 @@
         });
       </script>
 
+      <div class="cn-form__field">
+        <label for="business_type">What type of business do you have?</label>
+        <input type="text" id="business_type" name="business_type" placeholder="e.g. Real estate, boutique, consulting..." />
+      </div>
+      <div class="cn-form__field">
+        <label for="has_website">Do you currently have a website?</label>
+        <select id="has_website" name="has_website">
+          <option value="">Select one</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+      <div class="cn-form__field" style="border-bottom:none;">
+        <label style="margin-bottom:.8rem;">What feels broken right now? (select all that apply)</label>
+        <div style="display:flex;flex-direction:column;gap:.6rem;">
+          <label style="display:flex;align-items:center;gap:.75rem;cursor:pointer;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dark);">
+            <input type="checkbox" name="feels_broken" value="Branding" style="accent-color:var(--gold);width:16px;height:16px;" /> Branding
+          </label>
+          <label style="display:flex;align-items:center;gap:.75rem;cursor:pointer;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dark);">
+            <input type="checkbox" name="feels_broken" value="Website" style="accent-color:var(--gold);width:16px;height:16px;" /> Website
+          </label>
+          <label style="display:flex;align-items:center;gap:.75rem;cursor:pointer;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dark);">
+            <input type="checkbox" name="feels_broken" value="Messaging" style="accent-color:var(--gold);width:16px;height:16px;" /> Messaging
+          </label>
+          <label style="display:flex;align-items:center;gap:.75rem;cursor:pointer;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dark);">
+            <input type="checkbox" name="feels_broken" value="Visibility" style="accent-color:var(--gold);width:16px;height:16px;" /> Visibility
+          </label>
+          <label style="display:flex;align-items:center;gap:.75rem;cursor:pointer;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dark);">
+            <input type="checkbox" name="feels_broken" value="All of It" style="accent-color:var(--gold);width:16px;height:16px;" /> All of It
+          </label>
+        </div>
+      </div>
+
       <button type="submit" class="cn-form__submit">
         Submit form
         <span class="cn-form__submit-arrow"></span>
@@ -389,10 +422,10 @@
         <p class="footer__col-head">Navigate</p>
         <nav class="fnav">
           <a href="index.html">Home</a>
-          <a href="blueprint.html">Blueprint</a>
+          <a href="blueprint.html">What's Included</a>
           <a href="timeline.html">Timeline</a>
           <a href="process.html">Process</a>
-          <a href="connect.html">Connect</a>
+          <a href="faq.html">FAQ</a>
         </nav>
       </div>
       <div class="footer__brand">

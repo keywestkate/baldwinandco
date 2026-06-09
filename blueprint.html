@@ -109,20 +109,20 @@
 
     .bp-phase {
       display:grid;
-      grid-template-columns: 160px 1fr;
+      grid-template-columns: 140px 1fr;
       border-bottom:1px solid var(--bone);
       min-height:0;
     }
     .bp-phase:last-child { border-bottom:none; }
 
     .bp-phase__left {
-      padding:4rem 2.5rem 4rem 0;
+      padding:3rem 1.5rem 3rem 1rem;
       border-right:1px solid var(--bone);
-      display:flex; flex-direction:column; justify-content:flex-start; align-items:flex-end; text-align:right;
+      display:flex; flex-direction:column; justify-content:flex-start; align-items:flex-start; text-align:left;
     }
-    .bp-phase__num { font-family:var(--serif); font-size:5rem; font-weight:500; color:var(--dark); line-height:1; display:block; margin-bottom:.8rem; }
-    .bp-phase__tag { font-family:var(--sans); font-size:.9rem; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); display:block; margin-bottom:.4rem; font-weight:700; }
-    .bp-phase__days { font-family:var(--sans); font-size:.9rem; letter-spacing:.1em; color:var(--mid); font-weight:700; }
+    .bp-phase__num { font-family:var(--serif); font-size:2.8rem; font-weight:400; color:var(--dark); line-height:1; display:block; margin-bottom:.6rem; }
+    .bp-phase__tag { font-family:var(--sans); font-size:.52rem; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); display:block; margin-bottom:.3rem; font-weight:400; }
+    .bp-phase__days { font-family:var(--sans); font-size:.58rem; letter-spacing:.08em; color:var(--mid); font-weight:400; word-break:break-word; }
 
     .bp-phase__right { padding:4rem 0 4rem 3rem; }
     .bp-phase__title { font-family:var(--serif); font-size:clamp(1.5rem,2.8vw,2.2rem); font-weight:400; color:var(--dark); line-height:1.1; margin-bottom:2rem; }
@@ -220,14 +220,14 @@
     <div class="nav__left">
       <a href="index.html">Home</a>
       
-      <a href="blueprint.html">Blueprint</a>
+      <a href="blueprint.html">What's Included</a>
       <a href="timeline.html">Timeline</a>
     </div>
     <a href="index.html" class="nav__logo"><img src="./baldwin&co.logo.png" alt="Baldwin &amp; Co." id="navLogoImg" /></a>
     <div class="nav__right">
       <div class="nav__right-links">
         <a href="process.html">Process</a>
-        <a href="connect.html">Connect</a>
+        <a href="faq.html">FAQ</a>
       </div>
       <div class="nav__dots" aria-hidden="true"><span></span><span></span><span></span></div>
       <a href="connect.html" class="nav__get">Get in Touch</a>
@@ -240,10 +240,10 @@
     <ul>
       <li><a href="index.html">Home</a></li>
       <li></li>
-      <li><a href="blueprint.html">Blueprint</a></li>
+      <li><a href="blueprint.html">What's Included</a></li>
       <li><a href="timeline.html">Timeline</a></li>
       <li><a href="process.html">Process</a></li>
-      <li><a href="connect.html">Connect</a></li>
+      <li><a href="faq.html">FAQ</a></li>
       <li><a href="connect.html" style="color:var(--gold)">Get in Touch →</a></li>
     </ul>
   </div>
@@ -286,6 +286,9 @@
       <div class="bp-phase__block">
         <p class="bp-phase__block-text">Clean, modern vector logo variations optimized for web, mobile, and social profiles.</p>
       </div>
+      <div class="bp-phase__block">
+        <p class="bp-phase__block-text">Brand voice copywriting — homepage hero, bio, and services copy written in your tone.</p>
+      </div>
     </div>
   </div>
 
@@ -297,7 +300,7 @@
       <span class="bp-phase__days">Web Framework</span>
     </div>
     <div class="bp-phase__right">
-      <h2 class="bp-phase__title">The 3-Page Web Framework</h2>
+      <h2 class="bp-phase__title">Custom 4-Page Website Framework</h2>
       <div class="bp-phase__block">
         <p class="bp-phase__block-text">Fully bespoke Home Page designed to convert high-value traffic immediately.</p>
       </div>
@@ -305,7 +308,10 @@
         <p class="bp-phase__block-text">Dedicated Services/Capabilities Page mapping out your core high-ticket offers.</p>
       </div>
       <div class="bp-phase__block">
-        <p class="bp-phase__block-text">Deep-dive About/Authority Page positioning your unique methodology.</p>
+        <p class="bp-phase__block-text">About/Authority Page positioning your unique story and methodology.</p>
+      </div>
+      <div class="bp-phase__block">
+        <p class="bp-phase__block-text">Contact/Apply Page with a qualified inquiry form — no generic contact boxes.</p>
       </div>
       <div class="bp-phase__block">
         <p class="bp-phase__block-text">Fluid, responsive development built for flawless mobile and desktop performance.</p>
@@ -321,15 +327,18 @@
       <span class="bp-phase__days">Geo-AI Tech</span>
     </div>
     <div class="bp-phase__right">
-      <h2 class="bp-phase__title">Geo-AI Technical Infrastructure</h2>
+      <h2 class="bp-phase__title">Geo-AI Technical Infrastructure &amp; Launch</h2>
       <div class="bp-phase__block">
-        <p class="bp-phase__block-text">Complete backend SEO setup optimized for modern LLMs and AI search engines.</p>
+        <p class="bp-phase__block-text">Complete backend SEO setup structured for modern LLMs, AI search engines, and geo-based discovery.</p>
       </div>
       <div class="bp-phase__block">
-        <p class="bp-phase__block-text">Automated secure hosting, custom domain mapping, and SSL integration.</p>
+        <p class="bp-phase__block-text">Schema markup, structured data, and local business signals so AI tools cite your business correctly.</p>
       </div>
       <div class="bp-phase__block">
-        <p class="bp-phase__block-text">Custom, automated post-launch training library tailored to your specific tech stack.</p>
+        <p class="bp-phase__block-text">Secure hosting setup, custom domain mapping, SSL integration, and go-live coordination.</p>
+      </div>
+      <div class="bp-phase__block">
+        <p class="bp-phase__block-text">30-day post-launch support window — questions, tweaks, and adjustments included.</p>
       </div>
     </div>
   </div>
@@ -340,7 +349,7 @@
 <div class="bp-cta r">
   <h2 class="bp-cta__title">Ready to start your 30-day clock?</h2>
   <p class="bp-cta__sub">Every engagement begins with a short inquiry. We review fit before anything begins.</p>
-  <a href="index.html#contact" class="btn-primary">Apply for a Website Reset</a>
+  <a href="connect.html" class="btn-primary">Apply for a Website Reset</a>
 </div>
 
 <footer class="footer">
@@ -350,10 +359,10 @@
         <p class="footer__col-head">Navigate</p>
         <nav class="fnav">
           <a href="index.html">Home</a>
-          <a href="blueprint.html">Blueprint</a>
+          <a href="blueprint.html">What's Included</a>
           <a href="timeline.html">Timeline</a>
           <a href="process.html">Process</a>
-          <a href="connect.html">Connect</a>
+          <a href="faq.html">FAQ</a>
         </nav>
       </div>
       <div class="footer__brand">
