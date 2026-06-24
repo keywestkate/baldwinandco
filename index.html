@@ -149,6 +149,7 @@
     .nav__drawer.open { max-height: 340px; }
     .nav__drawer ul { padding: 1.6rem 5vw 2rem; display:flex; flex-direction:column; gap:1rem; }
     .nav__drawer a { font-size:.7rem; letter-spacing:.16em; text-transform:uppercase; color:var(--mid); }
+    .lang-toggle { font-size:.58rem; letter-spacing:.14em; text-transform:uppercase; background:none; border:1px solid rgba(255,255,255,.45); color:var(--white); padding:5px 10px; cursor:pointer; transition:background .2s,color .2s; font-family:var(--sans); } .lang-toggle:hover { background:rgba(255,255,255,.15); } .nav.solid .lang-toggle { border-color:var(--dark); color:var(--dark); } .nav.solid .lang-toggle:hover { background:var(--dark); color:var(--white); }
 
     @media (max-width: 800px) {
       .nav__left, .nav__right-links, .nav__get { display: none; }
@@ -1272,8 +1273,8 @@
     <div class="nav__left">
       <a href="#">Home</a>
       
-      <a href="blueprint.html">What's Included</a>
-      <a href="timeline.html">Timeline</a>
+      <a href="blueprint.html" data-i18n="nav.included">What's Included</a>
+      <a href="timeline.html" data-i18n="nav.timeline">Timeline</a>
       
     </div>
     <!-- Center logo -->
@@ -1281,11 +1282,12 @@
     <!-- Right -->
     <div class="nav__right">
       <div class="nav__right-links">
-        <a href="process.html">Process</a>
-        <a href="faq.html">FAQ</a>
+        <a href="process.html" data-i18n="nav.process">Process</a>
+        <a href="faq.html" data-i18n="nav.faq">FAQ</a>
       </div>
       <div class="nav__dots" aria-hidden="true"><span></span><span></span><span></span></div>
-      <a href="connect.html" class="nav__get">Get in Touch</a>
+      <a href="connect.html" class="nav__get" data-i18n="nav.get_in_touch">Get in Touch</a>
+      <button class="lang-toggle" data-current="en" aria-label="Switch language">ES</button>
       <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -1294,10 +1296,10 @@
   <div class="nav__drawer" id="drawer">
     <ul>
       <li><a href="#">Home</a></li>
-      <li><a href="blueprint.html">What's Included</a></li>
-      <li><a href="timeline.html">Timeline</a></li>
-      <li><a href="process.html">Process</a></li>
-      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="blueprint.html" data-i18n="nav.included">What's Included</a></li>
+      <li><a href="timeline.html" data-i18n="nav.timeline">Timeline</a></li>
+      <li><a href="process.html" data-i18n="nav.process">Process</a></li>
+      <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
       <li><a href="connect.html" style="color:var(--gold)">Get in Touch →</a></li>
     </ul>
   </div>
@@ -1308,14 +1310,57 @@
 ══════════════════════════════════════════ -->
 <section class="hero" aria-labelledby="hero-name">
   <div class="hero__photo" role="img" aria-label="Luxury editorial portrait — Baldwin &amp; Co."></div>
-  <span class="hero__vertical">Website &amp; Brand Design</span>
+  <span class="hero__vertical" data-i18n="index.hero_vertical">Website &amp; Brand Design</span>
   <div class="hero__content">
     <h1 class="hero__name r" id="hero-name">
       <img src="./baldwin&co.logo.png" alt="Baldwin &amp; Co." style="max-width:min(680px,78vw);width:100%;height:auto;display:block;margin-inline:auto;filter:brightness(0) invert(1);" />
     </h1>
-    <p class="hero__tagline r d1">
-      Rebuilding the digital foundation your premium brand should have had from the beginning — with bespoke web wrappers, platform cleanup, and full ownership transfer.
-    </p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     EDITORIAL COPY BLOCK
+══════════════════════════════════════════ -->
+<section class="editorial-block r" style="
+  background: var(--cream);
+  text-align: center;
+  padding: 8rem 2rem 8rem;
+  border-bottom: 1px solid var(--bone);
+">
+  <div style="max-width: 1000px; margin-inline: auto;">
+
+    <p style="
+      font-family: var(--sans);
+      font-size: .82rem;
+      font-weight: 400;
+      letter-spacing: .08em;
+      color: var(--mid);
+      margin-bottom: 2.2rem;
+    "data-i18n="index.editorial_eyebrow">You Can't Afford to Be Ignored</p>
+
+    <h2 style="
+      font-family: var(--serif);
+      font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+      font-weight: 400;
+      color: var(--dark);
+      line-height: 1.08;
+      margin-bottom: 3rem;
+    ">
+      <span style="display:block;" data-i18n="index.editorial_line1">ELEVATE Your BRAND</span>
+      <span style="display:block;" data-i18n="index.editorial_line2">BOOK Your DREAM CLIENTS</span>
+      <span style="display:block;" data-i18n="index.editorial_line3">Transform Your Business</span>
+    </h2>
+
+    <p style="
+      font-family: var(--sans);
+      font-size: clamp(.9rem, 1.4vw, 1.05rem);
+      font-weight: 300;
+      color: var(--mid);
+      line-height: 1.85;
+      max-width: 620px;
+      margin: 0 auto;
+    ">In today's market, you need a digital presence that moves as fast as you do, messaging as strong as your real-world reputation, and a website as unique, creative, and original as you are. Small businesses cannot afford to get lost in a sea of browser tabs, digital noise, and short attention spans. We restructure your online presence to ensure you stand out clearly. Our high-end layouts are built strategically to convert casual visitors into loyal customers — transforming your business from just another option into the only option.</p>
+
   </div>
 </section>
 
@@ -1352,7 +1397,7 @@
   <div class="founder__inner">
 
     <div class="founder__left">
-      <h2 class="founder__heading">Meet the<br>Founder</h2>
+      <h2 class="founder__heading" data-i18n="index.founder_heading">Meet the<br>Founder</h2>
     </div>
 
     <div class="founder__collage">
@@ -1361,9 +1406,9 @@
     </div>
 
     <div class="founder__right">
-      <h3 class="founder__sub-head">Designing with<br>Intention &amp;<br>Impact</h3>
+      <h3 class="founder__sub-head" data-i18n="index.founder_sub">Designing with<br>Intention &amp;<br>Impact</h3>
       <p class="founder__body">Baldwin &amp; Co. was built by Kate Baldwin, a Key West business owner, Realtor, marketer, and brand strategist who understands what it feels like to build a real business from scratch — and then outgrow the messy digital pieces that once held it together. This is not template design. This is digital cleanup for business owners who are ready to look as established online as they already are in real life.</p>
-      <a href="connect.html" class="founder__btn">Elevate Your Brand</a>
+      <a href="connect.html" class="founder__btn" data-i18n="index.founder_btn">Elevate Your Brand</a>
     </div>
 
   </div>
@@ -1372,20 +1417,6 @@
 <!-- ══════════════════════════════════════════
      QUICK-LINKS BAR
 ══════════════════════════════════════════ -->
-<nav class="quickbar" aria-label="Service quick-links">
-  <a href="#services" class="quickbar__cell r">
-    <span class="quickbar__label">Digital Foundation Reset</span>
-    <span class="quickbar__arrow">→</span>
-  </a>
-  <a href="#services" class="quickbar__cell r d1">
-    <span class="quickbar__label">Luxury Web Wrapper</span>
-    <span class="quickbar__arrow">→</span>
-  </a>
-  <a href="#contact" class="quickbar__cell r d2">
-    <span class="quickbar__label">Digital Reset Intensive</span>
-    <span class="quickbar__arrow">→</span>
-  </a>
-</nav>
 
 <!-- ══════════════════════════════════════════
      SERVICES
@@ -1398,7 +1429,7 @@
     </div>
     <!-- Center text -->
     <div class="services__center r d1">
-      <span class="services__kicker">Hey, Small Business Owner:</span>
+      <span class="services__kicker" data-i18n="index.services_kicker">Hey, Small Business Owner:</span>
       <h2 class="services__display">Are you<br>feeling<br>stuck?</h2>
       <p class="services__sub">You have all the ideas in your head while driving. Then you get to pen and paper and everything is gone — it's blank.</p>
     </div>
@@ -1530,13 +1561,13 @@
     <div class="footer__cols">
       <!-- Left: nav -->
       <div>
-        <p class="footer__col-head">Navigate</p>
+        <p class="footer__col-head" data-i18n="footer.navigate">Navigate</p>
         <nav class="fnav">
           <a href="#">Home</a>
-          <a href="blueprint.html">What's Included</a>
-          <a href="timeline.html">Timeline</a>
-          <a href="process.html">Process</a>
-          <a href="faq.html">FAQ</a>
+          <a href="blueprint.html" data-i18n="nav.included">What's Included</a>
+          <a href="timeline.html" data-i18n="nav.timeline">Timeline</a>
+          <a href="process.html" data-i18n="nav.process">Process</a>
+          <a href="faq.html" data-i18n="nav.faq">FAQ</a>
         </nav>
       </div>
       <!-- Center: brand + social -->
@@ -1555,12 +1586,12 @@
       </div>
     </div>
     <div class="footer__bar">
-      <p class="footer__copy">©2026 Baldwin &amp; Co. All Rights Reserved.</p>
+      <p class="footer__copy" data-i18n="footer.copyright">©2026 Baldwin &amp; Co. All Rights Reserved.</p>
       <nav class="footer__legal">
         <a href="#">Privacy Policy</a>
         <a href="#">Terms</a>
       </nav>
-      <a href="#" class="footer__top-btn">Back to Top ↑</a>
+      <a href="#" class="footer__top-btn" data-i18n="footer.top">Back to Top ↑</a>
     </div>
   </div>
 </footer>
@@ -1668,5 +1699,6 @@
     activateStep(active);
   });
 </script>
+<script src="./lang.js"></script>
 </body>
 </html>

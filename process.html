@@ -69,6 +69,7 @@
     .nav__drawer.open { max-height:340px; }
     .nav__drawer ul { padding:1.6rem 5vw 2rem; display:flex; flex-direction:column; gap:1rem; }
     .nav__drawer a { font-size:.7rem; letter-spacing:.16em; text-transform:uppercase; color:var(--mid); }
+    .lang-toggle { font-size:.58rem; letter-spacing:.14em; text-transform:uppercase; background:none; border:1px solid rgba(255,255,255,.45); color:var(--white); padding:5px 10px; cursor:pointer; transition:background .2s,color .2s; font-family:var(--sans); } .lang-toggle:hover { background:rgba(255,255,255,.15); } .nav.solid .lang-toggle { border-color:var(--dark); color:var(--dark); } .nav.solid .lang-toggle:hover { background:var(--dark); color:var(--white); }
     @media(max-width:800px){
       .nav__left,.nav__right-links,.nav__get,.nav__dots { display:none; }
       .nav__burger { display:flex; }
@@ -302,17 +303,18 @@
     <div class="nav__left">
       <a href="index.html">Home</a>
       
-      <a href="blueprint.html">What's Included</a>
-      <a href="timeline.html">Timeline</a>
+      <a href="blueprint.html" data-i18n="nav.included">What's Included</a>
+      <a href="timeline.html" data-i18n="nav.timeline">Timeline</a>
     </div>
     <a href="index.html" class="nav__logo"><img src="./baldwin&co.logo.png" alt="Baldwin &amp; Co." id="navLogoImg" /></a>
     <div class="nav__right">
       <div class="nav__right-links">
-        <a href="process.html">Process</a>
-        <a href="faq.html">FAQ</a>
+        <a href="process.html" data-i18n="nav.process">Process</a>
+        <a href="faq.html" data-i18n="nav.faq">FAQ</a>
       </div>
       <div class="nav__dots" aria-hidden="true"><span></span><span></span><span></span></div>
-      <a href="connect.html" class="nav__get">Get in Touch</a>
+      <a href="connect.html" class="nav__get" data-i18n="nav.get_in_touch">Get in Touch</a>
+      <button class="lang-toggle" data-current="en" aria-label="Switch language">ES</button>
       <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -322,10 +324,10 @@
     <ul>
       <li><a href="index.html">Home</a></li>
       <li></li>
-      <li><a href="blueprint.html">What's Included</a></li>
-      <li><a href="timeline.html">Timeline</a></li>
-      <li><a href="process.html">Process</a></li>
-      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="blueprint.html" data-i18n="nav.included">What's Included</a></li>
+      <li><a href="timeline.html" data-i18n="nav.timeline">Timeline</a></li>
+      <li><a href="process.html" data-i18n="nav.process">Process</a></li>
+      <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
       <li><a href="connect.html" style="color:var(--gold)">Get in Touch →</a></li>
     </ul>
   </div>
@@ -335,8 +337,8 @@
 <section class="proc-hero">
   <div class="proc-hero__bg"></div>
   <div class="proc-hero__content r">
-    <h1 class="proc-hero__title">The Process</h1>
-    <p class="proc-hero__sub">Polished. Strategic. Built Around You.</p>
+    <h1 class="proc-hero__title" data-i18n="proc.title">The Process</h1>
+    <p class="proc-hero__sub" data-i18n="proc.sub">Polished. Strategic. Built Around You.</p>
     <span class="proc-hero__scroll">Scroll</span>
   </div>
 </section>
@@ -479,20 +481,20 @@
 <div class="proc-cta r">
   <h2 class="proc-cta__title">Ready to start?</h2>
   <p class="proc-cta__sub">Every engagement begins with a short inquiry. We review fit and scope before anything begins — no pressure, no commitment.</p>
-  <a href="index.html#contact" class="btn-primary">Apply for a Website Reset</a>
+  <a href="connect.html" class="btn-primary" data-i18n="proc.cta_btn">Apply for a Website Reset</a>
 </div>
 
 <footer class="footer">
   <div class="footer__container">
     <div class="footer__cols">
       <div>
-        <p class="footer__col-head">Navigate</p>
+        <p class="footer__col-head" data-i18n="footer.navigate">Navigate</p>
         <nav class="fnav">
           <a href="index.html">Home</a>
-          <a href="blueprint.html">What's Included</a>
-          <a href="timeline.html">Timeline</a>
-          <a href="process.html">Process</a>
-          <a href="faq.html">FAQ</a>
+          <a href="blueprint.html" data-i18n="nav.included">What's Included</a>
+          <a href="timeline.html" data-i18n="nav.timeline">Timeline</a>
+          <a href="process.html" data-i18n="nav.process">Process</a>
+          <a href="faq.html" data-i18n="nav.faq">FAQ</a>
         </nav>
       </div>
       <div class="footer__brand">
@@ -504,8 +506,8 @@
       </div>
       <div class="footer__connect">
         <a href="connect.html"><span class="footer__connect-lbl">Connect</span></a>
-        <a href="connect.html"><h2 class="footer__connect-h">Send an inquiry.</h2></a>
-        <a href="connect.html" class="btn--gold">Apply for a Website Reset</a>
+        <a href="connect.html"><h2 class="footer__connect-h" data-i18n="footer.send">Send an inquiry.</h2></a>
+        <a href="connect.html" class="btn--gold" data-i18n="footer.apply_btn">Apply for a Website Reset</a>
       </div>
     </div>
     <div class="footer__bar">
@@ -540,5 +542,6 @@
   }, { threshold: 0.1 });
   document.querySelectorAll('.r').forEach(el => obs.observe(el));
 </script>
+<script src="./lang.js"></script>
 </body>
 </html>
