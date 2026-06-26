@@ -205,8 +205,27 @@
     .nav-links a:hover { color: var(--navy); }
     .nav-cta {
       flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
     .nav-cta .btn { padding: 10px 20px; font-size: 0.78rem; }
+    .lang-toggle {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      padding: 7px 14px;
+      border: 1.5px solid var(--ocean-mid);
+      background: transparent;
+      color: var(--ocean-mid);
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all var(--transition);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .lang-toggle:hover { background: var(--ocean-mid); color: #fff; }
     .hamburger {
       display: none;
       flex-direction: column;
@@ -902,17 +921,18 @@
   <div class="nav-inner">
     <div class="nav-brand">
       Big Pine Key Waterfront
-      <span>For Rent · $6,000/Month &nbsp;·&nbsp; <a href="https://keywestkate.com" style="color:inherit;text-decoration:underline;text-underline-offset:2px;">keywestkate.com</a></span>
+      <span>For Rent · $6,000/Month</span>
     </div>
     <ul class="nav-links">
-      <li><a href="#overview">Overview</a></li>
-      <li><a href="#photos">Photos</a></li>
-      <li><a href="#features">Features</a></li>
-      <li><a href="#location">Location</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#overview" data-en="Overview" data-es="Descripción">Overview</a></li>
+      <li><a href="#photos" data-en="Photos" data-es="Fotos">Photos</a></li>
+      <li><a href="#features" data-en="Features" data-es="Características">Features</a></li>
+      <li><a href="#location" data-en="Location" data-es="Ubicación">Location</a></li>
+      <li><a href="#contact" data-en="Contact" data-es="Contacto">Contact</a></li>
     </ul>
     <div class="nav-cta">
-      <a href="#contact" class="btn btn-primary">Schedule a Showing</a>
+      <button class="lang-toggle" id="langToggle" aria-label="Switch to Spanish">Español</button>
+      <a href="#contact" class="btn btn-primary" data-en="Schedule a Showing" data-es="Agendar una Visita">Schedule a Showing</a>
     </div>
     <button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -923,15 +943,15 @@
 <!-- Mobile Menu -->
 <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation menu">
   <ul>
-    <li><a href="#overview">Overview</a></li>
-    <li><a href="#photos">Photos</a></li>
-    <li><a href="#features">Features</a></li>
-    <li><a href="#location">Location</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#overview" data-en="Overview" data-es="Descripción">Overview</a></li>
+    <li><a href="#photos" data-en="Photos" data-es="Fotos">Photos</a></li>
+    <li><a href="#features" data-en="Features" data-es="Características">Features</a></li>
+    <li><a href="#location" data-en="Location" data-es="Ubicación">Location</a></li>
+    <li><a href="#contact" data-en="Contact" data-es="Contacto">Contact</a></li>
   </ul>
   <div class="mobile-menu-cta">
-    <a href="#contact" class="btn btn-primary">Schedule a Showing</a>
-    <a href="tel:+13052407828" class="btn btn-sand">📞 Call Now</a>
+    <a href="#contact" class="btn btn-primary" data-en="Schedule a Showing" data-es="Agendar una Visita">Schedule a Showing</a>
+    <a href="tel:+13052407828" class="btn btn-sand">📞 <span data-en="Call Now" data-es="Llamar Ahora">Call Now</span></a>
   </div>
 </div>
 
@@ -947,22 +967,22 @@
   />
   <div class="hero-gradient" aria-hidden="true"></div>
   <div class="hero-content">
-    <span class="hero-tag">Big Pine Key, Florida · Available July 1, 2026</span>
-    <h1>Waterfront Living<br>in Big Pine Key</h1>
-    <p class="hero-subtitle">Newly Constructed 4-Bedroom Home with Open-Water Views</p>
+    <span class="hero-tag" data-en="Big Pine Key, Florida · Available July 1, 2026" data-es="Big Pine Key, Florida · Disponible el 1 de julio de 2026">Big Pine Key, Florida · Available July 1, 2026</span>
+    <h1 data-en="Waterfront Living<br>in Big Pine Key" data-es="Vida Frente al Mar<br>en Big Pine Key">Waterfront Living<br>in Big Pine Key</h1>
+    <p class="hero-subtitle" data-en="Newly Constructed 4-Bedroom Home with Open-Water Views" data-es="Casa de 4 Habitaciones Recién Construida con Vistas al Mar Abierto">Newly Constructed 4-Bedroom Home with Open-Water Views</p>
     <div class="hero-stats">
-      <span class="hero-stat price">$6,000 / Month</span>
-      <span class="hero-stat">4 Bedrooms</span>
-      <span class="hero-stat">3 Bathrooms</span>
+      <span class="hero-stat price">$6,000 / <span data-en="Month" data-es="Mes">Month</span></span>
+      <span class="hero-stat" data-en="4 Bedrooms" data-es="4 Habitaciones">4 Bedrooms</span>
+      <span class="hero-stat" data-en="3 Bathrooms" data-es="3 Baños">3 Bathrooms</span>
       <span class="hero-stat">~1,896 Sq. Ft.</span>
-      <span class="hero-stat">Unfurnished</span>
-      <span class="hero-stat">Available July 1</span>
+      <span class="hero-stat" data-en="Unfurnished" data-es="Sin Amueblar">Unfurnished</span>
+      <span class="hero-stat" data-en="Available July 1" data-es="Disponible el 1 de julio">Available July 1</span>
     </div>
     <div class="hero-btns">
-      <a href="#contact" class="btn btn-primary">Schedule a Showing</a>
+      <a href="#contact" class="btn btn-primary" data-en="Schedule a Showing" data-es="Agendar una Visita">Schedule a Showing</a>
       <a href="tel:+13052407828" class="btn btn-outline">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.6 3.38 2 2 0 0 1 3.57 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.54a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.46 16l.46.92z"/></svg>
-        Call or Text 305-240-7828
+        <span data-en="Call or Text 305-240-7828" data-es="Llamar o Enviar Mensaje 305-240-7828">Call or Text 305-240-7828</span>
       </a>
     </div>
   </div>
@@ -975,18 +995,18 @@
   <div class="container">
     <div class="intro-grid">
       <div class="intro-text fade-up">
-        <span class="section-label">The Property</span>
-        <h2 class="section-title">A Rare Waterfront Find in the Lower Keys</h2>
-        <p class="lead">Welcome to waterfront living in the Florida Keys. This newly constructed, unfurnished 4-bedroom, 3-bath concrete home offers approximately 1,896 square feet of bright, modern living space with beautiful open-water views.</p>
-        <p>The home features tile flooring throughout, impact-resistant windows and doors, quartz countertops, stainless-steel appliances, a metal roof, and private porches designed to enjoy the surrounding coastal scenery.</p>
-        <p>Boaters will appreciate the concrete dock, boat lift, and quick access to deep water, making it easy to reach the ocean, backcountry, and the waters surrounding Bahia Honda Bridge.</p>
+        <span class="section-label" data-en="The Property" data-es="La Propiedad">The Property</span>
+        <h2 class="section-title" data-en="A Rare Waterfront Find in the Lower Keys" data-es="Una Rareza Frente al Mar en los Lower Keys">A Rare Waterfront Find in the Lower Keys</h2>
+        <p class="lead" data-en="Welcome to waterfront living in the Florida Keys. This newly constructed, unfurnished 4-bedroom, 3-bath concrete home offers approximately 1,896 square feet of bright, modern living space with beautiful open-water views." data-es="Bienvenido a la vida frente al mar en los Florida Keys. Esta casa de concreto recién construida y sin amueblar ofrece 4 habitaciones y 3 baños con aproximadamente 1,896 pies cuadrados de espacio luminoso y moderno con hermosas vistas al mar abierto.">Welcome to waterfront living in the Florida Keys. This newly constructed, unfurnished 4-bedroom, 3-bath concrete home offers approximately 1,896 square feet of bright, modern living space with beautiful open-water views.</p>
+        <p data-en="The home features tile flooring throughout, impact-resistant windows and doors, quartz countertops, stainless-steel appliances, a metal roof, and private porches designed to enjoy the surrounding coastal scenery." data-es="La casa cuenta con pisos de porcelanato en toda la propiedad, ventanas y puertas resistentes a impactos, encimeras de cuarzo, electrodomésticos de acero inoxidable, techo de metal y porches privados diseñados para disfrutar del paisaje costero.">The home features tile flooring throughout, impact-resistant windows and doors, quartz countertops, stainless-steel appliances, a metal roof, and private porches designed to enjoy the surrounding coastal scenery.</p>
+        <p data-en="Boaters will appreciate the concrete dock, boat lift, and quick access to deep water, making it easy to reach the ocean, backcountry, and the waters surrounding Bahia Honda Bridge." data-es="Los navegantes apreciarán el muelle de concreto, el elevador de botes y el rápido acceso a aguas profundas, facilitando llegar al océano, las aguas interiores y las aguas que rodean el Puente Bahia Honda.">Boaters will appreciate the concrete dock, boat lift, and quick access to deep water, making it easy to reach the ocean, backcountry, and the waters surrounding Bahia Honda Bridge.</p>
         <div class="intro-pills">
-          <span class="pill">Built 2025</span>
-          <span class="pill">Concrete Construction</span>
-          <span class="pill">Canal-Front</span>
-          <span class="pill">Boat Lift</span>
-          <span class="pill">Impact Windows</span>
-          <span class="pill">In-Unit Laundry</span>
+          <span class="pill" data-en="Built 2025" data-es="Construida en 2025">Built 2025</span>
+          <span class="pill" data-en="Concrete Construction" data-es="Construcción de Concreto">Concrete Construction</span>
+          <span class="pill" data-en="Canal-Front" data-es="Frente al Canal">Canal-Front</span>
+          <span class="pill" data-en="Boat Lift" data-es="Elevador de Botes">Boat Lift</span>
+          <span class="pill" data-en="Impact Windows" data-es="Ventanas de Impacto">Impact Windows</span>
+          <span class="pill" data-en="In-Unit Laundry" data-es="Lavandería Incluida">In-Unit Laundry</span>
         </div>
       </div>
       <div class="intro-image-stack fade-up">
@@ -1003,19 +1023,19 @@
 <section id="photos" class="section">
   <div class="container">
     <div class="section-header fade-up">
-      <span class="section-label">Photo Gallery</span>
-      <h2 class="section-title">Explore the Property</h2>
+      <span class="section-label" data-en="Photo Gallery" data-es="Galería de Fotos">Photo Gallery</span>
+      <h2 class="section-title" data-en="Explore the Property" data-es="Explorar la Propiedad">Explore the Property</h2>
     </div>
 
     <div class="gallery-tabs" role="tablist" aria-label="Gallery categories">
-      <button class="gallery-tab active" data-category="all" role="tab" aria-selected="true">All Photos</button>
-      <button class="gallery-tab" data-category="views" role="tab" aria-selected="false">Views &amp; Waterfront</button>
-      <button class="gallery-tab" data-category="living" role="tab" aria-selected="false">Living Areas</button>
-      <button class="gallery-tab" data-category="kitchen" role="tab" aria-selected="false">Kitchen</button>
-      <button class="gallery-tab" data-category="bedrooms" role="tab" aria-selected="false">Bedrooms</button>
-      <button class="gallery-tab" data-category="baths" role="tab" aria-selected="false">Bathrooms</button>
-      <button class="gallery-tab" data-category="outdoor" role="tab" aria-selected="false">Porches &amp; Outdoor</button>
-      <button class="gallery-tab" data-category="exterior" role="tab" aria-selected="false">Exterior</button>
+      <button class="gallery-tab active" data-category="all" role="tab" aria-selected="true" data-en="All Photos" data-es="Todas las Fotos">All Photos</button>
+      <button class="gallery-tab" data-category="views" role="tab" aria-selected="false" data-en="Views &amp; Waterfront" data-es="Vistas y Frente al Mar">Views &amp; Waterfront</button>
+      <button class="gallery-tab" data-category="living" role="tab" aria-selected="false" data-en="Living Areas" data-es="Áreas de Estar">Living Areas</button>
+      <button class="gallery-tab" data-category="kitchen" role="tab" aria-selected="false" data-en="Kitchen" data-es="Cocina">Kitchen</button>
+      <button class="gallery-tab" data-category="bedrooms" role="tab" aria-selected="false" data-en="Bedrooms" data-es="Habitaciones">Bedrooms</button>
+      <button class="gallery-tab" data-category="baths" role="tab" aria-selected="false" data-en="Bathrooms" data-es="Baños">Bathrooms</button>
+      <button class="gallery-tab" data-category="outdoor" role="tab" aria-selected="false" data-en="Porches &amp; Outdoor" data-es="Porches y Exteriores">Porches &amp; Outdoor</button>
+      <button class="gallery-tab" data-category="exterior" role="tab" aria-selected="false" data-en="Exterior" data-es="Exterior">Exterior</button>
     </div>
 
     <div class="gallery-grid" id="galleryGrid" role="list">
@@ -1133,149 +1153,109 @@
 <section id="features" class="section">
   <div class="container">
     <div class="section-header fade-up">
-      <span class="section-label">What's Included</span>
-      <h2 class="section-title">Property Features</h2>
+      <span class="section-label" data-en="What's Included" data-es="Lo que Incluye">What's Included</span>
+      <h2 class="section-title" data-en="Property Features" data-es="Características de la Propiedad">Property Features</h2>
     </div>
     <div class="features-grid">
 
       <div class="feature-item">
-        <div class="feature-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        </div>
-        <div><span class="feature-label">4 Bedrooms</span><span class="feature-sub">Spacious layouts, tile floors</span></div>
+        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <div><span class="feature-label" data-en="4 Bedrooms" data-es="4 Habitaciones">4 Bedrooms</span><span class="feature-sub" data-en="Spacious layouts, tile floors" data-es="Espaciosas, pisos de porcelanato">Spacious layouts, tile floors</span></div>
       </div>
 
       <div class="feature-item">
-        <div class="feature-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 12h16M4 12a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2M4 12v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6"/></svg>
-        </div>
-        <div><span class="feature-label">3 Full Bathrooms</span><span class="feature-sub">Marble tile, glass showers</span></div>
+        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 12h16M4 12a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2M4 12v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6"/></svg></div>
+        <div><span class="feature-label" data-en="3 Full Bathrooms" data-es="3 Baños Completos">3 Full Bathrooms</span><span class="feature-sub" data-en="Marble tile, glass showers" data-es="Azulejo de mármol, duchas de vidrio">Marble tile, glass showers</span></div>
       </div>
 
       <div class="feature-item">
-        <div class="feature-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-        </div>
-        <div><span class="feature-label">~1,896 Sq. Ft.</span><span class="feature-sub">Open, light-filled floor plan</span></div>
+        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <div><span class="feature-label">~1,896 Sq. Ft.</span><span class="feature-sub" data-en="Open, light-filled floor plan" data-es="Planta abierta y luminosa">Open, light-filled floor plan</span></div>
       </div>
 
       <div class="feature-item">
-        <div class="feature-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-        </div>
-        <div><span class="feature-label">Built in 2025</span><span class="feature-sub">New construction, move-in ready</span></div>
+        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+        <div><span class="feature-label" data-en="Built in 2025" data-es="Construida en 2025">Built in 2025</span><span class="feature-sub" data-en="New construction, move-in ready" data-es="Nueva construcción, lista para mudarse">New construction, move-in ready</span></div>
       </div>
 
       <div class="feature-item">
-        <div class="feature-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-        </div>
-        <div><span class="feature-label">Concrete Construction</span><span class="feature-sub">Elevated on pilings</span></div>
+        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <div><span class="feature-label" data-en="Concrete Construction" data-es="Construcción de Concreto">Concrete Construction</span><span class="feature-sub" data-en="Elevated on pilings" data-es="Elevada sobre pilotes">Elevated on pilings</span></div>
       </div>
 
       <div class="feature-item">
-        <div class="feature-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
-        </div>
-        <div><span class="feature-label">Impact Windows &amp; Doors</span><span class="feature-sub">Hurricane-rated throughout</span></div>
+        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg></div>
+        <div><span class="feature-label" data-en="Impact Windows &amp; Doors" data-es="Ventanas y Puertas de Impacto">Impact Windows &amp; Doors</span><span class="feature-sub" data-en="Hurricane-rated throughout" data-es="Certificadas para huracanes">Hurricane-rated throughout</span></div>
       </div>
 
       <div class="feature-item">
-        <div class="feature-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7"/><path d="M3 9v12h18V9"/></svg>
-        </div>
-        <div><span class="feature-label">Metal Roof</span><span class="feature-sub">Durable, wind-resistant</span></div>
+        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7"/><path d="M3 9v12h18V9"/></svg></div>
+        <div><span class="feature-label" data-en="Metal Roof" data-es="Techo de Metal">Metal Roof</span><span class="feature-sub" data-en="Durable, wind-resistant" data-es="Duradero, resistente al viento">Durable, wind-resistant</span></div>
       </div>
 
       <div class="feature-item">
-        <div class="feature-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"/><path d="M12 6v6l4 2"/></svg>
-        </div>
-        <div><span class="feature-label">Central Air Conditioning</span><span class="feature-sub">Climate-controlled comfort</span></div>
+        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"/><path d="M12 6v6l4 2"/></svg></div>
+        <div><span class="feature-label" data-en="Central Air Conditioning" data-es="Aire Acondicionado Central">Central Air Conditioning</span><span class="feature-sub" data-en="Climate-controlled comfort" data-es="Confort controlado por clima">Climate-controlled comfort</span></div>
       </div>
 
       <div class="feature-item">
-        <div class="feature-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M8 2v20M2 8h20"/></svg>
-        </div>
-        <div><span class="feature-label">Tile Flooring Throughout</span><span class="feature-sub">Polished marble-look tile</span></div>
+        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M8 2v20M2 8h20"/></svg></div>
+        <div><span class="feature-label" data-en="Tile Flooring Throughout" data-es="Pisos de Porcelanato">Tile Flooring Throughout</span><span class="feature-sub" data-en="Polished marble-look tile" data-es="Azulejo con apariencia de mármol">Polished marble-look tile</span></div>
       </div>
 
       <div class="feature-item">
-        <div class="feature-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-        </div>
-        <div><span class="feature-label">Quartz Countertops</span><span class="feature-sub">Kitchen &amp; bathrooms</span></div>
+        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+        <div><span class="feature-label" data-en="Quartz Countertops" data-es="Encimeras de Cuarzo">Quartz Countertops</span><span class="feature-sub" data-en="Kitchen &amp; bathrooms" data-es="Cocina y baños">Kitchen &amp; bathrooms</span></div>
       </div>
 
       <div class="feature-item">
-        <div class="feature-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
-        </div>
-        <div><span class="feature-label">Stainless-Steel Appliances</span><span class="feature-sub">Refrigerator, range, dishwasher</span></div>
+        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
+        <div><span class="feature-label" data-en="Stainless-Steel Appliances" data-es="Electrodomésticos de Acero Inoxidable">Stainless-Steel Appliances</span><span class="feature-sub" data-en="Refrigerator, range, dishwasher" data-es="Refrigerador, estufa, lavavajillas">Refrigerator, range, dishwasher</span></div>
       </div>
 
       <div class="feature-item">
-        <div class="feature-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l3 3"/></svg>
-        </div>
-        <div><span class="feature-label">Washer &amp; Dryer</span><span class="feature-sub">Stacked, in-unit</span></div>
+        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l3 3"/></svg></div>
+        <div><span class="feature-label" data-en="Washer &amp; Dryer" data-es="Lavadora y Secadora">Washer &amp; Dryer</span><span class="feature-sub" data-en="Stacked, in-unit" data-es="Apilados, dentro de la unidad">Stacked, in-unit</span></div>
       </div>
 
       <div class="feature-item">
-        <div class="feature-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
-        </div>
-        <div><span class="feature-label">Open-Water Views</span><span class="feature-sub">Canal-front with bay access</span></div>
+        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <div><span class="feature-label" data-en="Open-Water Views" data-es="Vistas al Mar Abierto">Open-Water Views</span><span class="feature-sub" data-en="Canal-front with bay access" data-es="Frente al canal con acceso a la bahía">Canal-front with bay access</span></div>
       </div>
 
       <div class="feature-item">
-        <div class="feature-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><rect x="9" y="14" width="6" height="8"/></svg>
-        </div>
-        <div><span class="feature-label">Private Porches</span><span class="feature-sub">Multiple outdoor living spaces</span></div>
+        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><rect x="9" y="14" width="6" height="8"/></svg></div>
+        <div><span class="feature-label" data-en="Private Porches" data-es="Porches Privados">Private Porches</span><span class="feature-sub" data-en="Multiple outdoor living spaces" data-es="Múltiples espacios al aire libre">Multiple outdoor living spaces</span></div>
       </div>
 
       <div class="feature-item">
-        <div class="feature-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 18h16M4 18l2-8h12l2 8M12 10V6M8 6h8"/></svg>
-        </div>
-        <div><span class="feature-label">Concrete Dock</span><span class="feature-sub">Private, solid construction</span></div>
+        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 18h16M4 18l2-8h12l2 8M12 10V6M8 6h8"/></svg></div>
+        <div><span class="feature-label" data-en="Concrete Dock" data-es="Muelle de Concreto">Concrete Dock</span><span class="feature-sub" data-en="Private, solid construction" data-es="Privado, construcción sólida">Private, solid construction</span></div>
       </div>
 
       <div class="feature-item">
-        <div class="feature-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2v6m0 0l-3-3m3 3l3-3"/><rect x="5" y="8" width="14" height="12" rx="2"/><path d="M8 20v2M16 20v2"/></svg>
-        </div>
-        <div><span class="feature-label">Boat Lift</span><span class="feature-sub">Private, on-site</span></div>
+        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2v6m0 0l-3-3m3 3l3-3"/><rect x="5" y="8" width="14" height="12" rx="2"/><path d="M8 20v2M16 20v2"/></svg></div>
+        <div><span class="feature-label" data-en="Boat Lift" data-es="Elevador de Botes">Boat Lift</span><span class="feature-sub" data-en="Private, on-site" data-es="Privado, en el lugar">Private, on-site</span></div>
       </div>
 
       <div class="feature-item">
-        <div class="feature-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v3m-2 10h6a2 2 0 0 0 2-2v-5a2 2 0 0 0-2-2H14a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2z"/></svg>
-        </div>
-        <div><span class="feature-label">Quick Deep-Water Access</span><span class="feature-sub">Ocean &amp; backcountry nearby</span></div>
+        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v3m-2 10h6a2 2 0 0 0 2-2v-5a2 2 0 0 0-2-2H14a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2z"/></svg></div>
+        <div><span class="feature-label" data-en="Quick Deep-Water Access" data-es="Acceso Rápido a Aguas Profundas">Quick Deep-Water Access</span><span class="feature-sub" data-en="Ocean &amp; backcountry nearby" data-es="Océano e interior cercanos">Ocean &amp; backcountry nearby</span></div>
       </div>
 
       <div class="feature-item">
-        <div class="feature-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-        </div>
-        <div><span class="feature-label">Pet Consideration Available</span><span class="feature-sub">Inquire for details</span></div>
+        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        <div><span class="feature-label" data-en="Pet Consideration Available" data-es="Mascotas con Consideración">Pet Consideration Available</span><span class="feature-sub" data-en="Inquire for details" data-es="Consulte para detalles">Inquire for details</span></div>
       </div>
 
       <div class="feature-item">
-        <div class="feature-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-        </div>
-        <div><span class="feature-label">Municipal Sewer &amp; FKAA Water</span><span class="feature-sub">Utility connections in place</span></div>
+        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+        <div><span class="feature-label" data-en="Municipal Sewer &amp; FKAA Water" data-es="Alcantarillado Municipal y Agua FKAA">Municipal Sewer &amp; FKAA Water</span><span class="feature-sub" data-en="Utility connections in place" data-es="Conexiones de servicios disponibles">Utility connections in place</span></div>
       </div>
 
       <div class="feature-item">
-        <div class="feature-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-        </div>
-        <div><span class="feature-label">Unfurnished</span><span class="feature-sub">Bring your own style</span></div>
+        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <div><span class="feature-label" data-en="Unfurnished" data-es="Sin Amueblar">Unfurnished</span><span class="feature-sub" data-en="Bring your own style" data-es="Trae tu propio estilo">Bring your own style</span></div>
       </div>
 
     </div>
@@ -1290,11 +1270,11 @@
     <div class="boating-grid">
       <img class="boating-img fade-up" src="images/upper-balcony-view.jpg" alt="Sweeping open-water views from the upper balcony — ideal for the Florida Keys boating lifestyle" loading="lazy" />
       <div class="boating-text fade-up">
-        <span class="section-label">On the Water</span>
-        <h2 class="section-title">Designed for the Florida Keys Boating Lifestyle</h2>
-        <p>Enjoy a concrete dock, private boat lift, and convenient access to open water. From this Big Pine Key location, navigating to the ocean or backcountry is simple, with Bahia Honda Bridge and some of the Lower Keys' best boating and fishing waters nearby.</p>
-        <p>Whether you're casting lines for permit and tarpon in the backcountry, offshore fishing near the reef, or simply exploring by kayak and paddleboard, this location puts you exactly where you want to be.</p>
-        <div class="disclaimer">Boat size and draft restrictions should be verified before lease signing.</div>
+        <span class="section-label" data-en="On the Water" data-es="En el Agua">On the Water</span>
+        <h2 class="section-title" data-en="Designed for the Florida Keys Boating Lifestyle" data-es="Diseñada para el Estilo de Vida Náutico de los Florida Keys">Designed for the Florida Keys Boating Lifestyle</h2>
+        <p data-en="Enjoy a concrete dock, private boat lift, and convenient access to open water. From this Big Pine Key location, navigating to the ocean or backcountry is simple, with Bahia Honda Bridge and some of the Lower Keys' best boating and fishing waters nearby." data-es="Disfrute de un muelle de concreto, elevador de botes privado y acceso conveniente al mar abierto. Desde esta ubicación en Big Pine Key, navegar hacia el océano o las aguas interiores es sencillo, con el Puente Bahia Honda y algunas de las mejores aguas para navegar y pescar de los Lower Keys cerca.">Enjoy a concrete dock, private boat lift, and convenient access to open water. From this Big Pine Key location, navigating to the ocean or backcountry is simple, with Bahia Honda Bridge and some of the Lower Keys' best boating and fishing waters nearby.</p>
+        <p data-en="Whether you're casting lines for permit and tarpon in the backcountry, offshore fishing near the reef, or simply exploring by kayak and paddleboard, this location puts you exactly where you want to be." data-es="Ya sea que esté pescando permit y tarpón en las aguas interiores, pesca en altamar cerca del arrecife, o simplemente explorando en kayak y paddleboard, esta ubicación lo coloca exactamente donde quiere estar.">Whether you're casting lines for permit and tarpon in the backcountry, offshore fishing near the reef, or simply exploring by kayak and paddleboard, this location puts you exactly where you want to be.</p>
+        <div class="disclaimer" data-en="Boat size and draft restrictions should be verified before lease signing." data-es="El tamaño del bote y las restricciones de calado deben verificarse antes de firmar el contrato de arrendamiento.">Boat size and draft restrictions should be verified before lease signing.</div>
       </div>
     </div>
   </div>
@@ -1306,35 +1286,35 @@
 <section id="location" class="section">
   <div class="container">
     <div class="section-header fade-up">
-      <span class="section-label">Where You'll Live</span>
-      <h2 class="section-title">Experience Big Pine Key</h2>
+      <span class="section-label" data-en="Where You'll Live" data-es="Dónde Vivirás">Where You'll Live</span>
+      <h2 class="section-title" data-en="Experience Big Pine Key" data-es="Descubre Big Pine Key">Experience Big Pine Key</h2>
     </div>
     <div class="location-grid">
       <div class="fade-up">
-        <p class="lead">Big Pine Key sits in the heart of the Lower Florida Keys — quiet, natural, and surrounded by water on all sides.</p>
+        <p class="lead" data-en="Big Pine Key sits in the heart of the Lower Florida Keys — quiet, natural, and surrounded by water on all sides." data-es="Big Pine Key se encuentra en el corazón de los Lower Florida Keys — tranquilo, natural y rodeado de agua por todos lados.">Big Pine Key sits in the heart of the Lower Florida Keys — quiet, natural, and surrounded by water on all sides.</p>
         <ul class="location-highlights" aria-label="Location highlights">
           <li>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Walking distance to Big Pine Key Park
+            <span data-en="Walking distance to Big Pine Key Park" data-es="A poca distancia a pie del Parque Big Pine Key">Walking distance to Big Pine Key Park</span>
           </li>
           <li>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Minutes from groceries, restaurants, and everyday essentials
+            <span data-en="Minutes from groceries, restaurants, and everyday essentials" data-es="A minutos de supermercados, restaurantes y servicios cotidianos">Minutes from groceries, restaurants, and everyday essentials</span>
           </li>
           <li>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Convenient access to Bahia Honda State Park
+            <span data-en="Convenient access to Bahia Honda State Park" data-es="Acceso conveniente al Parque Estatal Bahia Honda">Convenient access to Bahia Honda State Park</span>
           </li>
           <li>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Quick access to boating, fishing, the ocean, and backcountry waters
+            <span data-en="Quick access to boating, fishing, the ocean, and backcountry waters" data-es="Acceso rápido a navegación, pesca, el océano y aguas interiores">Quick access to boating, fishing, the ocean, and backcountry waters</span>
           </li>
           <li>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Located in the Avenues neighborhood of Big Pine Key
+            <span data-en="Located in the Avenues neighborhood of Big Pine Key" data-es="Ubicada en el vecindario de Las Avenidas de Big Pine Key">Located in the Avenues neighborhood of Big Pine Key</span>
           </li>
         </ul>
-        <a href="https://maps.google.com/?q=Big+Pine+Key,+FL+33043" target="_blank" rel="noopener noreferrer" class="btn btn-primary map-cta">Explore Big Pine Key</a>
+        <a href="https://maps.google.com/?q=Big+Pine+Key,+FL+33043" target="_blank" rel="noopener noreferrer" class="btn btn-primary map-cta" data-en="Explore Big Pine Key" data-es="Explorar Big Pine Key">Explore Big Pine Key</a>
       </div>
       <div class="fade-up">
         <div class="map-wrap">
@@ -1359,36 +1339,36 @@
 <section id="rental-details" class="section">
   <div class="container">
     <div class="section-header fade-up">
-      <span class="section-label">Lease Information</span>
-      <h2 class="section-title">Rental Details</h2>
+      <span class="section-label" data-en="Lease Information" data-es="Información del Arrendamiento">Lease Information</span>
+      <h2 class="section-title" data-en="Rental Details" data-es="Detalles del Alquiler">Rental Details</h2>
     </div>
     <div class="rental-grid fade-up">
       <div class="rental-item">
-        <div class="rental-item-label">Monthly Rent</div>
+        <div class="rental-item-label" data-en="Monthly Rent" data-es="Renta Mensual">Monthly Rent</div>
         <div class="rental-item-value">$6,000</div>
       </div>
       <div class="rental-item">
-        <div class="rental-item-label">Available</div>
-        <div class="rental-item-value">July 1, 2026</div>
+        <div class="rental-item-label" data-en="Available" data-es="Disponible">Available</div>
+        <div class="rental-item-value" data-en="July 1, 2026" data-es="1 de julio de 2026">July 1, 2026</div>
       </div>
       <div class="rental-item">
-        <div class="rental-item-label">Lease Options</div>
-        <div class="rental-item-value">6 or 12 Months</div>
+        <div class="rental-item-label" data-en="Lease Options" data-es="Opciones de Contrato">Lease Options</div>
+        <div class="rental-item-value" data-en="6 or 12 Months" data-es="6 o 12 Meses">6 or 12 Months</div>
       </div>
       <div class="rental-item">
-        <div class="rental-item-label">Furnishing</div>
-        <div class="rental-item-value">Unfurnished</div>
+        <div class="rental-item-label" data-en="Furnishing" data-es="Mobiliario">Furnishing</div>
+        <div class="rental-item-value" data-en="Unfurnished" data-es="Sin Amueblar">Unfurnished</div>
       </div>
       <div class="rental-item">
-        <div class="rental-item-label">Utilities</div>
-        <div class="rental-item-value">Tenant Responsibility</div>
+        <div class="rental-item-label" data-en="Utilities" data-es="Servicios">Utilities</div>
+        <div class="rental-item-value" data-en="Tenant Responsibility" data-es="Responsabilidad del Inquilino">Tenant Responsibility</div>
       </div>
       <div class="rental-item">
-        <div class="rental-item-label">Screening</div>
-        <div class="rental-item-value">Application Required</div>
+        <div class="rental-item-label" data-en="Screening" data-es="Selección">Screening</div>
+        <div class="rental-item-value" data-en="Application Required" data-es="Solicitud Requerida">Application Required</div>
       </div>
     </div>
-    <div class="rental-notes fade-up">
+    <div class="rental-notes fade-up" data-en="&lt;strong style='color:rgba(255,255,255,0.85)'&gt;Move-In Funds Required:&lt;/strong&gt; First month, last month, and security deposit due at move-in. Rental application and tenant screening required. Pets considered on a case-by-case basis — please inquire." data-es="&lt;strong style='color:rgba(255,255,255,0.85)'&gt;Fondos Requeridos al Mudarse:&lt;/strong&gt; Primer mes, último mes y depósito de seguridad al momento de mudarse. Se requiere solicitud de arrendamiento y verificación del inquilino. Se consideran mascotas caso por caso — consulte.">
       <strong style="color:rgba(255,255,255,0.85)">Move-In Funds Required:</strong> First month, last month, and security deposit due at move-in. Rental application and tenant screening required. Pets considered on a case-by-case basis — please inquire.
     </div>
   </div>
@@ -1400,35 +1380,35 @@
 <section id="contact" class="section">
   <div class="container">
     <div class="contact-centered fade-up">
-      <span class="section-label">Schedule a Showing</span>
-      <h2 class="section-title">Interested in Making This Your Florida Keys Home?</h2>
-      <p class="lead" style="max-width:560px;margin:0 auto 40px;">
+      <span class="section-label" data-en="Schedule a Showing" data-es="Agendar una Visita">Schedule a Showing</span>
+      <h2 class="section-title" data-en="Interested in Making This Your Florida Keys Home?" data-es="¿Interesado en Hacer de Esta su Casa en los Florida Keys?">Interested in Making This Your Florida Keys Home?</h2>
+      <p class="lead" style="max-width:560px;margin:0 auto 40px;" data-en="Text Kate directly to schedule a showing, ask questions, or get more information. She'll get back to you promptly." data-es="Envíe un mensaje de texto a Kate directamente para agendar una visita, hacer preguntas u obtener más información. Le responderá con prontitud.">
         Text Kate directly to schedule a showing, ask questions, or get more information. She'll get back to you promptly.
       </p>
 
       <div class="contact-cta-block">
         <a href="sms:+13052407828" class="contact-text-btn" aria-label="Text Kate at 305-240-7828">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-          Text Kate — 305-240-7828
+          <span data-en="Text Kate — 305-240-7828" data-es="Mensaje a Kate — 305-240-7828">Text Kate — 305-240-7828</span>
         </a>
         <a href="tel:+13052407828" class="contact-call-btn" aria-label="Call Kate at 305-240-7828">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.6 3.38 2 2 0 0 1 3.57 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.54a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.46 16z"/></svg>
-          Or Call — 305-240-7828
+          <span data-en="Or Call — 305-240-7828" data-es="O Llamar — 305-240-7828">Or Call — 305-240-7828</span>
         </a>
       </div>
 
       <div class="contact-details-row">
         <div class="contact-detail-item">
-          <span class="contact-detail-label">Boat Lift</span>
-          <span class="contact-detail-value">Included on property — ask about slip details</span>
+          <span class="contact-detail-label" data-en="Boat Lift" data-es="Elevador de Botes">Boat Lift</span>
+          <span class="contact-detail-value" data-en="Included on property — ask about slip details" data-es="Incluido en la propiedad — consulte los detalles">Included on property — ask about slip details</span>
         </div>
         <div class="contact-detail-item">
-          <span class="contact-detail-label">Move-In Funds</span>
-          <span class="contact-detail-value">1st month + last month + security deposit</span>
+          <span class="contact-detail-label" data-en="Move-In Funds" data-es="Fondos al Mudarse">Move-In Funds</span>
+          <span class="contact-detail-value" data-en="1st month + last month + security deposit" data-es="1er mes + último mes + depósito de seguridad">1st month + last month + security deposit</span>
         </div>
         <div class="contact-detail-item">
-          <span class="contact-detail-label">Available</span>
-          <span class="contact-detail-value">July 1, 2026</span>
+          <span class="contact-detail-label" data-en="Available" data-es="Disponible">Available</span>
+          <span class="contact-detail-value" data-en="July 1, 2026" data-es="1 de julio de 2026">July 1, 2026</span>
         </div>
       </div>
     </div>
@@ -1439,16 +1419,16 @@
      FOOTER
 ============================================================ -->
 <footer role="contentinfo">
-  <span class="footer-logo">Big Pine Key Waterfront Rental</span>
+  <span class="footer-logo" data-en="Big Pine Key Waterfront Rental" data-es="Alquiler Frente al Mar en Big Pine Key">Big Pine Key Waterfront Rental</span>
   Big Pine Key, Florida 33043<br />
-  <strong><a href="tel:+13052407828">Call or Text: 305-240-7828</a></strong>
+  <strong><a href="tel:+13052407828"><span data-en="Call or Text:" data-es="Llamar o Enviar Mensaje:">Call or Text:</span> 305-240-7828</a></strong>
 
   <div class="footer-eho">
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 100 100" style="display:inline-block;vertical-align:middle;margin-right:8px;fill:rgba(255,255,255,0.4)" aria-label="Equal Housing Opportunity"><path d="M50 5L5 45h10v50h80V45h10L50 5zm0 10.5L85 40H15L50 15.5z"/></svg>
-    <strong>Equal Housing Opportunity</strong><br />
-    We are committed to Fair Housing. This property is offered without regard to race, color, national origin, religion, sex, familial status, disability, or any other protected class under applicable federal, state, or local law.<br /><br />
-    <a href="#privacy">Privacy Notice</a> &nbsp;|&nbsp; All information is deemed reliable but not guaranteed. Tenant to verify all details.<br />
-    &copy; <span id="footerYear"></span> Big Pine Key Waterfront Rental. All rights reserved.
+    <strong data-en="Equal Housing Opportunity" data-es="Igualdad de Oportunidades en la Vivienda">Equal Housing Opportunity</strong><br />
+    <span data-en="We are committed to Fair Housing. This property is offered without regard to race, color, national origin, religion, sex, familial status, disability, or any other protected class under applicable federal, state, or local law." data-es="Estamos comprometidos con la Vivienda Justa. Esta propiedad se ofrece sin distinción de raza, color, origen nacional, religión, sexo, estado familiar, discapacidad u otras clases protegidas bajo la ley federal, estatal o local aplicable.">We are committed to Fair Housing. This property is offered without regard to race, color, national origin, religion, sex, familial status, disability, or any other protected class under applicable federal, state, or local law.</span><br /><br />
+    <a href="#privacy" data-en="Privacy Notice" data-es="Aviso de Privacidad">Privacy Notice</a> &nbsp;|&nbsp; <span data-en="All information is deemed reliable but not guaranteed. Tenant to verify all details." data-es="Toda la información se considera confiable pero no garantizada. El inquilino debe verificar todos los detalles.">All information is deemed reliable but not guaranteed. Tenant to verify all details.</span><br />
+    &copy; <span id="footerYear"></span> <span data-en="Big Pine Key Waterfront Rental. All rights reserved." data-es="Big Pine Key Waterfront Rental. Todos los derechos reservados.">Big Pine Key Waterfront Rental. All rights reserved.</span>
   </div>
 </footer>
 
@@ -1456,15 +1436,15 @@
 <div class="mobile-sticky-bar" role="navigation" aria-label="Quick contact">
   <a href="tel:+13052407828" class="msb-call" aria-label="Call 305-240-7828">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.6 3.38 2 2 0 0 1 3.57 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.54a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.46 16l.46.92z"/></svg>
-    Call
+    <span data-en="Call" data-es="Llamar">Call</span>
   </a>
   <a href="sms:+13052407828" class="msb-text" aria-label="Text 305-240-7828">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-    Text
+    <span data-en="Text" data-es="Mensaje">Text</span>
   </a>
-  <a href="#contact" class="msb-inquire" aria-label="Submit rental inquiry">
+  <a href="#contact" class="msb-inquire" aria-label="Contact">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-    Inquire
+    <span data-en="Inquire" data-es="Contactar">Inquire</span>
   </a>
 </div>
 
@@ -1599,6 +1579,28 @@
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
   }, { threshold: 0.12 });
   fadeEls.forEach(el => observer.observe(el));
+
+  // ── Language toggle
+  let currentLang = 'en';
+  const langToggle = document.getElementById('langToggle');
+
+  function setLang(lang) {
+    currentLang = lang;
+    document.documentElement.lang = lang;
+
+    // Swap all data-en / data-es elements
+    document.querySelectorAll('[data-en]').forEach(el => {
+      el.innerHTML = el.dataset[lang] || el.dataset.en;
+    });
+
+    // Update toggle button label
+    langToggle.textContent = lang === 'en' ? 'Español' : 'English';
+    langToggle.setAttribute('aria-label', lang === 'en' ? 'Switch to Spanish' : 'Switch to English');
+  }
+
+  langToggle.addEventListener('click', () => {
+    setLang(currentLang === 'en' ? 'es' : 'en');
+  });
 
   //── Lazy-load images via native loading="lazy" — supplement with IntersectionObserver for older browsers
   if ('IntersectionObserver' in window) {
