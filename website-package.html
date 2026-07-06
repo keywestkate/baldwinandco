@@ -518,23 +518,537 @@
 </nav>
 
 <!-- ══════════════════════════════════════════
-     S1 — HERO
+     S1 — HERO (split layout)
 ══════════════════════════════════════════ -->
+<style>
+/* ── HERO SPLIT OVERRIDES — scoped to .hero-wp ── */
+@media (prefers-reduced-motion: no-preference) {
+  .hwp-logo  { opacity:0; animation: hwpFadeIn .6s var(--ease) .05s forwards; }
+  .hwp-eyebrow { opacity:0; transform:translateY(14px); animation: hwpSlideUp .5s var(--ease) .1s forwards; }
+  .hwp-h1-line { opacity:0; transform:translateY(18px); }
+  .hwp-h1-line:nth-child(1) { animation: hwpSlideUp .55s var(--ease) .2s forwards; }
+  .hwp-h1-line:nth-child(2) { animation: hwpSlideUp .55s var(--ease) .35s forwards; }
+  .hwp-h1-line:nth-child(3) { animation: hwpSlideUp .55s var(--ease) .5s forwards; }
+  .hwp-benefit { opacity:0; transform:scale(0); }
+  .hwp-benefit:nth-child(1) { animation: hwpPop .4s var(--ease) .55s forwards; }
+  .hwp-benefit:nth-child(2) { animation: hwpPop .4s var(--ease) .75s forwards; }
+  .hwp-benefit:nth-child(3) { animation: hwpPop .4s var(--ease) .95s forwards; }
+  .hwp-mockup { opacity:0; transform:translateY(28px); animation: hwpSlideUp .7s var(--ease) .4s forwards; }
+  @keyframes hwpFadeIn { to { opacity:1; } }
+  @keyframes hwpSlideUp { to { opacity:1; transform:none; } }
+  @keyframes hwpPop { to { opacity:1; transform:scale(1); } }
+}
+
+/* Reset the original hero-wp centering for our split layout */
+.hero-wp {
+  display: block !important;
+  text-align: left !important;
+  padding: 0 !important;
+  align-items: unset !important;
+  justify-content: unset !important;
+  flex-direction: unset !important;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative lines */
+.hero-wp::before,
+.hero-wp::after {
+  content: '';
+  position: absolute;
+  background: rgba(184,154,106,.08);
+  pointer-events: none;
+}
+.hero-wp::before {
+  width: 1px;
+  top: 0; bottom: 0;
+  left: 52%;
+}
+.hero-wp::after {
+  height: 1px;
+  left: 0; right: 0;
+  bottom: 22%;
+}
+.hwp-accent-line {
+  position: absolute;
+  width: 1px;
+  height: 40%;
+  background: rgba(184,154,106,.08);
+  top: 10%;
+  right: 15%;
+  pointer-events: none;
+}
+
+/* Warm radial glow upper-right */
+.hwp-glow {
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 65%;
+  height: 70%;
+  background: radial-gradient(ellipse at top right, rgba(184,154,106,.09) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Inner grid */
+.hwp-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+  padding-top: 80px; /* fixed nav height */
+  width: min(1200px, 96vw);
+  margin-inline: auto;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* LEFT COLUMN */
+.hwp-left {
+  padding: 5rem 0 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.hwp-logo {
+  height: 52px;
+  width: auto;
+  display: block;
+  filter: brightness(0) invert(1);
+  margin-bottom: 2.4rem;
+}
+.hwp-eyebrow {
+  font-family: var(--sans);
+  font-size: .55rem;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.4rem;
+  display: block;
+}
+.hwp-h1 {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(2.8rem, 5.5vw, 5.5rem);
+  color: var(--white);
+  line-height: 1.08;
+  margin-bottom: 1.8rem;
+}
+.hwp-h1-line { display: block; }
+.hwp-body {
+  font-family: var(--sans);
+  font-size: clamp(.92rem, 1.1vw, 1rem);
+  font-weight: 300;
+  color: rgba(255,255,255,.68);
+  line-height: 1.85;
+  max-width: 52ch;
+  margin-bottom: 2rem;
+}
+.hwp-benefits {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .7rem;
+  margin-bottom: 2.4rem;
+}
+.hwp-benefit {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  font-family: var(--sans);
+  font-size: .88rem;
+  font-weight: 300;
+  color: rgba(255,255,255,.8);
+}
+.hwp-benefit-ck {
+  color: var(--gold);
+  font-size: 1rem;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+.hwp-ctas {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.4rem;
+}
+.hwp-statement {
+  font-family: var(--serif);
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--white);
+  line-height: 1.4;
+  margin-bottom: .65rem;
+}
+.hwp-closing {
+  font-family: var(--sans);
+  font-size: .52rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  font-variant: small-caps;
+  color: rgba(255,255,255,.4);
+}
+
+/* RIGHT COLUMN — mockup panels */
+.hwp-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 0;
+  position: relative;
+}
+
+/* PANEL 1 — Dashboard */
+.hwp-dash {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 8px;
+  padding: 1.75rem 2rem 2rem;
+  width: 100%;
+  max-width: 380px;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 24px 64px rgba(0,0,0,.35);
+}
+.hwp-dash__label {
+  font-family: var(--sans);
+  font-size: .48rem;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.35);
+  margin-bottom: 1.2rem;
+  display: block;
+}
+.hwp-dash__field-label {
+  font-family: var(--sans);
+  font-size: .72rem;
+  color: rgba(255,255,255,.55);
+  margin-bottom: .5rem;
+  display: block;
+}
+.hwp-dash__input {
+  width: 100%;
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.14);
+  color: var(--white);
+  font-family: var(--sans);
+  font-size: .88rem;
+  padding: .7rem 1rem;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color .2s;
+  font-weight: 300;
+}
+.hwp-dash__input:focus { border-color: rgba(184,154,106,.55); }
+.hwp-dash__btn {
+  display: block;
+  width: 100%;
+  margin-top: 1.1rem;
+  background: var(--gold);
+  color: var(--dark);
+  font-family: var(--sans);
+  font-size: .62rem;
+  font-weight: 600;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  padding: .85rem 1.4rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background .2s;
+  text-align: center;
+}
+.hwp-dash__btn:hover { background: #a6895a; }
+.hwp-status {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  margin-top: 1rem;
+  font-family: var(--sans);
+  font-size: .7rem;
+  color: rgba(255,255,255,.45);
+}
+.hwp-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #4ade80;
+  flex-shrink: 0;
+}
+.hwp-dot.pulsing {
+  animation: hwpPulse 1.6s ease-in-out infinite;
+}
+@keyframes hwpPulse {
+  0%,100% { opacity:1; transform:scale(1); }
+  50% { opacity:.45; transform:scale(.75); }
+}
+.hwp-success {
+  font-family: var(--sans);
+  font-size: .72rem;
+  color: var(--gold);
+  margin-top: .75rem;
+  min-height: 1.1rem;
+  text-align: center;
+  transition: opacity .3s;
+}
+
+/* PANEL 2 — Browser preview */
+.hwp-browser {
+  width: 100%;
+  max-width: 380px;
+  margin-top: -1.5rem;
+  margin-left: 3rem;
+  border-radius: 8px 8px 6px 6px;
+  overflow: hidden;
+  box-shadow: 0 16px 48px rgba(0,0,0,.28);
+  position: relative;
+  z-index: 1;
+}
+.hwp-browser__chrome {
+  background: #2a2a2a;
+  padding: .55rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+}
+.hwp-browser__dots {
+  display: flex;
+  gap: 5px;
+}
+.hwp-browser__dots span {
+  width: 9px; height: 9px;
+  border-radius: 50%;
+}
+.hwp-browser__dots span:nth-child(1) { background: #ff5f57; }
+.hwp-browser__dots span:nth-child(2) { background: #febc2e; }
+.hwp-browser__dots span:nth-child(3) { background: #28c840; }
+.hwp-browser__url {
+  flex: 1;
+  background: rgba(255,255,255,.08);
+  border-radius: 3px;
+  padding: .28rem .75rem;
+  font-family: var(--sans);
+  font-size: .62rem;
+  color: rgba(255,255,255,.5);
+}
+.hwp-browser__body {
+  background: var(--cream);
+}
+.hwp-browser__announce {
+  background: var(--dark);
+  color: rgba(255,255,255,.75);
+  font-family: var(--sans);
+  font-size: .72rem;
+  padding: .55rem 1rem;
+  min-height: 2.1rem;
+  display: flex;
+  align-items: center;
+  transition: background .3s;
+}
+.hwp-browser__announce.empty {
+  color: rgba(255,255,255,.28);
+  font-style: italic;
+}
+.hwp-browser__content {
+  padding: 1.4rem 1.2rem 1.6rem;
+}
+.hwp-browser__logo-ph {
+  width: 70px;
+  height: 8px;
+  background: var(--bone);
+  border-radius: 2px;
+  margin-bottom: 1rem;
+}
+.hwp-browser__nav-ph {
+  display: flex;
+  gap: .75rem;
+  margin-bottom: 1.2rem;
+}
+.hwp-browser__nav-ph span {
+  width: 32px; height: 5px;
+  background: var(--bone);
+  border-radius: 2px;
+}
+.hwp-browser__hero-ph {
+  background: var(--linen);
+  border-radius: 4px;
+  height: 52px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 1rem;
+  gap: .45rem;
+}
+.hwp-browser__hero-ph span {
+  display: block;
+  height: 6px;
+  background: var(--bone);
+  border-radius: 2px;
+}
+.hwp-browser__hero-ph span:first-child { width: 80%; }
+.hwp-browser__hero-ph span:last-child { width: 55%; }
+
+/* ── TABLET ── */
+@media (max-width: 1023px) and (min-width: 768px) {
+  .hwp-grid { gap: 2.5rem; }
+  .hwp-h1 { font-size: clamp(2.4rem, 4.5vw, 3.8rem); }
+  .hwp-browser { margin-left: 1.5rem; }
+}
+
+/* ── MOBILE ── */
+@media (max-width: 767px) {
+  .hero-wp::before, .hero-wp::after { display: none; }
+  .hwp-grid {
+    grid-template-columns: 1fr;
+    min-height: unset;
+    padding-top: 72px;
+    gap: 2.5rem;
+    padding-bottom: 3rem;
+  }
+  .hwp-left { padding: 2.5rem 5vw 0; }
+  .hwp-right { padding: 0 5vw 3rem; align-items: stretch; }
+  .hwp-browser { margin-left: 0; margin-top: 1rem; max-width: 100%; }
+  .hwp-dash { max-width: 100%; }
+  .hwp-h1 { font-size: clamp(2.6rem, 8vw, 4rem); }
+  .hwp-ctas { flex-direction: column; }
+  .hwp-ctas a { text-align: center; }
+}
+</style>
+
 <section class="hero-wp" aria-labelledby="hero-h1">
-  <span class="eyebrow r">CUSTOM WEBSITE + PRIVATE DASHBOARD</span>
-  <h1 class="hero-wp__h1 r d1" id="hero-h1">
-    <span>Your Website.</span>
-    <span>Your Login.</span>
-    <span>Your Control.</span>
-  </h1>
-  <p class="hero-wp__sub r d2">A custom website built around your business, your brand, your photographs, and your story—paired with a private dashboard you and your team can manage from your phone, tablet, or computer.</p>
-  <p class="hero-wp__bold r d3">No waiting on a developer for every menu change, event update, new photograph, service edit, or announcement.</p>
-  <p class="hero-wp__tagline r">Custom design. Private login. Day-to-day control.</p>
-  <div class="hero-wp__ctas r">
-    <a href="#dashboard" class="btn-outline--white">See What You Can Control</a>
-    <a href="connect.html" class="btn--gold">Request Your Website Proposal</a>
-  </div>
+  <!-- decorative elements -->
+  <div class="hwp-glow" aria-hidden="true"></div>
+  <div class="hwp-accent-line" aria-hidden="true"></div>
+
+  <div class="hwp-grid">
+
+    <!-- ── LEFT: copy column ── -->
+    <div class="hwp-left">
+      <img src="./baldwin-co-logo.png" alt="Baldwin &amp; Co." class="hwp-logo" width="160" height="52" />
+
+      <span class="hwp-eyebrow">Custom Website + Your Own Login</span>
+
+      <h1 class="hwp-h1" id="hero-h1">
+        <span class="hwp-h1-line">A Beautiful Website</span>
+        <span class="hwp-h1-line">You Can Update</span>
+        <span class="hwp-h1-line"><em>Yourself.</em></span>
+      </h1>
+
+      <p class="hwp-body">We build your website, add your content, connect everything, and hand you the login. Update your photos, hours, prices, services, events, and announcements from your phone or computer — without waiting on a web designer.</p>
+
+      <ul class="hwp-benefits" aria-label="Key benefits">
+        <li class="hwp-benefit"><span class="hwp-benefit-ck">✓</span> No coding required</li>
+        <li class="hwp-benefit"><span class="hwp-benefit-ck">✓</span> Your own private login</li>
+        <li class="hwp-benefit"><span class="hwp-benefit-ck">✓</span> Ready to use at launch</li>
+      </ul>
+
+      <div class="hwp-ctas">
+        <a href="#dashboard" class="btn--gold">Show Me How It Works</a>
+        <a href="connect.html" class="btn-outline--white">Start My Website</a>
+      </div>
+
+      <p class="hwp-statement">Your Website Should Work for You — Not Hold You Hostage.</p>
+      <p class="hwp-closing">Change it. Publish it. Get back to business.</p>
+    </div>
+
+    <!-- ── RIGHT: interactive mockup ── -->
+    <div class="hwp-right">
+      <!-- Panel 1: editing dashboard -->
+      <div class="hwp-dash hwp-mockup" aria-label="Dashboard demo">
+        <span class="hwp-dash__label">Your Dashboard</span>
+        <span class="hwp-dash__field-label">Announcement</span>
+        <input
+          class="hwp-dash__input"
+          id="hwpInput"
+          type="text"
+          value="Happy Hour Today from 4–6 PM"
+          aria-label="Announcement text"
+        />
+        <button class="hwp-dash__btn" id="hwpPublishBtn">Publish Update</button>
+        <p class="hwp-success" id="hwpSuccess" aria-live="polite"></p>
+        <div class="hwp-status">
+          <span class="hwp-dot pulsing" id="hwpDot" aria-hidden="true"></span>
+          <span id="hwpStatusText">Live</span>
+        </div>
+      </div>
+
+      <!-- Panel 2: browser preview -->
+      <div class="hwp-browser hwp-mockup" aria-label="Live website preview" aria-live="polite">
+        <div class="hwp-browser__chrome">
+          <div class="hwp-browser__dots" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="hwp-browser__url">yourbusiness.com</div>
+        </div>
+        <div class="hwp-browser__body">
+          <div class="hwp-browser__announce empty" id="hwpPreviewBar">Your announcement will appear here</div>
+          <div class="hwp-browser__content" aria-hidden="true">
+            <div class="hwp-browser__logo-ph"></div>
+            <div class="hwp-browser__nav-ph">
+              <span></span><span></span><span></span><span></span>
+            </div>
+            <div class="hwp-browser__hero-ph">
+              <span></span><span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /.hwp-grid -->
 </section>
+
+<script>
+(function(){
+  var btn = document.getElementById('hwpPublishBtn');
+  var input = document.getElementById('hwpInput');
+  var bar = document.getElementById('hwpPreviewBar');
+  var success = document.getElementById('hwpSuccess');
+  var dot = document.getElementById('hwpDot');
+  var statusText = document.getElementById('hwpStatusText');
+  var timer = null;
+
+  if (!btn) return;
+
+  btn.addEventListener('click', function(){
+    var val = input.value.trim();
+    if (!val) return;
+
+    // Step 1: publishing state
+    btn.textContent = 'Publishing…';
+    btn.disabled = true;
+    success.textContent = '';
+
+    setTimeout(function(){
+      // Step 2: update preview
+      bar.textContent = val;
+      bar.classList.remove('empty');
+
+      // Step 3: confirmation
+      success.textContent = 'Published — Your Change Is Live ✓';
+
+      // Step 4: status indicator → solid
+      dot.classList.remove('pulsing');
+      statusText.textContent = 'Live';
+
+      btn.textContent = 'Publish Update';
+      btn.disabled = false;
+
+      // Step 5: reset after 4s
+      clearTimeout(timer);
+      timer = setTimeout(function(){
+        bar.textContent = 'Your announcement will appear here';
+        bar.classList.add('empty');
+        success.textContent = '';
+        dot.classList.add('pulsing');
+      }, 4000);
+    }, 800);
+  });
+})();
+</script>
 
 <!-- ══════════════════════════════════════════
      S2 — INTERACTIVE DASHBOARD
