@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Process | Baldwin & Co.</title>
+  <title>Our Process | Baldwin & Co.</title>
   <meta name="description" content="How Baldwin & Co. transforms your existing brand into a high-end digital presence — four steps, no agency retainer, fully yours at the end." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -69,7 +69,10 @@
     .nav__drawer.open { max-height:340px; }
     .nav__drawer ul { padding:1.6rem 5vw 2rem; display:flex; flex-direction:column; gap:1rem; }
     .nav__drawer a { font-size:.7rem; letter-spacing:.16em; text-transform:uppercase; color:var(--mid); }
-    .lang-toggle { font-size:.58rem; letter-spacing:.14em; text-transform:uppercase; background:none; border:1px solid rgba(255,255,255,.45); color:var(--white); padding:5px 10px; cursor:pointer; transition:background .2s,color .2s; font-family:var(--sans); } .lang-toggle:hover { background:rgba(255,255,255,.15); } .nav.solid .lang-toggle { border-color:var(--dark); color:var(--dark); } .nav.solid .lang-toggle:hover { background:var(--dark); color:var(--white); }
+    .lang-toggle { font-size:.6rem; letter-spacing:.12em; text-transform:uppercase; background:none; border:1px solid rgba(255,255,255,.6); color:var(--white); padding:6px 14px; cursor:pointer; transition:background .2s,color .2s,border-color .2s; font-family:var(--sans); white-space:nowrap; }
+    .lang-toggle:hover { background:rgba(255,255,255,.18); }
+    .nav.solid .lang-toggle { border-color:var(--dark); color:var(--dark); }
+    .nav.solid .lang-toggle:hover { background:var(--dark); color:var(--white); }
     @media(max-width:800px){
       .nav__left,.nav__right-links,.nav__get,.nav__dots { display:none; }
       .nav__burger { display:flex; }
@@ -279,7 +282,9 @@
     }
 
     @media (max-width:768px) {
-      .proc-hero { height:55vh; }
+      .proc-hero { height:auto; min-height:55vh; padding:6rem 5vw 3rem; }
+      .proc-hero__title { font-size:clamp(2rem,7vw,3.5rem); line-height:1.15; }
+      .proc-hero__sub { font-size:clamp(.9rem,2.8vw,1.3rem); margin-top:.8rem; line-height:1.5; font-family:var(--sans); }
       .step { grid-template-columns:1fr; }
       .step__line { display:none; }
       .step__arrow { display:none; }
@@ -288,47 +293,74 @@
       .proc-intro { padding:4rem 5vw 3rem; }
       .proc-band__cols { grid-template-columns:1fr; }
     }
-    @media (max-width:480px) {
-      .proc-hero__title { font-size:clamp(2rem,8vw,3.5rem); }
-      .proc-hero__sub { font-size:clamp(1.8rem,6vw,2.6rem); }
+    @media (max-width:430px) {
+      .proc-hero { min-height:50vh; padding:5.5rem 5vw 2.5rem; }
+      .proc-hero__title { font-size:clamp(1.7rem,6vw,2.2rem); }
+      .proc-hero__sub { font-size:.82rem; line-height:1.6; font-family:var(--sans); }
       .proc-intro__display { font-size:clamp(1.5rem,6vw,2.5rem); }
+      .lang-toggle { font-size:0.5rem; padding:4px 8px; }
     }
-  </style>
+
+    .nav__inner { display:flex; align-items:center; height:62px; padding:0 2.5vw; gap:2rem; }
+    .nav__links { display:flex; gap:2rem; align-items:center; list-style:none; }
+    .nav__links a { font-size:.6rem; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.85); transition:color .2s; }
+    .nav__links a:hover { color:var(--white); }
+    .nav.solid .nav__links a { color:var(--mid); }
+    .nav.solid .nav__links a:hover { color:var(--dark); }
+    .nav__logo img { height:50px; width:auto; display:block; filter:brightness(0) invert(1); transition:filter .4s; }
+    .nav.solid .nav__logo img { filter:none; }
+    .nav__right { display:flex; align-items:center; gap:1rem; margin-left:auto; }
+    .btn-outline { display:inline-block; border:1px solid var(--dark); color:var(--dark); font-size:.58rem; letter-spacing:.16em; text-transform:uppercase; padding:.7rem 1.4rem; transition:background .2s,color .2s; font-family:var(--sans); }
+    .btn-outline:hover { background:var(--dark); color:var(--white); }
+    .nav__summer { font-size:.58rem; letter-spacing:.14em; text-transform:uppercase; color:var(--white); text-decoration:none; border-bottom:1px solid rgba(255,255,255,.4); padding-bottom:1px; transition:border-color .2s; font-family:var(--sans); }
+    .nav__summer:hover { border-color:var(--white); }
+    .nav.solid .nav__summer { color:var(--dark); border-color:rgba(26,26,26,.3); }
+    .nav.solid .nav__summer:hover { border-color:var(--dark); }
+    @media(max-width:800px){ .nav__links, .nav__summer, .btn-primary { display:none; } .nav__burger { display:flex; } }
+
+    .proc-step { padding:4rem 0; border-top:1px solid var(--bone); display:grid; grid-template-columns:120px 1fr; gap:3rem; max-width:900px; margin:0 auto; }
+    .proc-step:last-child { border-bottom:1px solid var(--bone); }
+    .proc-step__num { font-family:var(--serif); font-size:3rem; font-weight:300; color:var(--bone); line-height:1; padding-top:.2rem; }
+    .proc-step__label { font-family:var(--sans); font-size:.52rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); margin-bottom:.6rem; }
+    .proc-step__title { font-family:var(--serif); font-size:1.6rem; font-weight:400; color:var(--dark); margin-bottom:.8rem; line-height:1.2; }
+    .proc-step__desc { font-size:.84rem; color:var(--mid); line-height:1.85; }
+    @media(max-width:700px){ .proc-step { grid-template-columns:1fr; gap:1rem; } }
+</style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav class="nav" id="nav">
-  <div class="nav__bar">
-    <div class="nav__left">
-      <a href="index.html">Home</a>
-      
-      <a href="blueprint.html" data-i18n="nav.included">What's Included</a>
-      <a href="timeline.html" data-i18n="nav.timeline">Timeline</a>
-    </div>
-    <a href="index.html" class="nav__logo"><img src="./baldwin&co.logo.png" alt="Baldwin &amp; Co." id="navLogoImg" /></a>
+  <div class="nav__inner">
+    <a class="nav__logo" href="index.html">
+      <img src="./baldwin&co.logo.png" alt="Baldwin &amp; Co." width="120" id="navLogoImg">
+    </a>
+    <ul class="nav__links">
+      <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+      <li><a href="blueprint.html" data-i18n="nav.services">Blueprint</a></li>
+      <li><a href="process.html" data-i18n="nav.process">Process</a></li>
+      <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
+    </ul>
     <div class="nav__right">
-      <div class="nav__right-links">
-        <a href="process.html" data-i18n="nav.process">Process</a>
-        <a href="faq.html" data-i18n="nav.faq">FAQ</a>
-      </div>
-      <div class="nav__dots" aria-hidden="true"><span></span><span></span><span></span></div>
-      <a href="connect.html" class="nav__get" data-i18n="nav.get_in_touch">Get in Touch</a>
-      <button class="lang-toggle" data-current="en" aria-label="Switch language">ES</button>
-      <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false">
+      <a href="summerspecial.html" class="nav__summer" data-i18n="nav.summer">Summer Special</a>
+      <a href="connect.html" class="btn-primary" data-i18n="nav.contact">Contact</a>
+      <button class="lang-toggle" data-current="en" aria-label="Switch language">
+  <span class="lang-toggle__en">Ver en Español</span>
+  <span class="lang-toggle__es" style="display:none">View in English</span>
+</button>
+      <button class="nav__burger" aria-label="Menu" id="burger">
         <span></span><span></span><span></span>
       </button>
     </div>
   </div>
   <div class="nav__drawer" id="drawer">
     <ul>
-      <li><a href="index.html">Home</a></li>
-      <li></li>
-      <li><a href="blueprint.html" data-i18n="nav.included">What's Included</a></li>
-      <li><a href="timeline.html" data-i18n="nav.timeline">Timeline</a></li>
+      <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+      <li><a href="blueprint.html" data-i18n="nav.services">Blueprint</a></li>
       <li><a href="process.html" data-i18n="nav.process">Process</a></li>
       <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
-      <li><a href="connect.html" style="color:var(--gold)">Get in Touch →</a></li>
+      <li><a href="summerspecial.html" data-i18n="nav.summer">Summer Special</a></li>
+      <li><a href="connect.html" data-i18n="nav.contact">Contact</a></li>
     </ul>
   </div>
 </nav>
@@ -337,152 +369,127 @@
 <section class="proc-hero">
   <div class="proc-hero__bg"></div>
   <div class="proc-hero__content r">
-    <h1 class="proc-hero__title" data-i18n="proc.title">The Process</h1>
-    <p class="proc-hero__sub" data-i18n="proc.sub">Polished. Strategic. Built Around You.</p>
+    <span style="font-family:var(--sans);font-size:.56rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:1rem;" data-i18n="proc.hero_eyebrow">THE BALDWIN &amp; CO. METHOD</span>
+    <h1 class="proc-hero__title" data-i18n="proc.hero_title">From Scattered to Strategic.</h1>
+    <p class="proc-hero__sub" style="font-family:var(--sans);font-size:1rem;color:rgba(255,255,255,.7);margin-top:1rem;font-weight:300;" data-i18n="proc.hero_sub">Every project is different. Every result is built on the same five-step foundation.</p>
     <span class="proc-hero__scroll">Scroll</span>
   </div>
 </section>
 
 <!-- INTRO STATEMENT -->
 <div class="proc-intro r">
-  <span class="proc-intro__label">It's time to show up the way your business deserves</span>
-  <p class="proc-intro__sub">No long intake forms. No months of back-and-forth. We take your existing foundation — your materials, your ideas, your years of hard work — and rebuild it into a high-end digital presence that is fully yours at the end.</p>
+  <p class="proc-intro__sub" data-i18n="proc.intro_sub">Every project is different. Every result is intentional. Here is how we move from your initial inquiry to a launched, polished digital presence — without wasted time, unclear expectations, or agency dependency.</p>
 </div>
 
 <!-- STEPS -->
-<div class="steps">
+<div class="steps" style="padding:6rem 2rem;">
 
-  <!-- Step 01 -->
-  <div class="step r">
-    <div class="step__photo">
-      <img src="./2026 Photos of Kate Baldwin/kate-baldwin-real-estate-branding-key-west-2026-9.png" alt="Kate Baldwin" loading="lazy" style="object-position:center top;" />
-    </div>
-    <div class="step__line"></div>
-    <div class="step__arrow">→</div>
-    <div class="step__content">
-      <h2 class="step__title">1. The AI Voice Onboarding</h2>
-      <p class="step__p">No typing required. We send you a short questionnaire and you answer it by talking — use your phone's voice-to-text with ChatGPT and just speak naturally about your business.</p>
-      <p class="step__p">This single shortcut captures everything we need: your story, your goals, your existing materials, and your vision — all in your own words, in under 20 minutes.</p>
-      <span class="step__included">Included</span>
-      <ul class="step__list">
-        <li>Voice-to-text questionnaire — speak your answers, no writing needed</li>
-        <li>ChatGPT guided prompts — we walk you through exactly what to cover</li>
-        <li>Instant transcript delivery — your words become our brief automatically</li>
-        <li>Zero formal onboarding call required — though we offer one if you prefer</li>
-      </ul>
-      <a href="index.html#contact" class="step__learn">Get Started</a>
+  <div class="proc-step r">
+    <div class="proc-step__num">01</div>
+    <div>
+      <p class="proc-step__label" data-i18n="proc.label_discovery">DISCOVER</p>
+      <h2 class="proc-step__title" data-i18n="proc.step1_title">Discover</h2>
+      <p class="proc-step__desc" data-i18n="proc.step1_body">We start by understanding where your business has been and where it is going. We look at your current brand, messaging, digital presence, and goals — and identify what is working and what is not.</p>
     </div>
   </div>
 
-  <!-- Step 02 -->
-  <div class="step r">
-    <div class="step__photo">
-      <img src="./baldwinandco-notebook.png" alt="Baldwin &amp; Co. notebook" loading="lazy" style="object-position:center;" />
-    </div>
-    <div class="step__line"></div>
-    <div class="step__arrow">→</div>
-    <div class="step__content">
-      <h2 class="step__title">2. The Gaps &amp; Strategy Session</h2>
-      <p class="step__p">You hand over your existing materials — flyers, old logos, bios, social profiles, anything you have. No formal brief needed. We review everything and build a complete picture of where you stand.</p>
-      <p class="step__p">We identify what is working, what is outdated, and what is currently invisible to AI search tools, map engines, and the platforms your customers are already using to find businesses like yours.</p>
-      <span class="step__included">Included</span>
-      <ul class="step__list">
-        <li>Full digital footprint review — every platform assessed</li>
-        <li>AI and geo-search visibility audit — see exactly where you are invisible</li>
-        <li>Existing materials assessment — flyers, logos, bios, social content</li>
-        <li>Clear strategy document — what stays, what goes, what gets built</li>
-      </ul>
-      <a href="index.html#contact" class="step__learn">Get Started</a>
+  <div class="proc-step r">
+    <div class="proc-step__num">02</div>
+    <div>
+      <p class="proc-step__label" data-i18n="proc.label_strategy">CLARIFY</p>
+      <h2 class="proc-step__title" data-i18n="proc.step2_title">Clarify</h2>
+      <p class="proc-step__desc" data-i18n="proc.step2_body">We define your core message, your audience, and your direction. This becomes the strategic foundation that every creative decision is built on. Nothing moves forward until the direction is clear.</p>
     </div>
   </div>
 
-  <!-- Step 03 -->
-  <div class="step r">
-    <div class="step__photo">
-      <img src="./2026 Photos of Kate Baldwin/kate-baldwin-real-estate-branding-key-west-2026-6.png" alt="" loading="lazy" />
-    </div>
-    <div class="step__line"></div>
-    <div class="step__arrow">→</div>
-    <div class="step__content">
-      <h2 class="step__title">3. The Rebuild &amp; Elevate</h2>
-      <p class="step__p">During weeks 2 and 3, we translate the approved strategy into a live, high-end digital ecosystem. We build your bespoke 4-page web framework from scratch — premium typography, seamless layouts, and copywriting designed to command authority. Your business keeps running normally throughout. No disruption, no downtime.</p>
-      <p class="step__p">Your business keeps running normally throughout. We work around your schedule. No downtime, no disruption — just precise, deliberate execution.</p>
-      <span class="step__included">Included</span>
-      <ul class="step__list">
-        <li>Visual identity refresh — logos, colors, typography, layout system</li>
-        <li>Brand messaging rewrite — sharp, scannable, premium copy</li>
-        <li>Web presence build — fast, beautiful, editorial-quality design</li>
-        <li>Geo-AI optimization — structured data, local signals, AI discoverability</li>
-        <li>Feedback checkpoints — you review and approve at every major stage</li>
-      </ul>
-      <a href="index.html#contact" class="step__learn">Get Started</a>
+  <div class="proc-step r">
+    <div class="proc-step__num">03</div>
+    <div>
+      <p class="proc-step__label" data-i18n="proc.label_creative">REFINE</p>
+      <h2 class="proc-step__title" data-i18n="proc.step3_title">Refine</h2>
+      <p class="proc-step__desc" data-i18n="proc.step3_body">We align your content, branding, and digital presence with the strategy. This is where your positioning gets polished and your visual identity gets tightened.</p>
     </div>
   </div>
 
-  <!-- Step 04 -->
-  <div class="step r">
-    <div class="step__photo">
-      <img src="./baldwinandcocomputer.png" alt="Baldwin &amp; Co. computer" loading="lazy" style="object-position:center;" />
-    </div>
-    <div class="step__line"></div>
-    <div class="step__arrow">→</div>
-    <div class="step__content">
-      <h2 class="step__title">4. The Turnkey Launch &amp; Hand-Off</h2>
-      <p class="step__p">We go live together. You receive a fully completed brand system, a working website, and every asset organized and handed directly to you — along with video walkthrough guides so your team can manage everything independently.</p>
-      <p class="step__p">No monthly retainer. No agency dependency. You own everything outright and your team can run it all from day one.</p>
-      <span class="step__included">Included</span>
-      <ul class="step__list">
-        <li>Live launch walkthrough — we go live with you, not for you</li>
-        <li>Video guides for your team — step-by-step, plain English</li>
-        <li>Full asset and credential delivery — every login, every file, organized</li>
-        <li>Post-launch checklist — nothing left incomplete at handoff</li>
-        <li>Zero ongoing retainer — complete ownership from day one</li>
-      </ul>
-      <a href="index.html#contact" class="step__learn">Get Started</a>
-      </div>
+  <div class="proc-step r">
+    <div class="proc-step__num">04</div>
+    <div>
+      <p class="proc-step__label" data-i18n="proc.label_build">BUILD</p>
+      <h2 class="proc-step__title" data-i18n="proc.step4_title">Build</h2>
+      <p class="proc-step__desc" data-i18n="proc.step4_body">We create the tools you need — website, brand assets, messaging, or all of the above. Everything is built to support your goals and reflect where your business actually is today.</p>
     </div>
   </div>
 
+  <div class="proc-step r">
+    <div class="proc-step__num">05</div>
+    <div>
+      <p class="proc-step__label" data-i18n="proc.label_review">REVIEW</p>
+      <h2 class="proc-step__title" data-i18n="proc.step5_title">Review</h2>
+      <p class="proc-step__desc" data-i18n="proc.step5_body">You review the work and provide organized feedback. We keep revisions focused and efficient.</p>
+    </div>
+  </div>
+
+  <div class="proc-step r">
+    <div class="proc-step__num">06</div>
+    <div>
+      <p class="proc-step__label" data-i18n="proc.label_refine">POLISH</p>
+      <h2 class="proc-step__title" data-i18n="proc.step6_title">Polish</h2>
+      <p class="proc-step__desc" data-i18n="proc.step6_body">We apply your feedback, finalize the details, and prepare everything for delivery.</p>
+    </div>
+  </div>
+
+  <div class="proc-step r">
+    <div class="proc-step__num">07</div>
+    <div>
+      <p class="proc-step__label" data-i18n="proc.label_launch">LAUNCH</p>
+      <h2 class="proc-step__title" data-i18n="proc.step7_title">Launch</h2>
+      <p class="proc-step__desc" data-i18n="proc.step7_body">We finalize, transfer, and launch. You walk away owning everything — with a clear brand, a polished digital presence, and the confidence to present your business at its true level.</p>
+    </div>
+  </div>
+
+  <p style="font-family:var(--sans);font-size:.82rem;color:var(--muted);line-height:1.8;text-align:center;padding-top:3rem;max-width:600px;margin:0 auto;font-style:italic;" data-i18n="proc.timeline_note">Most projects are completed within two to six weeks, depending on scope, selected services, and content readiness.</p>
 </div>
 
 <!-- DARK BAND -->
 <div class="proc-band r">
-  <p class="proc-band__label">What You Walk Away With</p>
-  <h2 class="proc-band__title">Everything built. Everything yours. Nothing left behind.</h2>
+  <p class="proc-band__label" data-i18n="proc.band_label">What You Walk Away With</p>
+  <h2 class="proc-band__title" data-i18n="proc.band_title">Everything built. Everything yours. Nothing left behind.</h2>
   <div class="proc-band__cols">
     <div class="proc-band__item">
-      <strong>A Refreshed Visual Brand</strong>
-      <span>Logo, colors, typography, and layout system — cohesive and premium.</span>
+      <strong data-i18n="proc.band_i1_title">A Refreshed Visual Brand</strong>
+      <span data-i18n="proc.band_i1_body">Logo, colors, typography, and layout system — cohesive and premium.</span>
     </div>
     <div class="proc-band__item">
-      <strong>A High-End Web Presence</strong>
-      <span>Fast, editorial-quality design built around your existing tools and workflow.</span>
+      <strong data-i18n="proc.band_i2_title">A High-End Web Presence</strong>
+      <span data-i18n="proc.band_i2_body">Fast, editorial-quality design built around your existing tools and workflow.</span>
     </div>
     <div class="proc-band__item">
-      <strong>AI Search Visibility</strong>
-      <span>Optimized so map engines, AI tools, and conversational search recommend you first.</span>
+      <strong data-i18n="proc.band_i3_title">AI Search Visibility</strong>
+      <span data-i18n="proc.band_i3_body">Optimized so map engines, AI tools, and conversational search recommend you first.</span>
     </div>
     <div class="proc-band__item">
-      <strong>Full Ownership &amp; Control</strong>
-      <span>Every asset, login, and platform credential — organized and transferred to you.</span>
+      <strong data-i18n="proc.band_i4_title">Full Ownership &amp; Control</strong>
+      <span data-i18n="proc.band_i4_body">Every asset, login, and platform credential — organized and transferred to you.</span>
     </div>
     <div class="proc-band__item">
-      <strong>Video Guides for Your Team</strong>
-      <span>Plain-English walkthroughs so anyone on your team can manage the system.</span>
+      <strong data-i18n="proc.band_i5_title">Video Guides for Your Team</strong>
+      <span data-i18n="proc.band_i5_body">Plain-English walkthroughs so anyone on your team can manage the system.</span>
     </div>
     <div class="proc-band__item">
-      <strong>Zero Agency Dependency</strong>
-      <span>No retainer, no monthly fees, no one holding your brand hostage.</span>
+      <strong data-i18n="proc.band_i6_title">Zero Agency Dependency</strong>
+      <span data-i18n="proc.band_i6_body">No retainer, no monthly fees, no one holding your brand hostage.</span>
     </div>
   </div>
 </div>
 
 <!-- CTA -->
-<div class="proc-cta r">
-  <h2 class="proc-cta__title">Ready to start?</h2>
-  <p class="proc-cta__sub">Every engagement begins with a short inquiry. We review fit and scope before anything begins — no pressure, no commitment.</p>
-  <a href="connect.html" class="btn-primary" data-i18n="proc.cta_btn">Apply for a Website Reset</a>
-</div>
+<section class="proc-cta r">
+  <div style="max-width:600px;margin:0 auto;text-align:center;padding:6rem 2rem;">
+    <h2 style="font-family:var(--serif);font-size:2rem;font-weight:300;color:var(--dark);margin-bottom:1rem;" data-i18n="proc.cta_heading">Ready to get clear?</h2>
+    <p style="font-size:.9rem;color:var(--mid);line-height:1.8;margin-bottom:2rem;" data-i18n="proc.cta_sub">Every engagement starts with a clarity conversation. Tell us about your business and where you are trying to go.</p>
+    <a href="connect.html" class="btn-primary" data-i18n="proc.cta_btn">Book a Clarity Session</a>
+  </div>
+</section>
 
 <footer class="footer">
   <div class="footer__container">
@@ -490,11 +497,12 @@
       <div>
         <p class="footer__col-head" data-i18n="footer.navigate">Navigate</p>
         <nav class="fnav">
-          <a href="index.html">Home</a>
-          <a href="blueprint.html" data-i18n="nav.included">What's Included</a>
-          <a href="timeline.html" data-i18n="nav.timeline">Timeline</a>
+          <a href="index.html" data-i18n="nav.home">Home</a>
+          <a href="blueprint.html" data-i18n="nav.services">Blueprint</a>
           <a href="process.html" data-i18n="nav.process">Process</a>
           <a href="faq.html" data-i18n="nav.faq">FAQ</a>
+          <a href="summerspecial.html" data-i18n="nav.summer">Summer Special</a>
+          <a href="connect.html" data-i18n="nav.contact">Contact</a>
         </nav>
       </div>
       <div class="footer__brand">
@@ -505,15 +513,15 @@
         </nav>
       </div>
       <div class="footer__connect">
-        <a href="connect.html"><span class="footer__connect-lbl">Connect</span></a>
+        <a href="connect.html"><span class="footer__connect-lbl" data-i18n="footer.apply_lbl">Apply</span></a>
         <a href="connect.html"><h2 class="footer__connect-h" data-i18n="footer.send">Send an inquiry.</h2></a>
-        <a href="connect.html" class="btn--gold" data-i18n="footer.apply_btn">Apply for a Website Reset</a>
+        <a href="connect.html" class="btn--gold" data-i18n="footer.apply_btn">Start Your Project</a>
       </div>
     </div>
     <div class="footer__bar">
-      <p class="footer__copy">&copy;2026 Baldwin &amp; Co. All Rights Reserved.</p>
-      <nav class="footer__legal"><a href="#">Privacy Policy</a><a href="#">Terms</a></nav>
-      <span class="footer__top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to Top ↑</span>
+      <p class="footer__copy" data-i18n="footer.copyright">&copy;2026 Baldwin &amp; Co. All Rights Reserved.</p>
+      <nav class="footer__legal"><a href="#" data-i18n="footer.privacy">Privacy Policy</a><a href="#" data-i18n="footer.terms">Terms</a></nav>
+      <span class="footer__top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" data-i18n="footer.top">Back to Top ↑</span>
     </div>
   </div>
 </footer>

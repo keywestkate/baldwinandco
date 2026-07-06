@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The 30-Day Launch Blueprint | Baldwin & Co.</title>
-  <meta name="description" content="Scattered to streamlined in under a month. Here is the exact breakdown of how we take your brand from a scattered digital footprint to a polished, live, AI-optimized online presence in less than 30 days." />
+  <title>Branding & Website Design Services | Baldwin & Co.</title>
+  <meta name="description" content="Strategic branding, custom website design, brand identity, messaging, and digital visibility services for established businesses." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -69,7 +69,10 @@
     .nav__drawer.open { max-height:340px; }
     .nav__drawer ul { padding:1.6rem 5vw 2rem; display:flex; flex-direction:column; gap:1rem; }
     .nav__drawer a { font-size:.7rem; letter-spacing:.16em; text-transform:uppercase; color:var(--mid); }
-    .lang-toggle { font-size:.58rem; letter-spacing:.14em; text-transform:uppercase; background:none; border:1px solid rgba(255,255,255,.45); color:var(--white); padding:5px 10px; cursor:pointer; transition:background .2s,color .2s; font-family:var(--sans); } .lang-toggle:hover { background:rgba(255,255,255,.15); } .nav.solid .lang-toggle { border-color:var(--dark); color:var(--dark); } .nav.solid .lang-toggle:hover { background:var(--dark); color:var(--white); }
+    .lang-toggle { font-size:.6rem; letter-spacing:.12em; text-transform:uppercase; background:none; border:1px solid rgba(255,255,255,.6); color:var(--white); padding:6px 14px; cursor:pointer; transition:background .2s,color .2s,border-color .2s; font-family:var(--sans); white-space:nowrap; }
+    .lang-toggle:hover { background:rgba(255,255,255,.18); }
+    .nav.solid .lang-toggle { border-color:var(--dark); color:var(--dark); }
+    .nav.solid .lang-toggle:hover { background:var(--dark); color:var(--white); }
     @media(max-width:800px){
       .nav__left,.nav__right-links,.nav__get,.nav__dots { display:none; }
       .nav__burger { display:flex; }
@@ -195,58 +198,79 @@
       .footer__connect-h { font-size:clamp(1.6rem,5vw,2.5rem); }
       .btn--gold { display:block; text-align:center; padding:16px 20px; }
     }
-    @media (max-width:480px) {
+    @media (max-width:600px) {
       .nav__bar { padding:0 4vw; }
       .footer { padding:4rem 0 0; }
       .footer__cols { gap:2rem; }
     }
 
     @media (max-width:768px) {
-      .bp-hero { height:60vh; min-height:420px; }
+      .bp-hero { height:auto; min-height:55vh; padding:6rem 5vw 3rem; }
+      .bp-hero__title { font-size:clamp(2rem,7vw,3.5rem); line-height:1.15; }
+      .bp-hero__sub { font-size:clamp(.9rem,2.8vw,1.3rem); margin-top:.8rem; line-height:1.5; font-family:var(--sans); }
       .bp-phase { grid-template-columns:1fr; gap:1rem; }
       .bp-phase__num { font-size:3.5rem; }
       .bp-phases { padding:3rem 5vw; }
     }
-    @media (max-width:480px) {
-      .bp-hero__title { font-size:clamp(2.5rem,10vw,4rem); }
-      .bp-hero__sub { font-size:clamp(2rem,7vw,2.8rem); }
+    @media (max-width:430px) {
+      .bp-hero { min-height:50vh; padding:5.5rem 5vw 2.5rem; }
+      .bp-hero__title { font-size:clamp(1.6rem,6vw,2.2rem); }
+      .bp-hero__sub { font-size:.82rem; line-height:1.6; font-family:var(--sans); }
+      .lang-toggle { font-size:0.5rem; padding:4px 8px; }
     }
+
+    .nav__inner { display:flex; align-items:center; height:62px; padding:0 2.5vw; gap:2rem; }
+    .nav__links { display:flex; gap:2rem; align-items:center; list-style:none; }
+    .nav__links a { font-size:.6rem; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.85); transition:color .2s; }
+    .nav__links a:hover { color:var(--white); }
+    .nav.solid .nav__links a { color:var(--mid); }
+    .nav.solid .nav__links a:hover { color:var(--dark); }
+    .nav__logo img { height:50px; width:auto; display:block; filter:brightness(0) invert(1); transition:filter .4s; }
+    .nav.solid .nav__logo img { filter:none; }
+    .nav__right { display:flex; align-items:center; gap:1rem; margin-left:auto; }
+    .btn-outline { display:inline-block; border:1px solid var(--dark); color:var(--dark); font-size:.58rem; letter-spacing:.16em; text-transform:uppercase; padding:.7rem 1.4rem; transition:background .2s,color .2s; font-family:var(--sans); }
+    .btn-outline:hover { background:var(--dark); color:var(--white); }
+    .nav__summer { font-size:.58rem; letter-spacing:.14em; text-transform:uppercase; color:var(--white); text-decoration:none; border-bottom:1px solid rgba(255,255,255,.4); padding-bottom:1px; transition:border-color .2s; font-family:var(--sans); }
+    .nav__summer:hover { border-color:var(--white); }
+    .nav.solid .nav__summer { color:var(--dark); border-color:rgba(26,26,26,.3); }
+    .nav.solid .nav__summer:hover { border-color:var(--dark); }
+    @media(max-width:800px){ .nav__links, .nav__summer, .btn-primary { display:none; } .nav__burger { display:flex; } }
   </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav class="nav" id="nav">
-  <div class="nav__bar">
-    <div class="nav__left">
-      <a href="index.html">Home</a>
-      
-      <a href="blueprint.html" data-i18n="nav.included">What's Included</a>
-      <a href="timeline.html" data-i18n="nav.timeline">Timeline</a>
-    </div>
-    <a href="index.html" class="nav__logo"><img src="./baldwin&co.logo.png" alt="Baldwin &amp; Co." id="navLogoImg" /></a>
+  <div class="nav__inner">
+    <a class="nav__logo" href="index.html">
+      <img src="./baldwin&co.logo.png" alt="Baldwin &amp; Co." width="120" id="navLogoImg">
+    </a>
+    <ul class="nav__links">
+      <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+      <li><a href="blueprint.html" data-i18n="nav.services">Blueprint</a></li>
+      <li><a href="process.html" data-i18n="nav.process">Process</a></li>
+      <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
+    </ul>
     <div class="nav__right">
-      <div class="nav__right-links">
-        <a href="process.html" data-i18n="nav.process">Process</a>
-        <a href="faq.html" data-i18n="nav.faq">FAQ</a>
-      </div>
-      <div class="nav__dots" aria-hidden="true"><span></span><span></span><span></span></div>
-      <a href="connect.html" class="nav__get" data-i18n="nav.get_in_touch">Get in Touch</a>
-      <button class="lang-toggle" data-current="en" aria-label="Switch language">ES</button>
-      <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false">
+      <a href="summerspecial.html" class="nav__summer" data-i18n="nav.summer">Summer Special</a>
+      <a href="connect.html" class="btn-primary" data-i18n="nav.contact">Contact</a>
+      <button class="lang-toggle" data-current="en" aria-label="Switch language">
+  <span class="lang-toggle__en">Ver en Español</span>
+  <span class="lang-toggle__es" style="display:none">View in English</span>
+</button>
+      <button class="nav__burger" aria-label="Menu" id="burger">
         <span></span><span></span><span></span>
       </button>
     </div>
   </div>
   <div class="nav__drawer" id="drawer">
     <ul>
-      <li><a href="index.html">Home</a></li>
-      <li></li>
-      <li><a href="blueprint.html" data-i18n="nav.included">What's Included</a></li>
-      <li><a href="timeline.html" data-i18n="nav.timeline">Timeline</a></li>
+      <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+      <li><a href="blueprint.html" data-i18n="nav.services">Blueprint</a></li>
       <li><a href="process.html" data-i18n="nav.process">Process</a></li>
       <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
-      <li><a href="connect.html" style="color:var(--gold)">Get in Touch →</a></li>
+      <li><a href="summerspecial.html" data-i18n="nav.summer">Summer Special</a></li>
+      <li><a href="connect.html" data-i18n="nav.contact">Contact</a></li>
     </ul>
   </div>
 </nav>
@@ -255,104 +279,191 @@
 <section class="bp-hero">
   <div class="bp-hero__bg"></div>
   <div class="bp-hero__content r">
-    <span class="bp-hero__eyebrow" data-i18n="bp.eyebrow">30-Day</span>
-    <h1 class="bp-hero__title" data-i18n="bp.title">Launch Blueprint</h1>
-    <p class="bp-hero__sub" data-i18n="bp.sub">Scattered to Streamlined in Under a Month</p>
+    <span class="bp-hero__eyebrow" data-i18n="bp.hero_eyebrow">SERVICES</span>
+    <h1 class="bp-hero__title" data-i18n="bp.hero_title">Clarity Before Design.</h1>
+    <p class="bp-hero__sub" data-i18n="bp.hero_sub">Every engagement starts with understanding your business, your audience, and your goals. What gets built depends on what you actually need.</p>
   </div>
 </section>
 
 <!-- INTRO -->
 <div class="bp-intro r">
-  <span class="bp-intro__label" data-i18n="bp.intro_label">The Scope of Deliverables</span>
-  <h2 class="bp-intro__display" data-i18n="bp.intro_display">What walks out the door with you at Day 30.</h2>
+  <span class="bp-intro__label" data-i18n="bp.intro_label2">ABOUT OUR SERVICES</span>
+  <h2 class="bp-intro__display" data-i18n="bp.intro_display2">Strategy Before Decoration.</h2>
+  <p class="bp-intro__body" data-i18n="bp.intro_body">Most business owners come to us with years of expertise and a digital presence that does not reflect it. We close that gap. The services below represent starting investments — final scope and pricing are always confirmed before any work begins.</p>
 </div>
 
 <!-- PHASES -->
 <div class="bp-phases">
 
-  <!-- Deliverable 01 -->
   <div class="bp-phase r">
     <div class="bp-phase__left">
       <span class="bp-phase__num">01</span>
-      <span class="bp-phase__tag">Deliverable</span>
-      <span class="bp-phase__days">Brand Identity</span>
+      <span class="bp-phase__tag" data-i18n="bp.s0_tag">BRAND CLARITY SESSION</span>
+      <span class="bp-phase__days" data-i18n="bp.s0_price">Starting at $350</span>
     </div>
     <div class="bp-phase__right">
-      <h2 class="bp-phase__title">Brand Identity Polish</h2>
+      <h2 class="bp-phase__title" data-i18n="bp.s0_tag">Brand Clarity Session</h2>
       <div class="bp-phase__block">
-        <p class="bp-phase__block-text">Refined typography stack and custom color palette.</p>
+        <p class="bp-phase__block-label" data-i18n="bp.label_about">ABOUT</p>
+        <p class="bp-phase__block-text" data-i18n="bp.s0_desc">A focused strategy session designed to help business owners define their message, clarify their services, identify their audience, and map their next steps. This is the first step before any design or website project begins.</p>
       </div>
       <div class="bp-phase__block">
-        <p class="bp-phase__block-text">High-end asset styling guide for editorial consistency.</p>
+        <p class="bp-phase__block-label" data-i18n="bp.label_deliverables">DELIVERABLES</p>
+        <p class="bp-phase__block-text" data-i18n="bp.s0_deliverables">Brand positioning · Core message development · Audience definition · Service clarity · Direction roadmap · Next step recommendations</p>
       </div>
-      <div class="bp-phase__block">
-        <p class="bp-phase__block-text">Clean, modern vector logo variations optimized for web, mobile, and social profiles.</p>
-      </div>
-      <div class="bp-phase__block">
-        <p class="bp-phase__block-text">Brand voice copywriting — homepage hero, bio, and services copy written in your tone.</p>
-      </div>
+      <a href="connect.html" class="btn-outline" style="margin-top:1.5rem;display:inline-block;" data-i18n="bp.s0_cta">Book a Clarity Session</a>
     </div>
   </div>
 
-  <!-- Deliverable 02 -->
   <div class="bp-phase r">
     <div class="bp-phase__left">
       <span class="bp-phase__num">02</span>
-      <span class="bp-phase__tag">Deliverable</span>
-      <span class="bp-phase__days">Web Framework</span>
+      <span class="bp-phase__tag" data-i18n="bp.s1_tag">BRAND STRATEGY &amp; IDENTITY</span>
+      <span class="bp-phase__days" data-i18n="bp.s1_price">Starting at $450</span>
     </div>
     <div class="bp-phase__right">
-      <h2 class="bp-phase__title">Custom 4-Page Website Framework</h2>
+      <h2 class="bp-phase__title" data-i18n="bp.s1_tag">Brand Strategy Intensive</h2>
       <div class="bp-phase__block">
-        <p class="bp-phase__block-text">Fully bespoke Home Page designed to convert high-value traffic immediately.</p>
+        <p class="bp-phase__block-label" data-i18n="bp.label_about">ABOUT</p>
+        <p class="bp-phase__block-text" data-i18n="bp.s1_desc">A focused strategy session for businesses that need clarity before investing in design.</p>
       </div>
       <div class="bp-phase__block">
-        <p class="bp-phase__block-text">Dedicated Services/Capabilities Page mapping out your core high-ticket offers.</p>
+        <p class="bp-phase__block-label" data-i18n="bp.label_deliverables">DELIVERABLES</p>
+        <p class="bp-phase__block-text" data-i18n="bp.s1_deliverables">Brand positioning · Audience definition · Brand voice direction · Visual direction · Competitive differentiation · Actionable brand roadmap</p>
       </div>
-      <div class="bp-phase__block">
-        <p class="bp-phase__block-text">About/Authority Page positioning your unique story and methodology.</p>
-      </div>
-      <div class="bp-phase__block">
-        <p class="bp-phase__block-text">Contact/Apply Page with a qualified inquiry form — no generic contact boxes.</p>
-      </div>
-      <div class="bp-phase__block">
-        <p class="bp-phase__block-text">Fluid, responsive development built for flawless mobile and desktop performance.</p>
-      </div>
+      <a href="connect.html" class="btn-outline" style="margin-top:1.5rem;display:inline-block;" data-i18n="bp.s1_cta">Start With Strategy</a>
     </div>
   </div>
 
-  <!-- Deliverable 03 — dark -->
-  <div class="bp-phase bp-phase--dark r">
+  <div class="bp-phase r">
     <div class="bp-phase__left">
       <span class="bp-phase__num">03</span>
-      <span class="bp-phase__tag">Deliverable</span>
-      <span class="bp-phase__days">Geo-AI Tech</span>
+      <span class="bp-phase__tag" data-i18n="bp.s2_tag">BRAND REFRESH</span>
+      <span class="bp-phase__days" data-i18n="bp.s2_price">Starting at $1,250</span>
     </div>
     <div class="bp-phase__right">
-      <h2 class="bp-phase__title">Geo-AI Technical Infrastructure &amp; Launch</h2>
+      <h2 class="bp-phase__title" data-i18n="bp.s2_tag">The Brand Refresh</h2>
       <div class="bp-phase__block">
-        <p class="bp-phase__block-text">Complete backend SEO setup structured for modern LLMs, AI search engines, and geo-based discovery.</p>
+        <p class="bp-phase__block-label" data-i18n="bp.label_about">ABOUT</p>
+        <p class="bp-phase__block-text" data-i18n="bp.s2_desc">For established businesses that have outgrown their current look but do not need to start from scratch.</p>
       </div>
       <div class="bp-phase__block">
-        <p class="bp-phase__block-text">Schema markup, structured data, and local business signals so AI tools cite your business correctly.</p>
+        <p class="bp-phase__block-label" data-i18n="bp.label_deliverables">DELIVERABLES</p>
+        <p class="bp-phase__block-text" data-i18n="bp.s2_deliverables">Existing logo refinement · Updated color palette · Typography system · Brand messaging refinement · Social and digital visual direction · Mini brand guide</p>
+      </div>
+      <a href="connect.html" class="btn-outline" style="margin-top:1.5rem;display:inline-block;" data-i18n="bp.s2_cta">Refresh My Brand</a>
+    </div>
+  </div>
+
+  <div class="bp-phase r">
+    <div class="bp-phase__left">
+      <span class="bp-phase__num">04</span>
+      <span class="bp-phase__tag" data-i18n="bp.s3_tag">COMPLETE BRAND IDENTITY</span>
+      <span class="bp-phase__days" data-i18n="bp.s3_price">Starting at $2,500</span>
+    </div>
+    <div class="bp-phase__right">
+      <h2 class="bp-phase__title" data-i18n="bp.s3_tag">Complete Brand Identity</h2>
+      <div class="bp-phase__block">
+        <p class="bp-phase__block-label" data-i18n="bp.label_about">ABOUT</p>
+        <p class="bp-phase__block-text" data-i18n="bp.s3_desc">A complete visual and verbal identity built around the business, the audience, and the goals.</p>
       </div>
       <div class="bp-phase__block">
-        <p class="bp-phase__block-text">Secure hosting setup, custom domain mapping, SSL integration, and go-live coordination.</p>
+        <p class="bp-phase__block-label" data-i18n="bp.label_deliverables">DELIVERABLES</p>
+        <p class="bp-phase__block-text" data-i18n="bp.s3_deliverables">Brand strategy · Logo direction · Primary and secondary logo variations · Color palette · Typography system · Brand voice · Core messaging · Supporting brand elements · Brand guidelines</p>
+      </div>
+      <a href="connect.html" class="btn-outline" style="margin-top:1.5rem;display:inline-block;" data-i18n="bp.s3_cta">Build My Brand</a>
+    </div>
+  </div>
+
+  <div class="bp-phase r">
+    <div class="bp-phase__left">
+      <span class="bp-phase__num">05</span>
+      <span class="bp-phase__tag" data-i18n="bp.s4_tag">WEBSITE STRATEGY &amp; DESIGN</span>
+      <span class="bp-phase__days" data-i18n="bp.s4_price">Starting at $2,500</span>
+    </div>
+    <div class="bp-phase__right">
+      <h2 class="bp-phase__title" data-i18n="bp.s4_tag">Website Strategy &amp; Design</h2>
+      <div class="bp-phase__block">
+        <p class="bp-phase__block-label" data-i18n="bp.label_about">ABOUT</p>
+        <p class="bp-phase__block-text" data-i18n="bp.s4_desc">A custom website built around the business brand, audience, services, and goals.</p>
       </div>
       <div class="bp-phase__block">
-        <p class="bp-phase__block-text">30-day post-launch support window — questions, tweaks, and adjustments included.</p>
+        <p class="bp-phase__block-label" data-i18n="bp.label_deliverables">DELIVERABLES</p>
+        <p class="bp-phase__block-text" data-i18n="bp.s4_deliverables">Custom page strategy · Responsive website design · Mobile optimization · Website copy direction · Foundational SEO · AI-search-ready structure · Contact form integration · Domain and launch support · Basic website training</p>
       </div>
+      <a href="connect.html" class="btn-outline" style="margin-top:1.5rem;display:inline-block;" data-i18n="bp.s4_cta">Build My Website</a>
+    </div>
+  </div>
+
+  <div class="bp-phase bp-phase--dark r">
+    <div class="bp-phase__left">
+      <span class="bp-phase__num">06</span>
+      <span class="bp-phase__tag" data-i18n="bp.s5_tag">COMPLETE BRAND TRANSFORMATION</span>
+      <span class="bp-phase__days" data-i18n="bp.s5_price">Starting at $4,500</span>
+    </div>
+    <div class="bp-phase__right">
+      <h2 class="bp-phase__title" data-i18n="bp.s5_tag">Complete Brand Transformation</h2>
+      <div class="bp-phase__block">
+        <p class="bp-phase__block-label" data-i18n="bp.label_about">ABOUT</p>
+        <p class="bp-phase__block-text" data-i18n="bp.s5_desc">The complete Baldwin &amp; Co. experience, combining strategy, identity, messaging, custom website design, and launch support.</p>
+      </div>
+      <div class="bp-phase__block">
+        <p class="bp-phase__block-label" data-i18n="bp.label_deliverables">DELIVERABLES</p>
+        <p class="bp-phase__block-text" data-i18n="bp.s5_deliverables">Brand strategy · Complete visual identity · Brand messaging · Website copy development · Custom website design · Mobile optimization · SEO foundations · AI visibility structure · Technical setup · Launch support</p>
+      </div>
+      <a href="connect.html" style="margin-top:1.5rem;display:inline-block;border:1px solid rgba(255,255,255,.4);color:var(--white);font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;padding:.7rem 1.4rem;font-family:var(--sans);transition:background .2s;" data-i18n="bp.s5_cta">Transform My Brand</a>
+    </div>
+  </div>
+
+  <div class="bp-phase r">
+    <div class="bp-phase__left">
+      <span class="bp-phase__num">07</span>
+      <span class="bp-phase__tag" data-i18n="bp.s6_tag">DIGITAL PRESENCE CLEANUP</span>
+      <span class="bp-phase__days" data-i18n="bp.s6_price">Starting at $750</span>
+    </div>
+    <div class="bp-phase__right">
+      <h2 class="bp-phase__title" data-i18n="bp.s6_tag">Digital Presence Cleanup</h2>
+      <div class="bp-phase__block">
+        <p class="bp-phase__block-label" data-i18n="bp.label_about">ABOUT</p>
+        <p class="bp-phase__block-text" data-i18n="bp.s6_desc">Strategic communication and digital visibility support for businesses that need stronger messaging.</p>
+      </div>
+      <div class="bp-phase__block">
+        <p class="bp-phase__block-label" data-i18n="bp.label_deliverables">DELIVERABLES</p>
+        <p class="bp-phase__block-text" data-i18n="bp.s6_deliverables">Website copy · Professional business bios · Service descriptions · Social media messaging · Directory consistency · Foundational SEO · AI search optimization · Google Business profile recommendations</p>
+      </div>
+      <a href="connect.html" class="btn-outline" style="margin-top:1.5rem;display:inline-block;" data-i18n="bp.s6_cta">Strengthen My Message</a>
+    </div>
+  </div>
+
+  <div class="bp-phase r">
+    <div class="bp-phase__left">
+      <span class="bp-phase__num">08</span>
+      <span class="bp-phase__tag" data-i18n="bp.s7_tag">SUMMER DIGITAL RESET</span>
+      <span class="bp-phase__days" data-i18n="bp.s7_price">$999 Flat</span>
+    </div>
+    <div class="bp-phase__right">
+      <h2 class="bp-phase__title" data-i18n="bp.s7_tag">Summer Digital Reset</h2>
+      <div class="bp-phase__block">
+        <p class="bp-phase__block-label" data-i18n="bp.label_about">ABOUT</p>
+        <p class="bp-phase__block-text" data-i18n="bp.s7_desc">A focused $999 package that includes a custom four-page website, foundational brand polish, and AI-ready technical setup. Designed for business owners who need a clean, professional online presence without committing to a full brand transformation. Investment is $999 flat, split 50/50.</p>
+      </div>
+      <div class="bp-phase__block">
+        <p class="bp-phase__block-label" data-i18n="bp.label_deliverables">DELIVERABLES</p>
+        <p class="bp-phase__block-text" data-i18n="bp.s7_deliverables">Custom four-page website · Mobile-responsive design · Foundational brand polish · Website copy organization · Foundational SEO · AI-search-ready structure · Contact form integration · Domain and launch assistance · 30 days post-launch support</p>
+      </div>
+      <a href="connect.html" class="btn-outline" style="margin-top:1.5rem;display:inline-block;" data-i18n="bp.s7_cta">Book the Summer Digital Reset</a>
     </div>
   </div>
 
 </div>
 
 <!-- CTA -->
-<div class="bp-cta r">
-  <h2 class="bp-cta__title" data-i18n="bp.cta_title">Ready to start your 30-day clock?</h2>
-  <p class="bp-cta__sub">Every engagement begins with a short inquiry. We review fit before anything begins.</p>
-  <a href="connect.html" class="btn-primary">Apply for a Website Reset</a>
-</div>
+<section class="bp-outro r">
+  <div style="max-width:600px;margin:0 auto;text-align:center;padding:6rem 2rem;">
+    <h2 style="font-family:var(--serif);font-size:2rem;font-weight:300;color:var(--dark);margin-bottom:1.5rem;" data-i18n="bp.outro_heading">Not sure where to start?</h2>
+    <a href="connect.html" class="btn-primary" data-i18n="bp.outro_btn">Book a Clarity Session</a>
+  </div>
+</section>
 
 <footer class="footer">
   <div class="footer__container">
@@ -360,11 +471,12 @@
       <div>
         <p class="footer__col-head" data-i18n="footer.navigate">Navigate</p>
         <nav class="fnav">
-          <a href="index.html">Home</a>
-          <a href="blueprint.html" data-i18n="nav.included">What's Included</a>
-          <a href="timeline.html" data-i18n="nav.timeline">Timeline</a>
+          <a href="index.html" data-i18n="nav.home">Home</a>
+          <a href="blueprint.html" data-i18n="nav.services">Blueprint</a>
           <a href="process.html" data-i18n="nav.process">Process</a>
           <a href="faq.html" data-i18n="nav.faq">FAQ</a>
+          <a href="summerspecial.html" data-i18n="nav.summer">Summer Special</a>
+          <a href="connect.html" data-i18n="nav.contact">Contact</a>
         </nav>
       </div>
       <div class="footer__brand">
@@ -375,15 +487,15 @@
         </nav>
       </div>
       <div class="footer__connect">
-        <a href="connect.html"><span class="footer__connect-lbl">Connect</span></a>
+        <a href="connect.html"><span class="footer__connect-lbl" data-i18n="footer.apply_lbl">Apply</span></a>
         <a href="connect.html"><h2 class="footer__connect-h" data-i18n="footer.send">Send an inquiry.</h2></a>
-        <a href="connect.html" class="btn--gold" data-i18n="footer.apply_btn">Apply for a Website Reset</a>
+        <a href="connect.html" class="btn--gold" data-i18n="footer.apply_btn">Start Your Project</a>
       </div>
     </div>
     <div class="footer__bar">
-      <p class="footer__copy">&copy;2026 Baldwin &amp; Co. All Rights Reserved.</p>
-      <nav class="footer__legal"><a href="#">Privacy Policy</a><a href="#">Terms</a></nav>
-      <span class="footer__top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to Top ↑</span>
+      <p class="footer__copy" data-i18n="footer.copyright">&copy;2026 Baldwin &amp; Co. All Rights Reserved.</p>
+      <nav class="footer__legal"><a href="#" data-i18n="footer.privacy">Privacy Policy</a><a href="#" data-i18n="footer.terms">Terms</a></nav>
+      <span class="footer__top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" data-i18n="footer.top">Back to Top ↑</span>
     </div>
   </div>
 </footer>
