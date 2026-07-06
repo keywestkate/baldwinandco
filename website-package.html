@@ -1004,16 +1004,11 @@
         <!-- Try me callout — floats above top-right of stack -->
         <div class="hwp-try-me" aria-hidden="true">
           <span class="hwp-try-text">Try me!</span>
-          <svg class="hwp-try-arrow" viewBox="0 0 80 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Sweeping curved arrow going down-left toward the button -->
-            <path d="M65 8 C68 35, 40 55, 18 78" stroke="#4A9EE8" stroke-width="3" stroke-linecap="round" fill="none"/>
-            <!-- Arrowhead -->
-            <path d="M10 72 L18 78 L22 68" stroke="#4A9EE8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-            <!-- Little sparkle marks near the text -->
-            <line x1="5" y1="12" x2="5" y2="20" stroke="#4A9EE8" stroke-width="2" stroke-linecap="round" opacity=".6"/>
-            <line x1="1" y1="16" x2="9" y2="16" stroke="#4A9EE8" stroke-width="2" stroke-linecap="round" opacity=".6"/>
-            <line x1="55" y1="2" x2="55" y2="8" stroke="#4A9EE8" stroke-width="2" stroke-linecap="round" opacity=".5"/>
-            <line x1="52" y1="5" x2="58" y2="5" stroke="#4A9EE8" stroke-width="2" stroke-linecap="round" opacity=".5"/>
+          <svg class="hwp-try-arrow" viewBox="0 0 50 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Shaft: curves from top-right down to bottom-left -->
+            <path d="M38 5 C42 30, 22 55, 14 80" stroke="#4A9EE8" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+            <!-- Arrowhead: solid filled triangle pointing down-left -->
+            <polygon points="14,80 4,68 24,70" fill="#4A9EE8"/>
           </svg>
         </div>
 
@@ -1025,7 +1020,7 @@
           class="hwp-dash__input"
           id="hwpInput"
           type="text"
-          value="Happy Hour Today from 4–6 PM"
+          value="Now Open Sundays — Come See Us!"
           aria-label="Announcement text"
         />
         <button class="hwp-dash__btn" id="hwpPublishBtn">Publish Update</button>
