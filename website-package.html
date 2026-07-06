@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Custom Website Design &amp; Private Dashboard | Baldwin &amp; Co.</title>
+  <meta name="description" content="Get a professionally designed custom website with your own private dashboard, login, and control over everyday website content." />
+  <meta property="og:title" content="Your Website. Your Login. Your Control." />
+  <meta property="og:description" content="Custom website design with a private dashboard you and your team can manage from your phone, tablet, or computer." />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://keywestkate.com/website-package" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Baldwin & Co.","description":"Custom website design with a private dashboard you and your team can manage from your phone, tablet, or computer.","url":"https://keywestkate.com/website-package","serviceType":["Custom Website Design","Private Dashboard","Website Content Management"],"areaServed":"Worldwide"}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── TOKENS ─── */
+    :root {
+      --cream:   #fbf9f6;
+      --linen:   #f2ede6;
+      --bone:    #e5dfd6;
+      --taupe:   #bdb7ae;
+      --dark:    #1a1a1a;
+      --mid:     #4a4948;
+      --muted:   #8a8784;
+      --gold:    #b89a6a;
+      --white:   #ffffff;
+      --serif:   'Cormorant Garamond', Georgia, serif;
+      --sans:    'Inter', system-ui, sans-serif;
+      --ease:    cubic-bezier(.16,1,.3,1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--cream);
+      color: var(--dark);
+      font-family: var(--sans);
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* ─── REVEAL ─── */
+    .r { opacity:0; transform:translateY(20px); transition:opacity .8s var(--ease),transform .8s var(--ease); }
+    .r.in { opacity:1; transform:none; }
+    .d1{transition-delay:.12s} .d2{transition-delay:.24s} .d3{transition-delay:.38s}
+
+    /* ─── NAV ─── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 300;
+      background: transparent;
+      transition: background .4s, border-color .4s;
+    }
+    .nav.solid {
+      background: rgba(251,249,246,.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--bone);
+    }
+    .nav__inner { display:flex; align-items:center; height:62px; padding:0 2.5vw; gap:2rem; }
+    .nav__links { display:flex; gap:2rem; align-items:center; list-style:none; }
+    .nav__links a { font-size:.6rem; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.85); transition:color .2s; }
+    .nav__links a:hover { color:var(--white); }
+    .nav.solid .nav__links a { color:var(--mid); }
+    .nav.solid .nav__links a:hover { color:var(--dark); }
+    .nav__logo img { height:50px; width:auto; display:block; filter:brightness(0) invert(1); transition:filter .4s; }
+    .nav.solid .nav__logo img { filter:none; }
+    .nav__right { display:flex; align-items:center; gap:1rem; margin-left:auto; }
+    .nav__summer { font-size:.58rem; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,.85); transition:color .2s; }
+    .nav.solid .nav__summer { color:var(--mid); }
+    .btn-primary { display:inline-block; background:var(--dark); color:var(--white); font-size:.58rem; letter-spacing:.16em; text-transform:uppercase; padding:.7rem 1.4rem; transition:background .2s; font-family:var(--sans); }
+    .btn-primary:hover { background:var(--mid); }
+    .btn-outline { display:inline-block; border:1px solid var(--dark); color:var(--dark); font-size:.58rem; letter-spacing:.16em; text-transform:uppercase; padding:.7rem 1.4rem; transition:background .2s,color .2s; font-family:var(--sans); }
+    .btn-outline:hover { background:var(--dark); color:var(--white); }
+    .btn--gold { display:inline-block; background:var(--gold); color:var(--white); font-size:.58rem; letter-spacing:.16em; text-transform:uppercase; padding:.7rem 1.4rem; transition:background .2s; font-family:var(--sans); }
+    .btn--gold:hover { background:#a0875a; }
+    .btn--dark { display:inline-block; background:var(--dark); color:var(--white); font-size:.58rem; letter-spacing:.16em; text-transform:uppercase; padding:.7rem 1.4rem; transition:background .2s; font-family:var(--sans); }
+    .btn--dark:hover { background:var(--mid); }
+    .lang-toggle { font-size:.6rem; letter-spacing:.12em; text-transform:uppercase; background:none; border:1px solid rgba(255,255,255,.6); color:var(--white); padding:6px 14px; cursor:pointer; transition:background .2s,color .2s,border-color .2s; font-family:var(--sans); white-space:nowrap; }
+    .lang-toggle:hover { background:rgba(255,255,255,.18); }
+    .nav.solid .lang-toggle { border-color:var(--dark); color:var(--dark); }
+    .nav.solid .lang-toggle:hover { background:var(--dark); color:var(--white); }
+    .nav__burger { display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
+    .nav__burger span { display:block; width:22px; height:1px; background:rgba(255,255,255,.8); transition:background .4s; }
+    .nav.solid .nav__burger span { background: var(--dark); }
+    .nav__drawer { overflow:hidden; max-height:0; transition:max-height .4s var(--ease); background:rgba(251,249,246,.98); border-bottom:1px solid var(--bone); }
+    .nav__drawer.open { max-height: 340px; }
+    .nav__drawer ul { padding: 1.6rem 5vw 2rem; display:flex; flex-direction:column; gap:1rem; }
+    .nav__drawer a { font-size:.7rem; letter-spacing:.16em; text-transform:uppercase; color:var(--mid); }
+    @media(max-width:800px){
+      .nav__links, .nav__summer, .btn-primary { display:none; }
+      .nav__burger { display:flex; }
+    }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      background: var(--dark);
+      color: var(--white);
+      padding: 6rem 0 0;
+    }
+    .footer__container { width:min(1200px,90vw); margin-inline:auto; }
+    .footer__cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 4rem;
+      padding-bottom: 4rem;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .footer__col-head {
+      font-family: var(--sans);
+      font-size: .55rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.35);
+      margin-bottom: 1.5rem;
+    }
+    .fnav { display:flex; flex-direction:column; gap:.8rem; }
+    .fnav a { font-size:.7rem; letter-spacing:.1em; color:rgba(255,255,255,.55); transition:color .2s; }
+    .fnav a:hover { color:var(--white); }
+    .footer__brand { text-align:center; }
+    .footer__socials { display:flex; flex-direction:column; align-items:center; gap:.85rem; }
+    .footer__socials a {
+      font-size:.6rem; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.4); transition:color .2s;
+    }
+    .footer__socials a:hover { color:var(--white); }
+    .footer__connect-lbl {
+      font-family:var(--sans); font-size:.55rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); display:block; margin-bottom:1rem;
+    }
+    .footer__connect-h {
+      font-family:var(--serif); font-size:clamp(2rem,4vw,3rem); font-weight:300; color:var(--white); line-height:1.15; margin-bottom:2rem;
+    }
+    .footer__connect-h em { font-style:italic; color:rgba(184,154,106,.9); }
+    .footer__bar {
+      display:flex; align-items:center; justify-content:space-between; padding: 1.5rem 0; flex-wrap:wrap; gap:1rem;
+    }
+    .footer__copy { font-size:.62rem; color:rgba(255,255,255,.18); font-family:var(--sans); }
+    .footer__legal { display:flex; gap:1.6rem; }
+    .footer__legal a { font-size:.62rem; color:rgba(255,255,255,.18); font-family:var(--sans); transition:color .2s; }
+    .footer__legal a:hover { color:rgba(255,255,255,.55); }
+    .footer__top-btn { font-size:.62rem; color:rgba(255,255,255,.18); font-family:var(--sans); transition:color .2s; background:none; border:none; cursor:pointer; }
+    .footer__top-btn:hover { color:rgba(255,255,255,.6); }
+    @media(max-width:900px){
+      .footer__cols { grid-template-columns:1fr 1fr; }
+    }
+    @media(max-width:600px){
+      .footer__cols { grid-template-columns:1fr; gap:3rem; }
+      .footer__brand { text-align:left; }
+      .footer__socials { align-items:flex-start; }
+      .footer__bar { flex-direction:column; align-items:flex-start; gap:.8rem; }
+    }
+
+    /* ─── EYEBROW ─── */
+    .eyebrow {
+      font-size:.58rem; letter-spacing:.22em; text-transform:uppercase; color:var(--gold); font-family:var(--sans); margin-bottom:1rem; display:block;
+    }
+
+    /* ─── SECTIONS ─── */
+    section { position:relative; }
+    .section-inner { width:min(1100px,90vw); margin-inline:auto; }
+
+    /* S1 HERO */
+    .hero-wp {
+      background: var(--dark);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8rem 5vw 6rem;
+    }
+    .hero-wp__h1 { font-family:var(--serif); font-weight:300; color:var(--white); line-height:1.05; margin-bottom:2rem; }
+    .hero-wp__h1 span { display:block; font-size:clamp(3rem,10vw,9rem); }
+    .hero-wp__sub { font-family:var(--sans); color:rgba(255,255,255,.7); font-size:clamp(.95rem,1.6vw,1.1rem); font-weight:300; line-height:1.85; max-width:58ch; margin:0 auto 1.5rem; }
+    .hero-wp__bold { font-family:var(--serif); font-style:italic; color:var(--white); font-size:clamp(1.1rem,2.2vw,1.5rem); font-weight:300; max-width:52ch; margin:0 auto 1rem; }
+    .hero-wp__tagline { font-family:var(--sans); font-size:.58rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); margin-bottom:2.5rem; font-variant:small-caps; }
+    .hero-wp__ctas { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+    .btn-outline--white { display:inline-block; border:1px solid var(--white); color:var(--white); font-size:.58rem; letter-spacing:.16em; text-transform:uppercase; padding:.7rem 1.4rem; transition:background .2s,color .2s; font-family:var(--sans); }
+    .btn-outline--white:hover { background:var(--white); color:var(--dark); }
+
+    /* S2 DASHBOARD */
+    .dash-section { background:var(--cream); padding:7rem 0; }
+    .dash-section h2 { font-family:var(--serif); font-size:clamp(2rem,5vw,3.5rem); font-weight:300; margin-bottom:1rem; }
+    .dash-section .sub { font-family:var(--sans); color:var(--mid); font-size:.95rem; line-height:1.75; max-width:58ch; margin-bottom:3rem; }
+    .dash-tabs { display:flex; gap:.5rem; flex-wrap:wrap; margin-bottom:2rem; overflow-x:auto; padding-bottom:.5rem; }
+    .dash-tab { font-family:var(--sans); font-size:.58rem; letter-spacing:.14em; text-transform:uppercase; padding:.6rem 1.2rem; cursor:pointer; border:1px solid var(--bone); color:var(--mid); background:var(--bone); transition:background .2s,color .2s; white-space:nowrap; border-radius:2px; }
+    .dash-tab.active { background:var(--dark); color:var(--white); border-color:var(--dark); }
+    .dash-panel { background:var(--white); border:1px solid var(--bone); padding:2.5rem; min-height:200px; }
+    .dash-panel ul { display:flex; flex-direction:column; gap:1rem; }
+    .dash-panel li { display:flex; align-items:center; gap:.75rem; font-size:.9rem; color:var(--mid); line-height:1.5; }
+    .dash-panel li::before { content:'✓'; color:var(--gold); font-family:var(--sans); font-weight:500; flex-shrink:0; }
+    .dash-badge { font-family:var(--sans); font-size:.5rem; letter-spacing:.12em; text-transform:uppercase; background:rgba(184,154,106,.12); color:var(--gold); border:1px solid rgba(184,154,106,.3); padding:2px 7px; border-radius:20px; margin-left:.5rem; white-space:nowrap; }
+
+    /* S3 PUBLISH DEMO */
+    .demo-section { background:var(--white); padding:7rem 0; }
+    .demo-section h2 { font-family:var(--serif); font-size:clamp(2rem,5vw,3.5rem); font-weight:300; margin-bottom:3rem; text-align:center; }
+    .demo-panels { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; }
+    .demo-phone { background:var(--dark); border-radius:24px; padding:2rem 1.5rem; max-width:300px; margin:0 auto; box-shadow:0 20px 60px rgba(0,0,0,.18); }
+    .demo-phone__label { font-family:var(--sans); font-size:.52rem; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.4); margin-bottom:.75rem; }
+    .demo-phone__input { width:100%; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); color:var(--white); font-family:var(--sans); font-size:.85rem; padding:.75rem 1rem; border-radius:4px; outline:none; }
+    .demo-phone__input:focus { border-color:rgba(184,154,106,.6); }
+    .demo-phone__btn { display:block; width:100%; margin-top:1rem; text-align:center; }
+    .demo-preview { border:1px solid var(--bone); border-radius:8px; overflow:hidden; }
+    .demo-preview__bar { background:var(--dark); color:var(--white); font-family:var(--sans); font-size:.78rem; padding:.6rem 1rem; min-height:2.4rem; display:flex; align-items:center; transition:background .3s; }
+    .demo-preview__bar.empty { color:rgba(255,255,255,.35); font-style:italic; }
+    .demo-preview__body { background:var(--cream); padding:2rem 1.5rem; }
+    .demo-preview__body p { font-family:var(--sans); font-size:.82rem; color:var(--mid); line-height:1.6; margin-bottom:.5rem; }
+    .demo-preview__body h3 { font-family:var(--serif); font-size:1.4rem; font-weight:300; margin-bottom:.5rem; }
+    .demo-success { font-family:var(--sans); font-size:.78rem; color:var(--gold); margin-top:1rem; text-align:center; min-height:1.5rem; }
+    @media(max-width:700px){ .demo-panels { grid-template-columns:1fr; } }
+
+    /* S4 THE WEBSITE */
+    .website-section { background:var(--linen); padding:7rem 0; }
+    .website-section h2 { font-family:var(--serif); font-size:clamp(2rem,5vw,3.5rem); font-weight:300; margin-bottom:1rem; }
+    .website-section .sub { font-family:var(--sans); color:var(--mid); font-size:.95rem; line-height:1.75; max-width:58ch; margin-bottom:3rem; }
+    .feature-groups { display:grid; grid-template-columns:1fr 1fr; gap:3rem; }
+    .feature-group__title { font-family:var(--sans); font-size:.55rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); margin-bottom:1rem; }
+    .feature-group ul { display:flex; flex-direction:column; gap:.75rem; }
+    .feature-group li { display:flex; align-items:flex-start; gap:.6rem; font-size:.88rem; color:var(--mid); line-height:1.5; }
+    .feature-group li .ck { color:var(--gold); flex-shrink:0; font-size:.9rem; }
+    .feature-group li.revealed .ck { animation:checkpop .4s var(--ease); }
+    @keyframes checkpop { 0%{transform:scale(0)} 70%{transform:scale(1.3)} 100%{transform:scale(1)} }
+    @media(max-width:700px){ .feature-groups { grid-template-columns:1fr; } }
+
+    /* S5 BUSINESS SELECTOR */
+    .biz-section { background:var(--cream); padding:7rem 0; }
+    .biz-section h2 { font-family:var(--serif); font-size:clamp(2rem,5vw,3.5rem); font-weight:300; margin-bottom:1rem; }
+    .biz-section .sub { font-family:var(--sans); color:var(--mid); font-size:.95rem; line-height:1.75; max-width:58ch; margin-bottom:2.5rem; }
+    .biz-pills { display:flex; gap:.5rem; flex-wrap:wrap; margin-bottom:2rem; }
+    .biz-pill { font-family:var(--sans); font-size:.58rem; letter-spacing:.14em; text-transform:uppercase; padding:.55rem 1.2rem; cursor:pointer; border:1px solid var(--bone); color:var(--mid); background:transparent; transition:background .2s,color .2s,border-color .2s; border-radius:2px; }
+    .biz-pill.active { background:var(--dark); color:var(--white); border-color:var(--dark); }
+    .biz-panel { background:var(--white); border:1px solid var(--bone); padding:2.5rem; }
+    .biz-panel ul { display:flex; flex-direction:column; gap:.85rem; }
+    .biz-panel li { display:flex; align-items:center; gap:.75rem; font-size:.9rem; color:var(--mid); }
+    .biz-panel li::before { content:'✓'; color:var(--gold); font-weight:500; }
+
+    /* S6 OWNERSHIP */
+    .ownership-section { background:var(--dark); padding:10rem 2rem; text-align:center; }
+    .ownership-section h2 { font-family:var(--serif); font-size:clamp(2rem,5vw,4rem); font-weight:300; color:var(--white); line-height:1.15; max-width:20ch; margin:0 auto 2rem; }
+    .ownership-section p { font-family:var(--sans); font-size:clamp(.88rem,1.4vw,1rem); color:rgba(255,255,255,.5); line-height:1.85; max-width:56ch; margin:0 auto; }
+
+    /* S7 COMPARISON */
+    .compare-section { background:var(--white); padding:7rem 0; }
+    .compare-section h2 { font-family:var(--serif); font-size:clamp(2rem,5vw,3.5rem); font-weight:300; margin-bottom:2rem; }
+    .compare-toggle { display:flex; gap:.5rem; margin-bottom:2.5rem; flex-wrap:wrap; }
+    .compare-btn { font-family:var(--sans); font-size:.58rem; letter-spacing:.14em; text-transform:uppercase; padding:.6rem 1.2rem; cursor:pointer; border:1px solid var(--bone); color:var(--mid); background:var(--bone); transition:background .2s,color .2s; border-radius:2px; }
+    .compare-btn.active { background:var(--dark); color:var(--white); border-color:var(--dark); }
+    .compare-list { display:none; }
+    .compare-list.active { display:block; }
+    .compare-list ul { display:flex; flex-direction:column; gap:.85rem; }
+    .compare-list li { display:flex; align-items:center; gap:.75rem; font-size:.9rem; color:var(--mid); }
+    .compare-list .bad::before { content:'✗'; color:var(--taupe); font-weight:500; }
+    .compare-list .good::before { content:'✓'; color:var(--gold); font-weight:500; }
+    .compare-conclusion { font-family:var(--serif); font-style:italic; font-size:clamp(1.1rem,2vw,1.4rem); font-weight:300; margin-top:2.5rem; color:var(--dark); max-width:52ch; }
+
+    /* S8 READY DAY ONE */
+    .ready-section { background:var(--linen); padding:7rem 0; }
+    .ready-section h2 { font-family:var(--serif); font-size:clamp(2rem,5vw,3.5rem); font-weight:300; margin-bottom:1.5rem; }
+    .ready-section .copy { font-family:var(--sans); color:var(--mid); font-size:.95rem; line-height:1.85; max-width:58ch; margin-bottom:1.5rem; }
+    .ready-section .bold { font-family:var(--serif); font-size:clamp(1.1rem,2vw,1.4rem); font-weight:400; margin-bottom:3rem; }
+    .steps-seq { display:flex; align-items:flex-start; gap:0; flex-wrap:nowrap; overflow-x:auto; padding-bottom:1rem; }
+    .step-item { display:flex; flex-direction:column; align-items:center; flex:1; min-width:120px; position:relative; }
+    .step-item:not(:last-child)::after { content:''; position:absolute; top:24px; left:calc(50% + 24px); right:calc(-50% + 24px); height:1px; background:var(--bone); }
+    .step-circle { width:48px; height:48px; border-radius:50%; background:var(--dark); color:var(--white); font-family:var(--sans); font-size:.7rem; display:flex; align-items:center; justify-content:center; font-weight:500; flex-shrink:0; margin-bottom:.75rem; z-index:1; }
+    .step-label { font-family:var(--sans); font-size:.6rem; letter-spacing:.08em; text-align:center; color:var(--mid); line-height:1.4; }
+    @media(max-width:600px){ .steps-seq { flex-direction:column; align-items:flex-start; gap:1.5rem; } .step-item:not(:last-child)::after { display:none; } .step-item { flex-direction:row; gap:1rem; } }
+
+    /* S9 PROCESS */
+    .process-section { background:var(--cream); padding:7rem 0; }
+    .process-section h2 { font-family:var(--serif); font-size:clamp(2rem,5vw,3.5rem); font-weight:300; margin-bottom:3rem; }
+    .process-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:2rem; }
+    .process-step__num { font-family:var(--serif); font-size:3rem; font-weight:300; color:var(--gold); line-height:1; margin-bottom:.75rem; }
+    .process-step__title { font-family:var(--serif); font-size:1.2rem; color:var(--dark); margin-bottom:.5rem; }
+    .process-step__desc { font-family:var(--sans); font-size:.82rem; color:var(--mid); line-height:1.75; }
+    @media(max-width:900px){ .process-grid { grid-template-columns:1fr 1fr; } }
+    @media(max-width:500px){ .process-grid { grid-template-columns:1fr; } }
+
+    /* S10 TIMELINE */
+    .timeline-section { background:var(--dark); padding:7rem 0; }
+    .timeline-section h2 { font-family:var(--serif); font-size:clamp(2rem,5vw,3.5rem); font-weight:300; color:var(--white); margin-bottom:1rem; }
+    .timeline-section .copy { font-family:var(--sans); color:rgba(255,255,255,.6); font-size:.95rem; line-height:1.85; max-width:56ch; margin-bottom:2rem; }
+    .timeline-section .statement { font-family:var(--serif); font-style:italic; font-size:clamp(1.4rem,3vw,2rem); font-weight:300; color:var(--white); margin-bottom:3rem; max-width:30ch; }
+    .timeline-list { display:grid; grid-template-columns:1fr 1fr; gap:.75rem 3rem; max-width:50ch; }
+    .timeline-list li { font-family:var(--sans); font-size:.85rem; color:rgba(255,255,255,.7); display:flex; align-items:center; gap:.5rem; }
+    .timeline-list li::before { content:'—'; color:var(--gold); }
+    @media(max-width:600px){ .timeline-list { grid-template-columns:1fr; } }
+
+    /* S11 HANDOVER */
+    .handover-section { background:var(--white); padding:7rem 0; }
+    .handover-section h2 { font-family:var(--serif); font-size:clamp(2rem,5vw,3.5rem); font-weight:300; margin-bottom:3rem; }
+    .handover-list { display:grid; grid-template-columns:1fr 1fr; gap:.75rem 3rem; margin:2.5rem 0; max-width:58ch; }
+    .handover-list li { font-family:var(--sans); font-size:.88rem; color:var(--mid); display:flex; align-items:center; gap:.6rem; }
+    .handover-list li::before { content:'✓'; color:var(--gold); font-weight:500; }
+    .handover-bold { font-family:var(--serif); font-size:clamp(1.1rem,2vw,1.4rem); font-weight:400; margin:2rem 0 1rem; }
+    .handover-note { font-family:var(--sans); font-size:.88rem; color:var(--mid); line-height:1.75; max-width:54ch; }
+    @media(max-width:600px){ .handover-list { grid-template-columns:1fr; } }
+
+    /* S12 WHAT YOU LEAVE WITH */
+    .leave-section { background:var(--linen); padding:7rem 0; text-align:center; }
+    .leave-section h2 { font-family:var(--serif); font-size:clamp(2rem,5vw,3.5rem); font-weight:300; margin-bottom:3rem; }
+    .leave-list { list-style:none; display:flex; flex-direction:column; gap:1rem; max-width:40ch; margin:0 auto 3rem; text-align:left; }
+    .leave-list li { display:flex; align-items:center; gap:.75rem; font-family:var(--sans); font-size:.95rem; color:var(--mid); opacity:0; transform:translateY(12px); transition:opacity .6s var(--ease),transform .6s var(--ease); }
+    .leave-list li.revealed { opacity:1; transform:none; }
+    .leave-list li .lck { color:var(--gold); font-size:1rem; }
+    .leave-finale { font-family:var(--serif); font-size:clamp(2rem,6vw,4rem); font-weight:300; color:var(--dark); }
+
+    /* S13 INVESTMENT */
+    .invest-section { background:var(--cream); padding:7rem 0; }
+    .invest-section h2 { font-family:var(--serif); font-size:clamp(2rem,5vw,3.5rem); font-weight:300; margin-bottom:1rem; }
+    .invest-section .copy { font-family:var(--sans); color:var(--mid); font-size:.95rem; line-height:1.85; max-width:56ch; margin-bottom:2rem; }
+    .invest-block { background:var(--bone); padding:2rem 2.5rem; display:inline-block; font-family:var(--serif); font-size:1.3rem; font-weight:400; margin-bottom:.75rem; }
+    .invest-note { font-family:var(--sans); font-size:.78rem; color:var(--muted); margin-bottom:2rem; }
+
+    /* S14 FAQ */
+    .faq-section { background:var(--white); padding:7rem 0; }
+    .faq-section h2 { font-family:var(--serif); font-size:clamp(2rem,5vw,3.5rem); font-weight:300; margin-bottom:3rem; }
+    .faq-item { border-top:1px solid var(--bone); }
+    .faq-item:last-child { border-bottom:1px solid var(--bone); }
+    .faq-btn { width:100%; display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:1.4rem 0; background:none; border:none; cursor:pointer; text-align:left; font-family:var(--serif); font-size:1.05rem; color:var(--dark); font-weight:400; }
+    .faq-btn:focus-visible { outline:2px solid var(--gold); outline-offset:2px; }
+    .faq-icon { flex-shrink:0; width:20px; height:20px; position:relative; }
+    .faq-icon::before, .faq-icon::after { content:''; position:absolute; background:var(--dark); border-radius:1px; transition:transform .3s var(--ease),opacity .3s; }
+    .faq-icon::before { width:12px; height:1px; top:50%; left:50%; transform:translate(-50%,-50%); }
+    .faq-icon::after { width:1px; height:12px; top:50%; left:50%; transform:translate(-50%,-50%); }
+    .faq-btn[aria-expanded="true"] .faq-icon::after { transform:translate(-50%,-50%) rotate(90deg); opacity:0; }
+    .faq-answer { overflow:hidden; max-height:0; transition:max-height .4s var(--ease); }
+    .faq-answer p { font-family:var(--sans); font-size:.88rem; color:var(--mid); line-height:1.85; padding-bottom:1.5rem; }
+
+    /* S15 FINAL CTA */
+    .final-cta { background:var(--dark); padding:8rem 0; text-align:center; }
+    .final-cta h2 { font-family:var(--serif); font-size:clamp(2rem,5vw,3.5rem); font-weight:300; color:var(--white); margin-bottom:1rem; }
+    .final-cta .copy { font-family:var(--sans); color:rgba(255,255,255,.6); font-size:.95rem; line-height:1.85; max-width:54ch; margin:0 auto 2.5rem; }
+    .final-cta .email-link { display:block; font-family:var(--sans); font-size:.75rem; color:rgba(255,255,255,.45); margin-top:1.5rem; transition:color .2s; }
+    .final-cta .email-link:hover { color:rgba(255,255,255,.7); }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     NAV
+══════════════════════════════════════════ -->
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <a class="nav__logo" href="index.html">
+      <img src="./baldwin&co.logo.png" alt="Baldwin &amp; Co." width="120" id="navLogoImg">
+    </a>
+    <ul class="nav__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="blueprint.html">Blueprint</a></li>
+      <li><a href="process.html">Process</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+    </ul>
+    <div class="nav__right">
+      <a href="summerspecial.html" class="nav__summer">Summer Special</a>
+      <a href="connect.html" class="btn-primary">Contact</a>
+      <button class="lang-toggle" data-current="en" aria-label="Switch language">
+        <span class="lang-toggle__en">Ver en Español</span>
+        <span class="lang-toggle__es" style="display:none">View in English</span>
+      </button>
+      <button class="nav__burger" aria-label="Menu" id="burger">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="nav__drawer" id="drawer">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="blueprint.html">Blueprint</a></li>
+      <li><a href="process.html">Process</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="summerspecial.html">Summer Special</a></li>
+      <li><a href="connect.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════
+     S1 — HERO
+══════════════════════════════════════════ -->
+<section class="hero-wp" aria-labelledby="hero-h1">
+  <span class="eyebrow r">CUSTOM WEBSITE + PRIVATE DASHBOARD</span>
+  <h1 class="hero-wp__h1 r d1" id="hero-h1">
+    <span>Your Website.</span>
+    <span>Your Login.</span>
+    <span>Your Control.</span>
+  </h1>
+  <p class="hero-wp__sub r d2">A custom website built around your business, your brand, your photographs, and your story—paired with a private dashboard you and your team can manage from your phone, tablet, or computer.</p>
+  <p class="hero-wp__bold r d3">"No waiting on a developer for every menu change, event update, new photograph, service edit, or announcement."</p>
+  <p class="hero-wp__tagline r">Custom design. Private login. Day-to-day control.</p>
+  <div class="hero-wp__ctas r">
+    <a href="#dashboard" class="btn-outline--white">See What You Can Control</a>
+    <a href="connect.html" class="btn--gold">Request Your Website Proposal</a>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     S2 — INTERACTIVE DASHBOARD
+══════════════════════════════════════════ -->
+<section class="dash-section" id="dashboard" aria-labelledby="dash-h2">
+  <div class="section-inner">
+    <span class="eyebrow r">YOUR PRIVATE DASHBOARD</span>
+    <h2 id="dash-h2" class="r d1">Click It. Change It. Publish It.</h2>
+    <p class="sub r d2">Your dashboard is built around the information your business updates most often. Select an area below to see what you can manage yourself.</p>
+    <div class="dash-tabs r" role="tablist" aria-label="Dashboard areas">
+      <button class="dash-tab active" role="tab" aria-selected="true" aria-controls="dash-panel" data-tab="content">Website Content</button>
+      <button class="dash-tab" role="tab" aria-selected="false" aria-controls="dash-panel" data-tab="photos">Photos</button>
+      <button class="dash-tab" role="tab" aria-selected="false" aria-controls="dash-panel" data-tab="services">Services &amp; Pricing</button>
+      <button class="dash-tab" role="tab" aria-selected="false" aria-controls="dash-panel" data-tab="events">Events</button>
+      <button class="dash-tab" role="tab" aria-selected="false" aria-controls="dash-panel" data-tab="announcements">Announcements</button>
+      <button class="dash-tab" role="tab" aria-selected="false" aria-controls="dash-panel" data-tab="newsletter">Newsletter</button>
+      <button class="dash-tab" role="tab" aria-selected="false" aria-controls="dash-panel" data-tab="team">Team Access</button>
+    </div>
+    <div class="dash-panel r" id="dash-panel">
+      <ul id="dash-items"></ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     S3 — PUBLISH DEMO
+══════════════════════════════════════════ -->
+<section class="demo-section" aria-labelledby="demo-h2">
+  <div class="section-inner">
+    <h2 id="demo-h2" class="r">See How Simple It Feels.</h2>
+    <div class="demo-panels">
+      <div class="r d1">
+        <div class="demo-phone">
+          <p class="demo-phone__label">Announcement</p>
+          <input class="demo-phone__input" id="demoInput" type="text" value="Tonight: Live Music at 7 PM" aria-label="Announcement text" />
+          <div class="demo-phone__btn">
+            <button class="btn--gold" id="demoPublishBtn" style="width:100%;margin-top:1rem;">Publish Update</button>
+          </div>
+        </div>
+      </div>
+      <div class="r d2">
+        <div class="demo-preview">
+          <div class="demo-preview__bar empty" id="demoBar">Your announcement will appear here</div>
+          <div class="demo-preview__body">
+            <p style="font-size:.52rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;">WELCOME</p>
+            <h3>Your Business Name</h3>
+            <p>Your featured content, services, and story live here—designed around your brand.</p>
+          </div>
+        </div>
+        <p class="demo-success" id="demoSuccess" aria-live="polite"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     S4 — THE WEBSITE
+══════════════════════════════════════════ -->
+<section class="website-section" aria-labelledby="website-h2">
+  <div class="section-inner">
+    <span class="eyebrow r">THE WEBSITE</span>
+    <h2 id="website-h2" class="r d1">Designed Specifically for Your Business.</h2>
+    <p class="sub r d2">Your website is built around your brand, your audience, your photographs, your content, and your business goals—not assembled from a generic drag-and-drop template.</p>
+    <div class="feature-groups">
+      <div class="feature-group r">
+        <p class="feature-group__title">Pages &amp; Structure</p>
+        <ul>
+          <li><span class="ck">✓</span>Custom pages per scope</li>
+          <li><span class="ck">✓</span>Home, About, Services, Gallery, Contact</li>
+          <li><span class="ck">✓</span>Additional pages where required</li>
+        </ul>
+      </div>
+      <div class="feature-group r d1">
+        <p class="feature-group__title">Design</p>
+        <ul>
+          <li><span class="ck">✓</span>Mobile-friendly</li>
+          <li><span class="ck">✓</span>Tablet &amp; desktop optimized</li>
+          <li><span class="ck">✓</span>Branded colors, typography, logo</li>
+          <li><span class="ck">✓</span>Clear navigation &amp; footer</li>
+        </ul>
+      </div>
+      <div class="feature-group r d2">
+        <p class="feature-group__title">Content</p>
+        <ul>
+          <li><span class="ck">✓</span>Business info, hours, location</li>
+          <li><span class="ck">✓</span>Photo galleries</li>
+          <li><span class="ck">✓</span>Category filters &amp; lightbox</li>
+          <li><span class="ck">✓</span>Announcement bar</li>
+          <li><span class="ck">✓</span>Contact &amp; inquiry forms</li>
+        </ul>
+      </div>
+      <div class="feature-group r d3">
+        <p class="feature-group__title">Technical</p>
+        <ul>
+          <li><span class="ck">✓</span>Foundational SEO</li>
+          <li><span class="ck">✓</span>Page titles &amp; descriptions</li>
+          <li><span class="ck">✓</span>Social sharing info</li>
+          <li><span class="ck">✓</span>AI-search-ready structure</li>
+          <li><span class="ck">✓</span>Domain connection</li>
+          <li><span class="ck">✓</span>Fast hosting setup</li>
+          <li><span class="ck">✓</span>Launch support</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     S5 — BUSINESS TYPE SELECTOR
+══════════════════════════════════════════ -->
+<section class="biz-section" aria-labelledby="biz-h2">
+  <div class="section-inner">
+    <span class="eyebrow r">BUILT AROUND YOUR BUSINESS</span>
+    <h2 id="biz-h2" class="r d1">Your Dashboard Is Not Generic.</h2>
+    <p class="sub r d2">Every dashboard is configured around the information that specific business needs to update.</p>
+    <div class="biz-pills r" role="listbox" aria-label="Business type">
+      <button class="biz-pill active" data-biz="restaurant">Restaurant</button>
+      <button class="biz-pill" data-biz="realestate">Real Estate</button>
+      <button class="biz-pill" data-biz="service">Service Business</button>
+      <button class="biz-pill" data-biz="retail">Retail</button>
+      <button class="biz-pill" data-biz="hospitality">Hospitality</button>
+      <button class="biz-pill" data-biz="creative">Creative Professional</button>
+    </div>
+    <div class="biz-panel r">
+      <ul id="biz-items"></ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     S6 — OWNERSHIP
+══════════════════════════════════════════ -->
+<section class="ownership-section" aria-labelledby="own-h2">
+  <h2 id="own-h2" class="r">"You Should Never Feel Locked Out of Your Own Website."</h2>
+  <p class="r d1">Baldwin &amp; Co. builds the system, organizes your content, and hands you the controls. You receive the tools and access defined in your project agreement so your business can manage approved everyday website content without depending on a developer.</p>
+</section>
+
+<!-- ══════════════════════════════════════════
+     S7 — OLD WAY vs BALDWIN WAY
+══════════════════════════════════════════ -->
+<section class="compare-section" aria-labelledby="cmp-h2">
+  <div class="section-inner">
+    <span class="eyebrow r">A BETTER WAY TO MANAGE YOUR WEBSITE</span>
+    <h2 id="cmp-h2" class="r d1">Stop Sending Emails for Every Small Change.</h2>
+    <div class="compare-toggle r d2" role="group" aria-label="Comparison toggle">
+      <button class="compare-btn active" id="cmpOldBtn">The Old Way</button>
+      <button class="compare-btn" id="cmpNewBtn">The Baldwin &amp; Co. Way</button>
+    </div>
+    <div class="compare-list active r" id="cmpOld">
+      <ul>
+        <li class="bad">Notice outdated info</li>
+        <li class="bad">Email the developer</li>
+        <li class="bad">Explain the change</li>
+        <li class="bad">Wait for a response</li>
+        <li class="bad">Review the update</li>
+        <li class="bad">Request another correction</li>
+      </ul>
+    </div>
+    <div class="compare-list r" id="cmpNew">
+      <ul>
+        <li class="good">Log in</li>
+        <li class="good">Make the change</li>
+        <li class="good">Click publish</li>
+        <li class="good">Go live</li>
+      </ul>
+    </div>
+    <p class="compare-conclusion r">"Your time should be spent running your business—not chasing someone to update your website."</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     S8 — READY DAY ONE
+══════════════════════════════════════════ -->
+<section class="ready-section" aria-labelledby="ready-h2">
+  <div class="section-inner">
+    <span class="eyebrow r">CONTENT SETUP</span>
+    <h2 id="ready-h2" class="r d1">You Are Not Handed an Empty Website.</h2>
+    <p class="copy r d2">All approved photographs, written content, services, pricing, menus, events, galleries, and business information included in the project scope are uploaded, organized, and connected before launch.</p>
+    <p class="bold r d3">You begin with a complete, live website on day one.</p>
+    <div class="steps-seq r" aria-label="Content setup sequence">
+      <div class="step-item">
+        <div class="step-circle">1</div>
+        <span class="step-label">Content<br>received</span>
+      </div>
+      <div class="step-item">
+        <div class="step-circle">2</div>
+        <span class="step-label">Content<br>organized</span>
+      </div>
+      <div class="step-item">
+        <div class="step-circle">3</div>
+        <span class="step-label">Dashboard<br>configured</span>
+      </div>
+      <div class="step-item">
+        <div class="step-circle">4</div>
+        <span class="step-label">Website<br>completed</span>
+      </div>
+      <div class="step-item">
+        <div class="step-circle">5</div>
+        <span class="step-label">Website<br>launched</span>
+      </div>
+      <div class="step-item">
+        <div class="step-circle">6</div>
+        <span class="step-label">Login<br>provided</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     S9 — PROCESS
+══════════════════════════════════════════ -->
+<section class="process-section" aria-labelledby="proc-h2">
+  <div class="section-inner">
+    <span class="eyebrow r">THE PROCESS</span>
+    <h2 id="proc-h2" class="r d1">Clear Steps. Fast Decisions. No Guesswork.</h2>
+    <div class="process-grid">
+      <div class="r">
+        <p class="process-step__num">01</p>
+        <p class="process-step__title">Plan</p>
+        <p class="process-step__desc">We define the website goals, pages, audience, content, dashboard controls, integrations, and approved scope.</p>
+      </div>
+      <div class="r d1">
+        <p class="process-step__num">02</p>
+        <p class="process-step__title">Gather</p>
+        <p class="process-step__desc">You provide photographs, business information, written content, services, pricing, menus, and required account access.</p>
+      </div>
+      <div class="r d2">
+        <p class="process-step__num">03</p>
+        <p class="process-step__title">Build</p>
+        <p class="process-step__desc">Baldwin &amp; Co. designs the website, organizes the content, builds the dashboard, and connects the complete system.</p>
+      </div>
+      <div class="r d3">
+        <p class="process-step__num">04</p>
+        <p class="process-step__title">Review and Launch</p>
+        <p class="process-step__desc">You review the website, request approved revisions, receive your login and training materials, and approve the launch.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     S10 — TIMELINE
+══════════════════════════════════════════ -->
+<section class="timeline-section" aria-labelledby="tl-h2">
+  <div class="section-inner">
+    <span class="eyebrow r">PROJECT TIMELINE</span>
+    <h2 id="tl-h2" class="r d1">Built Fast. Handed Over Completely.</h2>
+    <p class="copy r d2">Most approved website projects are completed in under 30 days after all required materials, payments, approvals, and account access have been received.</p>
+    <p class="statement r d3">"You review it. You approve it. You go live."</p>
+    <ul class="timeline-list r">
+      <li>Signed agreement</li>
+      <li>Initial payment</li>
+      <li>Photographs</li>
+      <li>Written content</li>
+      <li>Logo &amp; brand assets</li>
+      <li>Domain or account access</li>
+      <li>Timely feedback</li>
+      <li>Final approvals</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     S11 — HANDOVER
+══════════════════════════════════════════ -->
+<section class="handover-section" aria-labelledby="ho-h2">
+  <div class="section-inner">
+    <h2 id="ho-h2" class="r">The Keys Are Handed to You.</h2>
+    <div class="steps-seq r d1" aria-label="Handover sequence">
+      <div class="step-item">
+        <div class="step-circle">1</div>
+        <span class="step-label">Website<br>approved</span>
+      </div>
+      <div class="step-item">
+        <div class="step-circle">2</div>
+        <span class="step-label">Website<br>launched</span>
+      </div>
+      <div class="step-item">
+        <div class="step-circle">3</div>
+        <span class="step-label">Dashboard<br>activated</span>
+      </div>
+      <div class="step-item">
+        <div class="step-circle">4</div>
+        <span class="step-label">Login<br>provided</span>
+      </div>
+      <div class="step-item">
+        <div class="step-circle">5</div>
+        <span class="step-label">Team<br>trained</span>
+      </div>
+      <div class="step-item">
+        <div class="step-circle">6</div>
+        <span class="step-label">Control<br>transferred</span>
+      </div>
+    </div>
+    <ul class="handover-list r d2">
+      <li>Live website</li>
+      <li>Website URL</li>
+      <li>Private dashboard login</li>
+      <li>Organized content</li>
+      <li>Organized media library</li>
+      <li>Approved team access</li>
+      <li>Simple management guide</li>
+      <li>Basic training</li>
+      <li>Instructions for approved updates</li>
+      <li>Applicable account information</li>
+      <li>Launch support per agreement</li>
+    </ul>
+    <p class="handover-bold r d3">"We do not build a website that keeps you dependent on us."</p>
+    <p class="handover-note r">Baldwin &amp; Co. remains available for larger additions, redesigns, integrations, new pages, and advanced features. Routine approved content updates remain in your hands.</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     S12 — WHAT YOU LEAVE WITH
+══════════════════════════════════════════ -->
+<section class="leave-section" aria-labelledby="leave-h2">
+  <div class="section-inner">
+    <h2 id="leave-h2" class="r">What You Leave With</h2>
+    <ul class="leave-list" id="leaveList" aria-label="What you receive">
+      <li><span class="lck">✓</span>Your live website</li>
+      <li><span class="lck">✓</span>Your private login</li>
+      <li><span class="lck">✓</span>Your organized content</li>
+      <li><span class="lck">✓</span>Your media library</li>
+      <li><span class="lck">✓</span>Your team access</li>
+      <li><span class="lck">✓</span>Your management guide</li>
+      <li><span class="lck">✓</span>Your training</li>
+      <li><span class="lck">✓</span>Your applicable credentials</li>
+      <li><span class="lck">✓</span>Your ability to manage approved day-to-day content</li>
+    </ul>
+    <p class="leave-finale r">It Is Your Website.</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     S13 — INVESTMENT
+══════════════════════════════════════════ -->
+<section class="invest-section" aria-labelledby="inv-h2">
+  <div class="section-inner">
+    <span class="eyebrow r">INVESTMENT</span>
+    <h2 id="inv-h2" class="r d1">A Clear Scope. A Flat Project Rate.</h2>
+    <p class="copy r d2">Custom website projects begin with a clearly defined scope and flat project rate. Final pricing depends on the number of pages, dashboard features, content requirements, integrations, and technical needs.</p>
+    <div class="invest-block r d3">Custom Website Strategy &amp; Design — Starting at $2,500</div>
+    <p class="invest-note r">Starting investment. Final scope and rate confirmed before any work begins.</p>
+    <a href="connect.html" class="btn--dark r">Request Your Website Proposal</a>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     S14 — FAQ
+══════════════════════════════════════════ -->
+<section class="faq-section" aria-labelledby="faq-h2">
+  <div class="section-inner">
+    <span class="eyebrow r">FREQUENTLY ASKED QUESTIONS</span>
+    <h2 id="faq-h2" class="r d1">Your Questions, Answered.</h2>
+    <div class="faq-list r d2" id="faqList">
+
+      <div class="faq-item">
+        <button class="faq-btn" aria-expanded="false">
+          Will I be able to update the website myself?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer" role="region">
+          <p>Yes. Your dashboard is configured around the approved everyday content you need to manage. You receive your own login, a simple guide, and basic training.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" aria-expanded="false">
+          Can my team have access?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer" role="region">
+          <p>Yes. Approved team members can receive access based on the permissions supported by the selected platform.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" aria-expanded="false">
+          Do I need to know how to code?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer" role="region">
+          <p>No. The dashboard allows you to manage approved content without editing website code.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" aria-expanded="false">
+          What can I update?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer" role="region">
+          <p>Depending on the approved scope, you may be able to update photographs, services, pricing, menus, events, announcements, business details, team members, galleries, and other recurring content.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" aria-expanded="false">
+          Is this a template website?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer" role="region">
+          <p>No. The website is designed around your approved brand, content, audience, and business requirements. Reusable technical components may be used for performance and consistency.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" aria-expanded="false">
+          Can you upload my existing content?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer" role="region">
+          <p>Yes. Approved launch content included in the project scope is organized and uploaded before launch.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" aria-expanded="false">
+          How long does the project take?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer" role="region">
+          <p>Most approved website projects are completed in under 30 days after all required materials, payments, access, feedback, and approvals have been received.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" aria-expanded="false">
+          What happens after launch?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer" role="region">
+          <p>You manage approved day-to-day content through your dashboard. Larger additions, redesigns, integrations, and advanced features are handled under a separate scope.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     S15 — FINAL CTA
+══════════════════════════════════════════ -->
+<section class="final-cta" aria-labelledby="cta-h2">
+  <div class="section-inner">
+    <span class="eyebrow r">START YOUR PROJECT</span>
+    <h2 id="cta-h2" class="r d1">Ready to Take Control of Your Website?</h2>
+    <p class="copy r d2">Build a professional online presence that reflects the quality of your business and gives you control over the content your customers see.</p>
+    <a href="connect.html" class="btn--gold r d3">Request Your Website Proposal</a>
+    <a href="mailto:kate@keywestkate.com" class="email-link r">kate@keywestkate.com</a>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
+<footer class="footer" id="contact">
+  <div class="footer__container">
+    <div class="footer__cols">
+      <!-- Left: nav -->
+      <div>
+        <p class="footer__col-head">Navigate</p>
+        <nav class="fnav">
+          <a href="index.html">Home</a>
+          <a href="blueprint.html">Services</a>
+          <a href="process.html">Process</a>
+          <a href="faq.html">FAQ</a>
+          <a href="summerspecial.html">Summer Special</a>
+          <a href="connect.html">Contact</a>
+        </nav>
+      </div>
+      <!-- Center: brand + social -->
+      <div class="footer__brand">
+        <img src="./baldwin&co.logo.png" alt="Baldwin &amp; Co." style="height:90px;width:auto;filter:brightness(0) invert(1);display:block;margin-inline:auto;margin-bottom:2rem;" />
+        <nav class="footer__socials">
+          <a href="https://instagram.com/baldwinandcobrand" target="_blank" rel="noopener noreferrer">instagram</a>
+          <a href="https://facebook.com/baldwinandcobrand" target="_blank" rel="noopener noreferrer">facebook</a>
+        </nav>
+      </div>
+      <!-- Right: connect CTA -->
+      <div class="footer__connect">
+        <a href="connect.html"><span class="footer__connect-lbl">Apply</span></a>
+        <h2 class="footer__connect-h">Send an <em>inquiry.</em></h2>
+        <a href="connect.html" class="btn--gold">Start Your Project</a>
+      </div>
+    </div>
+    <div class="footer__bar">
+      <p class="footer__copy">©2026 Baldwin &amp; Co. All Rights Reserved.</p>
+      <nav class="footer__legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+      </nav>
+      <button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="footer__top-btn">Back to Top ↑</button>
+    </div>
+  </div>
+</footer>
+
+<script src="./lang.js"></script>
+<script>
+(function(){
+  // ── prefers-reduced-motion ──────────────────────────────
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ── Nav scroll ──────────────────────────────────────────
+  const nav = document.getElementById('nav');
+  function updateNav(){
+    nav.classList.toggle('solid', window.scrollY > 40);
+  }
+  updateNav();
+  window.addEventListener('scroll', updateNav, {passive:true});
+
+  // ── Burger ──────────────────────────────────────────────
+  const burger = document.getElementById('burger');
+  const drawer = document.getElementById('drawer');
+  if(burger && drawer){
+    burger.addEventListener('click', function(){
+      const open = drawer.classList.toggle('open');
+      burger.setAttribute('aria-expanded', open);
+    });
+  }
+
+  // ── Reveal observer ─────────────────────────────────────
+  const reveals = document.querySelectorAll('.r');
+  if(prefersReduced){
+    reveals.forEach(el => el.classList.add('in'));
+  } else {
+    const ro = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('in'); ro.unobserve(e.target); }
+      });
+    }, {threshold:0.12});
+    reveals.forEach(el => ro.observe(el));
+  }
+
+  // ── Dashboard tabs ──────────────────────────────────────
+  const dashData = {
+    content: ['Homepage headlines','Approved section text','Business hours','Contact information','Business details'],
+    photos: ['Upload from phone','Add captions','Replace feature images','Organize galleries','Change approved page photos'],
+    services: ['Add services','Edit pricing','Hide outdated offerings','Update menus','Change specials'],
+    events: ['Add events','Edit event details','Upload event artwork','Manage calendar listings','Hide past events'],
+    announcements: ['Update announcement bar','Promote specials','Post closings','Promote events','Share important news'],
+    newsletter: ['Update signup messaging','Access subscriber info','Connect with email platform','Change CTAs'],
+    team: ['Approved team members receive access','Staff can help manage routine content','Access depends on platform permissions']
+  };
+  const dashItems = document.getElementById('dash-items');
+  const dashTabs = document.querySelectorAll('.dash-tab');
+
+  function renderDash(tab){
+    const items = dashData[tab] || [];
+    dashItems.innerHTML = items.map(function(item,i){
+      const badge = i === 0 ? '<span class="dash-badge">● Live</span>' : (i === 1 ? '<span class="dash-badge">● Updated</span>' : '');
+      return '<li>' + item + badge + '</li>';
+    }).join('');
+  }
+
+  renderDash('content');
+
+  dashTabs.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      dashTabs.forEach(function(b){ b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected','true');
+      renderDash(btn.dataset.tab);
+    });
+  });
+
+  // ── Business selector ───────────────────────────────────
+  const bizData = {
+    restaurant: ['Menus','Daily specials','Fresh catch','Live music','Events','Hours','Gallery'],
+    realestate: ['Listings','Property galleries','Open houses','Neighborhood info','Featured properties','Agent info','Announcements'],
+    service: ['Services','Pricing','Team members','Availability','FAQs','Testimonials','Announcements'],
+    retail: ['Featured products','New arrivals','Promotions','Store info','Events','Galleries','Announcements'],
+    hospitality: ['Rooms & accommodations','Amenities','Galleries','Events','Local recommendations','Seasonal info','Announcements'],
+    creative: ['Portfolio','Services','Projects','Upcoming appearances','Press','Galleries','Contact info']
+  };
+  const bizItems = document.getElementById('biz-items');
+  const bizPills = document.querySelectorAll('.biz-pill');
+
+  function renderBiz(biz){
+    const items = bizData[biz] || [];
+    bizItems.innerHTML = items.map(function(item){ return '<li>' + item + '</li>'; }).join('');
+  }
+
+  renderBiz('restaurant');
+
+  bizPills.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      bizPills.forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      renderBiz(btn.dataset.biz);
+    });
+  });
+
+  // ── Publish demo ────────────────────────────────────────
+  const demoBtn = document.getElementById('demoPublishBtn');
+  const demoInput = document.getElementById('demoInput');
+  const demoBar = document.getElementById('demoBar');
+  const demoSuccess = document.getElementById('demoSuccess');
+  let demoTimer = null;
+
+  if(demoBtn){
+    demoBtn.addEventListener('click', function(){
+      const val = demoInput.value.trim();
+      if(!val) return;
+      demoBar.textContent = val;
+      demoBar.classList.remove('empty');
+      demoSuccess.textContent = '✓ Your change is live.';
+      clearTimeout(demoTimer);
+      demoTimer = setTimeout(function(){
+        demoBar.textContent = 'Your announcement will appear here';
+        demoBar.classList.add('empty');
+        demoSuccess.textContent = '';
+      }, 3000);
+    });
+  }
+
+  // ── Comparison toggle ───────────────────────────────────
+  const cmpOldBtn = document.getElementById('cmpOldBtn');
+  const cmpNewBtn = document.getElementById('cmpNewBtn');
+  const cmpOld = document.getElementById('cmpOld');
+  const cmpNew = document.getElementById('cmpNew');
+
+  if(cmpOldBtn && cmpNewBtn){
+    cmpOldBtn.addEventListener('click', function(){
+      cmpOldBtn.classList.add('active');
+      cmpNewBtn.classList.remove('active');
+      cmpOld.classList.add('active');
+      cmpNew.classList.remove('active');
+    });
+    cmpNewBtn.addEventListener('click', function(){
+      cmpNewBtn.classList.add('active');
+      cmpOldBtn.classList.remove('active');
+      cmpNew.classList.add('active');
+      cmpOld.classList.remove('active');
+    });
+  }
+
+  // ── FAQ accordion ───────────────────────────────────────
+  document.querySelectorAll('.faq-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      const answer = btn.nextElementSibling;
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      // Close all
+      document.querySelectorAll('.faq-btn').forEach(function(b){
+        b.setAttribute('aria-expanded','false');
+        b.nextElementSibling.style.maxHeight = '0';
+      });
+      // Open if was closed
+      if(!expanded){
+        btn.setAttribute('aria-expanded','true');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+    // Keyboard: Enter/Space already handled by button default
+  });
+
+  // ── S12 Leave-with checklist scroll reveal ───────────────
+  const leaveItems = document.querySelectorAll('#leaveList li');
+  if(prefersReduced){
+    leaveItems.forEach(function(el){ el.classList.add('revealed'); });
+  } else {
+    const leaveObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          var i = Array.prototype.indexOf.call(leaveItems, e.target);
+          setTimeout(function(){ e.target.classList.add('revealed'); }, i * 120);
+          leaveObs.unobserve(e.target);
+        }
+      });
+    }, {threshold:0.2});
+    leaveItems.forEach(function(el){ leaveObs.observe(el); });
+  }
+
+  // ── Hero smooth scroll ──────────────────────────────────
+  document.querySelectorAll('a[href="#dashboard"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      var target = document.getElementById('dashboard');
+      if(target) target.scrollIntoView({behavior: prefersReduced ? 'auto' : 'smooth'});
+    });
+  });
+
+})();
+</script>
+</body>
+</html>
