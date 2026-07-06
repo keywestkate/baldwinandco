@@ -878,6 +878,24 @@
   background: var(--bone);
   border-radius: 2px;
 }
+.hwp-browser__announce-big {
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 400;
+  color: var(--dark);
+  line-height: 1.3;
+  min-height: 0;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height .4s ease, opacity .4s ease, margin .4s ease;
+  margin-bottom: 0;
+}
+.hwp-browser__announce-big.visible {
+  max-height: 80px;
+  opacity: 1;
+  margin-bottom: 1rem;
+}
 .hwp-browser__hero-ph {
   background: var(--linen);
   border-radius: 4px;
@@ -993,6 +1011,7 @@
             <div class="hwp-browser__nav-ph">
               <span></span><span></span><span></span><span></span>
             </div>
+            <div class="hwp-browser__announce-big" id="hwpBigAnnounce"></div>
             <div class="hwp-browser__hero-ph">
               <span></span><span></span>
             </div>
@@ -1698,6 +1717,7 @@
   var hwpBtn = document.getElementById('hwpPublishBtn');
   var hwpInput = document.getElementById('hwpInput');
   var hwpBar = document.getElementById('hwpPreviewBar');
+  var hwpBigAnnounce = document.getElementById('hwpBigAnnounce');
   var hwpSuccess = document.getElementById('hwpSuccess');
   var hwpDot = document.getElementById('hwpDot');
   var hwpStatusText = document.getElementById('hwpStatusText');
@@ -1713,8 +1733,12 @@
       hwpSuccess.textContent = '';
 
       setTimeout(function(){
+        // Small bar
         hwpBar.textContent = val;
         hwpBar.classList.remove('empty');
+        // Large announcement in white section
+        hwpBigAnnounce.textContent = val;
+        hwpBigAnnounce.classList.add('visible');
         hwpSuccess.textContent = 'Published — Your Change Is Live ✓';
         hwpDot.classList.remove('pulsing');
         hwpStatusText.textContent = 'Live';
@@ -1725,6 +1749,7 @@
         hwpTimer = setTimeout(function(){
           hwpBar.textContent = 'Your announcement will appear here';
           hwpBar.classList.add('empty');
+          hwpBigAnnounce.classList.remove('visible');
           hwpSuccess.textContent = '';
           hwpDot.classList.add('pulsing');
         }, 4000);
