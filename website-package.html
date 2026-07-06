@@ -363,10 +363,10 @@
       white-space: nowrap;
     }
     .hwp-try-arrow {
-      width: 70px;
-      height: 80px;
-      transform: rotate(10deg) translateX(-10px);
+      width: 80px;
+      height: 100px;
       flex-shrink: 0;
+      display: block;
     }
     @keyframes hwpTryWobble {
       0%, 100% { transform: translateY(0) rotate(0deg); }
@@ -1004,11 +1004,19 @@
         <!-- Try me callout — floats above top-right of stack -->
         <div class="hwp-try-me" aria-hidden="true">
           <span class="hwp-try-text">Try me!</span>
-          <svg class="hwp-try-arrow" viewBox="0 0 50 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Shaft: curves from top-right down to bottom-left -->
-            <path d="M38 5 C42 30, 22 55, 14 80" stroke="#4A9EE8" stroke-width="3.5" stroke-linecap="round" fill="none"/>
-            <!-- Arrowhead: solid filled triangle pointing down-left -->
-            <polygon points="14,80 4,68 24,70" fill="#4A9EE8"/>
+          <svg class="hwp-try-arrow" viewBox="0 0 60 100" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+                <circle cx="4" cy="4" r="0" fill="none"/>
+                <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#4A9EE8"/>
+              </marker>
+            </defs>
+            <path d="M50 8 C55 40, 25 60, 12 90"
+              stroke="#4A9EE8"
+              stroke-width="4"
+              stroke-linecap="round"
+              fill="none"
+              marker-end="url(#arrowhead)"/>
           </svg>
         </div>
 
