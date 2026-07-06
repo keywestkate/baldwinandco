@@ -338,33 +338,34 @@
     .final-cta .email-link:hover { color:rgba(255,255,255,.7); }
 
     /* ── TRY ME ARROW ── */
-    .try-me-arrow {
+    .try-me-outer {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: .25rem;
-      margin-top: 1.2rem;
-      animation: tryBounce 1.2s ease-in-out infinite;
+      align-items: flex-end;
+      gap: .5rem;
+      margin-bottom: 1.5rem;
+      animation: tryBounce 1.1s ease-in-out infinite;
+      width: fit-content;
     }
-    .try-me-label {
-      font-family: var(--sans);
-      font-size: .72rem;
-      font-weight: 600;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--gold);
-    }
-    .try-me-chevron {
-      font-size: 1.4rem;
+    .try-me-text {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 400;
       color: var(--gold);
       line-height: 1;
     }
+    .try-me-arrow-icon {
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      color: var(--gold);
+      line-height: 1;
+      padding-bottom: .15em;
+    }
     @keyframes tryBounce {
-      0%, 100% { transform: translateY(0); opacity: 1; }
-      50% { transform: translateY(6px); opacity: .7; }
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(10px); }
     }
     @media (prefers-reduced-motion: reduce) {
-      .try-me-arrow { animation: none; }
+      .try-me-outer { animation: none; }
     }
 
     /* ── VISUAL POLISH ── */
@@ -565,17 +566,18 @@
   <div class="section-inner">
     <h2 id="demo-h2" class="r">See How Easy It Is.</h2>
     <p class="r" style="font-family:var(--sans);color:var(--mid);font-size:1rem;line-height:1.75;max-width:48ch;margin-bottom:3rem;">Type something. Hit the button. Watch it show up on your website. That's really all there is to it.</p>
+    <!-- Try Me — outside the box, big and bold -->
+    <div class="try-me-outer" aria-hidden="true">
+      <span class="try-me-text">Try&nbsp;me!</span>
+      <span class="try-me-arrow-icon">↙</span>
+    </div>
+
     <div class="demo-panels" style="position:relative;">
       <div class="r d1" style="position:relative;">
         <div class="demo-phone">
           <p class="demo-phone__label">Your Announcement</p>
           <input class="demo-phone__input" id="demoInput" type="text" value="Tonight: Live Music at 7 PM" aria-label="Announcement text" />
-          <div class="demo-phone__btn" style="position:relative;">
-            <!-- Animated Try Me arrow -->
-            <div class="try-me-arrow" aria-hidden="true">
-              <span class="try-me-label">Try me!</span>
-              <span class="try-me-chevron">↓</span>
-            </div>
+          <div class="demo-phone__btn">
             <button class="btn--gold" id="demoPublishBtn" style="width:100%;margin-top:1rem;">Publish Update</button>
           </div>
         </div>
