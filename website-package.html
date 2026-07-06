@@ -337,6 +337,36 @@
     .final-cta .email-link { display:block; font-family:var(--sans); font-size:.75rem; color:rgba(255,255,255,.45); margin-top:1.5rem; transition:color .2s; }
     .final-cta .email-link:hover { color:rgba(255,255,255,.7); }
 
+    /* ── TRY ME ARROW ── */
+    .try-me-arrow {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .25rem;
+      margin-top: 1.2rem;
+      animation: tryBounce 1.2s ease-in-out infinite;
+    }
+    .try-me-label {
+      font-family: var(--sans);
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .try-me-chevron {
+      font-size: 1.4rem;
+      color: var(--gold);
+      line-height: 1;
+    }
+    @keyframes tryBounce {
+      0%, 100% { transform: translateY(0); opacity: 1; }
+      50% { transform: translateY(6px); opacity: .7; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .try-me-arrow { animation: none; }
+    }
+
     /* ── VISUAL POLISH ── */
 
     /* Hero eyebrow — larger, gold, spaced */
@@ -533,24 +563,31 @@
 ══════════════════════════════════════════ -->
 <section class="demo-section" aria-labelledby="demo-h2">
   <div class="section-inner">
-    <h2 id="demo-h2" class="r">See How Simple It Feels.</h2>
-    <div class="demo-panels">
-      <div class="r d1">
+    <h2 id="demo-h2" class="r">See How Easy It Is.</h2>
+    <p class="r" style="font-family:var(--sans);color:var(--mid);font-size:1rem;line-height:1.75;max-width:48ch;margin-bottom:3rem;">Type something. Hit the button. Watch it show up on your website. That's really all there is to it.</p>
+    <div class="demo-panels" style="position:relative;">
+      <div class="r d1" style="position:relative;">
         <div class="demo-phone">
-          <p class="demo-phone__label">Announcement</p>
+          <p class="demo-phone__label">Your Announcement</p>
           <input class="demo-phone__input" id="demoInput" type="text" value="Tonight: Live Music at 7 PM" aria-label="Announcement text" />
-          <div class="demo-phone__btn">
+          <div class="demo-phone__btn" style="position:relative;">
+            <!-- Animated Try Me arrow -->
+            <div class="try-me-arrow" aria-hidden="true">
+              <span class="try-me-label">Try me!</span>
+              <span class="try-me-chevron">↓</span>
+            </div>
             <button class="btn--gold" id="demoPublishBtn" style="width:100%;margin-top:1rem;">Publish Update</button>
           </div>
         </div>
       </div>
       <div class="r d2">
+        <p style="font-family:var(--sans);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:.75rem;">Your website — live preview</p>
         <div class="demo-preview">
           <div class="demo-preview__bar empty" id="demoBar">Your announcement will appear here</div>
           <div class="demo-preview__body">
             <p style="font-size:.52rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;">WELCOME</p>
             <h3>Your Business Name</h3>
-            <p>Your featured content, services, and story live here—designed around your brand.</p>
+            <p>Your content, services, and story — all in one place, looking exactly the way you want.</p>
           </div>
         </div>
         <p class="demo-success" id="demoSuccess" aria-live="polite"></p>
