@@ -1,10 +1,6 @@
 [build]
   publish = "."
 
-[[plugins]]
-
-[build.environment]
-
 [[headers]]
   for = "/*"
   [headers.values]
