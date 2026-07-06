@@ -1004,54 +1004,6 @@
   </div><!-- /.hwp-grid -->
 </section>
 
-<script>
-(function(){
-  var btn = document.getElementById('hwpPublishBtn');
-  var input = document.getElementById('hwpInput');
-  var bar = document.getElementById('hwpPreviewBar');
-  var success = document.getElementById('hwpSuccess');
-  var dot = document.getElementById('hwpDot');
-  var statusText = document.getElementById('hwpStatusText');
-  var timer = null;
-
-  if (!btn) return;
-
-  btn.addEventListener('click', function(){
-    var val = input.value.trim();
-    if (!val) return;
-
-    // Step 1: publishing state
-    btn.textContent = 'Publishing…';
-    btn.disabled = true;
-    success.textContent = '';
-
-    setTimeout(function(){
-      // Step 2: update preview
-      bar.textContent = val;
-      bar.classList.remove('empty');
-
-      // Step 3: confirmation
-      success.textContent = 'Published — Your Change Is Live ✓';
-
-      // Step 4: status indicator → solid
-      dot.classList.remove('pulsing');
-      statusText.textContent = 'Live';
-
-      btn.textContent = 'Publish Update';
-      btn.disabled = false;
-
-      // Step 5: reset after 4s
-      clearTimeout(timer);
-      timer = setTimeout(function(){
-        bar.textContent = 'Your announcement will appear here';
-        bar.classList.add('empty');
-        success.textContent = '';
-        dot.classList.add('pulsing');
-      }, 4000);
-    }, 800);
-  });
-})();
-</script>
 
 <!-- ══════════════════════════════════════════
      S2 — INTERACTIVE DASHBOARD
@@ -1741,6 +1693,44 @@
       if(target) target.scrollIntoView({behavior: prefersReduced ? 'auto' : 'smooth'});
     });
   });
+
+  // ── Hero publish demo ────────────────────────────────────
+  var hwpBtn = document.getElementById('hwpPublishBtn');
+  var hwpInput = document.getElementById('hwpInput');
+  var hwpBar = document.getElementById('hwpPreviewBar');
+  var hwpSuccess = document.getElementById('hwpSuccess');
+  var hwpDot = document.getElementById('hwpDot');
+  var hwpStatusText = document.getElementById('hwpStatusText');
+  var hwpTimer = null;
+
+  if (hwpBtn) {
+    hwpBtn.addEventListener('click', function(){
+      var val = hwpInput.value.trim();
+      if (!val) return;
+
+      hwpBtn.textContent = 'Publishing…';
+      hwpBtn.disabled = true;
+      hwpSuccess.textContent = '';
+
+      setTimeout(function(){
+        hwpBar.textContent = val;
+        hwpBar.classList.remove('empty');
+        hwpSuccess.textContent = 'Published — Your Change Is Live ✓';
+        hwpDot.classList.remove('pulsing');
+        hwpStatusText.textContent = 'Live';
+        hwpBtn.textContent = 'Publish Update';
+        hwpBtn.disabled = false;
+
+        clearTimeout(hwpTimer);
+        hwpTimer = setTimeout(function(){
+          hwpBar.textContent = 'Your announcement will appear here';
+          hwpBar.classList.add('empty');
+          hwpSuccess.textContent = '';
+          hwpDot.classList.add('pulsing');
+        }, 4000);
+      }, 800);
+    });
+  }
 
 })();
 </script>
