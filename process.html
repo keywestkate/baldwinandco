@@ -327,6 +327,8 @@
     .proc-step__desc { font-size:.84rem; color:var(--mid); line-height:1.85; }
     @media(max-width:700px){ .proc-step { grid-template-columns:1fr; gap:1rem; } }
 </style>
+  <link rel="stylesheet" href="./motion.css" />
+  <script src="./nav-drawer.js" defer></script>
 </head>
 <body>
 
@@ -511,16 +513,8 @@
     if (navLogoImg) navLogoImg.style.filter = solid ? 'none' : 'brightness(0) invert(1)';
   }, { passive: true });
   if (navLogoImg) navLogoImg.style.filter = 'brightness(0) invert(1)';
-  const burger = document.getElementById('burger');
-  const drawer = document.getElementById('drawer');
-  burger.addEventListener('click', () => {
-    const open = drawer.classList.toggle('open');
-    burger.setAttribute('aria-expanded', open);
-  });
-  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    drawer.classList.remove('open');
-    burger.setAttribute('aria-expanded', false);
-  }));
+  // Mobile drawer (scroll lock, Escape, click-outside, focus return) is
+  // handled sitewide by nav-drawer.js — see motion audit M4.
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
   }, { threshold: 0.1 });

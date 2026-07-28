@@ -1,0 +1,149 @@
+/* Baldwin & Co. — shared motion tokens, press feedback, and accessibility guards.
+   Loaded on every page. Purely additive: does not redefine brand colors, layout,
+   fonts, or component visuals — only interaction feedback and motion safety.
+   See EMIL-DESIGN-MOTION-AUDIT.md for the findings this file addresses (M1-M4, N2, N5). */
+
+:root {
+  --motion-ease-out: cubic-bezier(.16, 1, .3, 1);
+  --motion-ease-in-out: cubic-bezier(.77, 0, .175, 1);
+  --motion-duration-press: 120ms;
+  --motion-duration-fast: 200ms;
+  --motion-duration-reveal: 800ms;
+}
+
+/* ── Press feedback (M2, N5) ──────────────────────────────────
+   Restrained :active feedback for controls that behave like buttons.
+   Deliberately excludes ordinary inline text links (body copy, footer
+   legal links, desktop nav text links) — only elements whose job is to
+   be pressed get a press response. */
+.btn-primary,
+.btn-outline,
+.btn-outline--white,
+.btn,
+.founder__btn,
+.nav__summer,
+.lang-toggle,
+.nav__burger,
+.cn-form__submit,
+.footer__connect,
+.faq-contact-btn,
+.compare-btn,
+.nav__drawer a {
+  transition:
+    transform var(--motion-duration-press) var(--motion-ease-out),
+    background-color var(--motion-duration-fast) var(--motion-ease-out),
+    color var(--motion-duration-fast) var(--motion-ease-out),
+    border-color var(--motion-duration-fast) var(--motion-ease-out),
+    opacity var(--motion-duration-press) var(--motion-ease-out);
+}
+.btn-primary:active,
+.btn-outline:active,
+.btn-outline--white:active,
+.btn:active,
+.founder__btn:active,
+.nav__summer:active,
+.lang-toggle:active,
+.cn-form__submit:active,
+.footer__connect:active,
+.faq-contact-btn:active,
+.compare-btn:active,
+.nav__drawer a:active {
+  transform: scale(0.98);
+}
+/* Burger icon bars would visually distort under scale; use an opacity dip instead. */
+.nav__burger:active {
+  opacity: 0.6;
+}
+
+/* ── Focus visibility (M3) ────────────────────────────────────
+   Sitewide safety net so keyboard focus is always visible. :focus-visible
+   means mouse/touch interaction never shows the ring — only keyboard and
+   other non-pointer focus does. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Connect-page form fields are borderless/underline-style with no native
+   input chrome, so the field wrapper gets a border-color shift on
+   focus-within in addition to the focus-visible outline on the control
+   itself — two reinforcing signals rather than relying on outline alone. */
+.cn-form__field {
+  transition: border-color var(--motion-duration-fast) var(--motion-ease-out);
+}
+.cn-form__field:focus-within {
+  border-color: var(--gold);
+}
+.cn-form__field input:focus-visible,
+.cn-form__field textarea:focus-visible,
+.cn-form__field select:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* The "$999 Summer Digital Reset" interest checkbox on the Connect page
+   uses a visually hidden native input (opacity:0) with a custom checkbox
+   box drawn via an adjacent span — an outline on the input itself would be
+   invisible (opacity:0 hides outlines too), so the ring goes on the
+   visible box via :focus-within on the label instead. Native, visible
+   checkboxes elsewhere on the page are already covered by the generic
+   input:focus-visible rule above. */
+label[for="summer"]:focus-within > span:first-child {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* ── N2: story-pillar stagger ("The Baldwin & Co. Approach") ──
+   index.html only; the selector is a harmless no-op on every other page
+   since .story-pillar doesn't exist elsewhere. */
+.story-pillar:nth-of-type(1).in { transition-delay: 0ms; }
+.story-pillar:nth-of-type(2).in { transition-delay: 80ms; }
+.story-pillar:nth-of-type(3).in { transition-delay: 160ms; }
+
+/* ── Reduced motion (M1) ───────────────────────────────────────
+   Single sitewide source of truth for prefers-reduced-motion. Movement
+   is removed; opacity/color feedback (press, focus, hover) is kept per
+   Emil Kowalski's guidance that reduced motion means gentler, not zero.
+   .r elements are guaranteed visible without requiring .in — reduced-
+   motion visitors never see a blank/invisible section regardless of
+   scroll position or whether the IntersectionObserver has fired yet. */
+@media (prefers-reduced-motion: reduce) {
+  .r {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .story-pillar:nth-of-type(1).in,
+  .story-pillar:nth-of-type(2).in,
+  .story-pillar:nth-of-type(3).in {
+    transition-delay: 0ms !important;
+  }
+  .marquee__track {
+    animation: none !important;
+  }
+  html {
+    scroll-behavior: auto !important;
+  }
+  .btn-primary:active,
+  .btn-outline:active,
+  .btn-outline--white:active,
+  .btn:active,
+  .founder__btn:active,
+  .nav__summer:active,
+  .lang-toggle:active,
+  .cn-form__submit:active,
+  .footer__connect:active,
+  .faq-contact-btn:active,
+  .compare-btn:active,
+  .nav__drawer a:active {
+    transform: none !important;
+  }
+}
