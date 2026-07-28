@@ -86,20 +86,27 @@ test.describe('Process-page CTA', () => {
     // accessible name must match visible text (no aria-label override)
     const accessibleName = await cta.getAttribute('aria-label');
     expect(accessibleName).toBeNull();
-    await expect(cta).toHaveAttribute('href', 'connect.html');
+    // Netlify's pretty_urls processing rewrites "connect.html" to "/connect"
+    // in the served HTML — both are valid, correct destinations, so accept either form.
+    const href = await cta.getAttribute('href');
+    expect(['connect.html', '/connect']).toContain(href);
   });
 });
 
-async function navigateViaNav(page, href) {
+async function navigateViaNav(page, htmlHref) {
+  // Netlify's pretty_urls processing rewrites "*.html" links to extensionless
+  // paths in production, so match on either form of the href.
+  const extensionless = '/' + htmlHref.replace(/\.html$/, '');
+  const selector = `a[href="${htmlHref}"], a[href="${extensionless}"]`;
   // On mobile viewports the primary nav is hidden behind a burger menu;
   // open it first if it's visible and click the link inside the drawer
   // specifically, since the desktop nav link stays in the DOM (hidden).
   const burger = page.locator('#burger');
   if (await burger.isVisible()) {
     await burger.click();
-    await page.locator(`#drawer a[href="${href}"]`).first().click();
+    await page.locator(`#drawer :is(${selector})`).first().click();
   } else {
-    await page.locator(`a[href="${href}"]`).first().click();
+    await page.locator(selector).first().click();
   }
 }
 
