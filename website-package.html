@@ -341,11 +341,11 @@
     /* ── TRY ME ── */
     .hwp-try-me {
       position: absolute;
-      top: -3.5rem;
+      top: -8rem;
       right: -1rem;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-end;
       gap: 0;
       animation: hwpTryWobble 2.2s ease-in-out infinite;
       pointer-events: none;
@@ -353,20 +353,21 @@
     }
     .hwp-try-text {
       font-family: 'Caveat', cursive;
-      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-size: clamp(2.6rem, 5vw, 4rem);
       font-weight: 700;
       color: #4A9EE8;
       line-height: 1;
       transform: rotate(-8deg);
       display: block;
-      text-shadow: 0 2px 12px rgba(74,158,232,.25);
+      text-shadow: 0 2px 16px rgba(74,158,232,.35);
       white-space: nowrap;
     }
     .hwp-try-arrow {
-      width: 80px;
-      height: 100px;
-      flex-shrink: 0;
       display: block;
+      width: 130px;
+      height: 160px;
+      flex-shrink: 0;
+      overflow: visible;
     }
     @keyframes hwpTryWobble {
       0%, 100% { transform: translateY(0) rotate(0deg); }
@@ -377,7 +378,7 @@
       .hwp-try-me { animation: none; }
     }
     @media (max-width: 767px) {
-      .hwp-try-me { top: -3rem; right: 0; }
+      .hwp-try-me { top: -7rem; right: 0; }
       .hwp-try-text { font-size: 2rem; }
       .hwp-try-arrow { width: 50px; height: 58px; }
     }
@@ -609,12 +610,11 @@
 /* Inner grid */
 .hwp-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 100vh;
-  padding: 100px 0 4rem; /* nav offset top, breathing room bottom */
-  width: min(1200px, 96vw);
+  grid-template-columns: 1fr;
+  padding: 140px 0 5rem; /* nav offset top, breathing room bottom */
+  width: min(900px, 96vw);
   margin-inline: auto;
-  gap: 4rem;
+  gap: 0;
   align-items: center;
   position: relative;
   z-index: 1;
@@ -903,10 +903,12 @@
 }
 .hwp-browser__announce-big {
   font-family: var(--serif);
-  font-size: 1.35rem;
-  font-weight: 400;
-  color: #4A9EE8;
-  line-height: 1.3;
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: #1e7dd4;
+  line-height: 1.2;
+  letter-spacing: -.01em;
+  text-shadow: 0 1px 8px rgba(30,125,212,.2);
   min-height: 0;
   max-height: 0;
   overflow: hidden;
@@ -915,7 +917,7 @@
   margin-bottom: 0;
 }
 .hwp-browser__announce-big.visible {
-  max-height: 80px;
+  max-height: 100px;
   opacity: 1;
   margin-bottom: 1rem;
 }
@@ -993,80 +995,7 @@
         <a href="#dashboard" class="btn--gold">Show Me How It Works</a>
         <a href="connect.html" class="btn-outline--white">Start My Website</a>
       </div>
-
-      <p class="hwp-statement">Your Website Should Work for You — Not Hold You Hostage.</p>
-      <p class="hwp-closing">Change it. Publish it. Get back to business.</p>
     </div>
-
-    <!-- ── RIGHT: interactive mockup ── -->
-    <div class="hwp-right">
-
-      <div class="hwp-mockup-stack" style="position:relative;">
-
-        <!-- Try me callout — floats above top-right of stack -->
-        <div class="hwp-try-me" aria-hidden="true">
-          <span class="hwp-try-text">Click Publish Update</span>
-          <svg class="hwp-try-arrow" viewBox="0 0 60 100" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
-                <circle cx="4" cy="4" r="0" fill="none"/>
-                <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#4A9EE8"/>
-              </marker>
-            </defs>
-            <path d="M50 8 C55 40, 25 60, 12 90"
-              stroke="#4A9EE8"
-              stroke-width="4"
-              stroke-linecap="round"
-              fill="none"
-              marker-end="url(#arrowhead)"/>
-          </svg>
-        </div>
-
-      <!-- Panel 1: editing dashboard -->
-      <div class="hwp-dash hwp-mockup" aria-label="Dashboard demo">
-        <span class="hwp-dash__label">Your Dashboard</span>
-        <span class="hwp-dash__field-label">Announcement</span>
-        <input
-          class="hwp-dash__input"
-          id="hwpInput"
-          type="text"
-          value="Now Open Sundays — Come See Us!"
-          aria-label="Announcement text"
-        />
-        <button class="hwp-dash__btn" id="hwpPublishBtn">Publish Update</button>
-        <p class="hwp-success" id="hwpSuccess" aria-live="polite"></p>
-        <div class="hwp-status">
-          <span class="hwp-dot pulsing" id="hwpDot" aria-hidden="true"></span>
-          <span id="hwpStatusText">Live</span>
-        </div>
-      </div>
-
-      <!-- Panel 2: browser preview -->
-      <div class="hwp-browser hwp-mockup" aria-label="Live website preview" aria-live="polite">
-        <div class="hwp-browser__chrome">
-          <div class="hwp-browser__dots" aria-hidden="true">
-            <span></span><span></span><span></span>
-          </div>
-          <div class="hwp-browser__url">yourbusiness.com</div>
-        </div>
-        <div class="hwp-browser__body">
-          <div class="hwp-browser__announce empty" id="hwpPreviewBar">Your announcement will appear here</div>
-          <div class="hwp-browser__content" aria-hidden="true">
-            <div class="hwp-browser__logo-ph"></div>
-            <div class="hwp-browser__nav-ph">
-              <span></span><span></span><span></span><span></span>
-            </div>
-            <div class="hwp-browser__announce-big" id="hwpBigAnnounce"></div>
-            <div class="hwp-browser__hero-ph">
-              <span></span><span></span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      </div><!-- /.hwp-mockup-stack -->
-
-    </div><!-- /.hwp-right -->
 
   </div><!-- /.hwp-grid -->
 </section>
@@ -1542,7 +1471,7 @@
           <a href="blueprint.html">Services</a>
           <a href="process.html">Process</a>
           <a href="faq.html">FAQ</a>
-          <a href="summerspecial.html">Summer Special</a>
+          <a href="summerspecial.html">Summer Digital Reset</a>
           <a href="connect.html">Contact</a>
         </nav>
       </div>
